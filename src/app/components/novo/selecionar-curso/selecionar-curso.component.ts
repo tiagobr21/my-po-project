@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit,ViewChild } from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
+import { WebViewerOptions } from '@pdftron/webviewer';
 
 @Component({
   selector: 'app-selecionar-curso',
   templateUrl: './selecionar-curso.component.html',
   styleUrls: ['./selecionar-curso.component.scss']
 })
-export class SelecionarCursoComponent implements OnInit {
+export class SelecionarCursoComponent implements OnInit{
+  
+
 
   dataRequest:any;
   gerar:any;
@@ -15,9 +18,11 @@ export class SelecionarCursoComponent implements OnInit {
   gerarDiploma:boolean =false;
   next:boolean = false;
   pdf:any;
-  gerado:boolean =false
+  gerado:boolean =false;
 
-  constructor(private service:BackconnectService) { }
+
+
+  constructor(private service:BackconnectService) {}
 
   ngOnInit(): void {
 
@@ -30,7 +35,8 @@ export class SelecionarCursoComponent implements OnInit {
     this.service.gerarDiplomado().subscribe((res)=>{
       this.gerar = res.data;
       this.pdf =  this.gerar['rvdd'];
-      this.next = true;
+       console.log(this.pdf );
+       this.next = true;
     });
 
     

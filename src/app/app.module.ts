@@ -70,7 +70,7 @@ import { AppMaterialModule } from './components/material/app-material.module';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppMaterialModule
+    AppMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

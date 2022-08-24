@@ -12,6 +12,7 @@ export class EmissaoXmlDocComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    scrollTo(10, 0);
   }
 
 }

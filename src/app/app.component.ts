@@ -1,6 +1,6 @@
 import { RouterModule } from '@angular/router';
-import { Component,OnInit } from '@angular/core';
-
+import { Component,OnInit ,AfterViewInit,ViewChild,ElementRef} from '@angular/core';
+import WebViewer from '@pdftron/webviewer';
 import { PoMenuItem } from '@po-ui/ng-components';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -15,8 +15,18 @@ import { style } from '@angular/animations';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
+  
+  @ViewChild('viewer') viewerRef!:ElementRef;
 
+  ngAfterViewInit():void{
+    WebViewer({
+     path:'../assets/lib',
+     initialDoc:'https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf'
+    },this.viewerRef.nativeElement).then(instance => {
+
+    });
+  }
  /*  readonly menus: Array<PoMenuItem> = [
     
     {label: 'Dashboard', action: this.onClick.bind(this), icon: 'fas fa-table', shortLabel: 'Dashboard'},
@@ -33,5 +43,5 @@ export class AppComponent {
   private onClick() {
     alert('Clicked in menu item')
   } */
-
 }
+

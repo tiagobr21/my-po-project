@@ -17,6 +17,7 @@ export class BackconnectService {
   }
 
 gerarDiplomado():Observable<any>{
+  console.log("conectado");
     return this._http.get(`${this.urlGerarDiplomado}`);
  }
 

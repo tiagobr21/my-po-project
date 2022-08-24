@@ -20,8 +20,13 @@
     "@angular/platform-browser": "~14.0.2",
     "@angular/platform-browser-dynamic": "~14.0.2",
     "@angular/router": "~14.0.2",
+    "@pdftron/webviewer": "^8.7.0",
     "@po-ui/ng-components": "^14.2.0",
     "@po-ui/ng-templates": "^14.2.0",
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.0",
+    "ng2-pdf-viewer": "^9.1.0",
+    "ngx-extended-pdf-viewer": "^15.0.0-alpha.4",
     "rxjs": "~7.5.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
