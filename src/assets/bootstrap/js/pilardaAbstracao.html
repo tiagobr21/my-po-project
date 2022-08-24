@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Pilar da abstração</title>
+</head>
+<body>
+    <h1>Pilar da abstração</h1>
+    
+    <script type="text/javascript">
+        class ContaBancaria {
+   constructor() {
+      this.agencia = 1078
+      this.conta = 464987-7
+      this.saldo = 50
+      this.limite = 450
+   }
+   depositar(valorDeposito) {
+      this.saldo += valorDeposito
+   
+   }
+  
+   sacar(valorSaque) {
+      this.saldo -= valorSaque
+   }
+
+   consultarSaldo() {
+      return this.saldo
+   }
+}
+
+let x = new ContaBancaria()
+let y = new ContaBancaria()
+
+console.log('Saldo x: ' + (x.consultarSaldo()) + '\n')
+x.depositar('\n' +'Depósito: ' + 450  + '\n')
+console.log(x.consultarSaldo() )
+
+x.sacar(200)
+console.log('\n' + x.consultarSaldo() )
+
+
+console.log('Saldo y: ' + y.consultarSaldo())
+
+    </script>
+</body>
+</html>

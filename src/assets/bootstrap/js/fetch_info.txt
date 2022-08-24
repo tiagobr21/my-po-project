@@ -1,0 +1,6 @@
+Meu aprendizado
+Olá, Hugo Whesley.
+Bem-vindo ao novo "Meu aprendizado" aqui na W3schools. Este será o seu hub para todos os tutoriais que oferecemos e seu progresso de aprendizado.
+
+Se você é novo na codificação, recomendamos que comece com nosso tutorial html .
+

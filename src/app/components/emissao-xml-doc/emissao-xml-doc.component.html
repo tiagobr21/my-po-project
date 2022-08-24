@@ -1,0 +1,59 @@
+
+ 
+<div class="po-wrapper">
+
+  <div class="submit-line">
+    <input  [(ngModel)]="filtroConforme" name="filtroConforme" type="text"  placeholder="Procurar..."/>
+    <button class="submit-lupa" type="submit">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+
+  <a id="impor-xml"  class="btn btn-primary" ><i class="po-icon po-icon-xml" aria-hidden="true"></i> Importar XML </a>
+
+  <a id="new"  routerLink="/selecionar-curso"  routerLinkActive="list-item-active" class="btn btn-primary" ><i class="po-icon po-icon-plus-circle" aria-hidden="true"></i> Novo </a>
+ 
+
+     <div>
+        <table class="table">
+            <thead>
+              <tr>
+                <td scope="col">Versão do XML</td>
+                <td scope="col">ID do Diploma</td>
+                <td scope="col">Código de Validação</td>
+                <td scope="col">Origem</td>
+                <td scope="col">Situação</td>
+                <td scope="col">Data de emissão</td>
+                <td scope="col">Última Atualização</td>
+                <td scope="col">Usuário</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>v1.04.1</th>
+                <th>20030103</th>
+                <th>1283467024671c6c58b8</th>
+                <th><button class="novo">Novo</button></th>
+                <th><button class="conforme">EM CONFORMIDADE</button></th>
+                <th>04/08/2022 13:29</th>
+                <th>04/08/2022 13:29</th>
+                <th>Hugo Santos</th>
+              </tr>
+
+              <tr>
+                <th>v1.04.1</th>
+                <th>646442334</th>
+                <th>34mfenpn3om567k7m3l</th>
+                <th><button class="novo">Novo</button></th>
+                <th><button class="nao-conforme">NÃO CONFORMIDADE</button></th>
+                <th>04/08/2022 13:29</th>
+                <th>04/08/2022 13:29</th>
+                <th>Tiago Souza</th>
+              </tr>
+            
+            </tbody>
+        </table>  
+
+      </div>
+ 
+</div>

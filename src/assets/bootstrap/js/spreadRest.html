@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Spread - Rest</title>
+</head>
+<body>
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <script>
+        // Contexto spread
+
+        //string
+        let tituloArtigo = 'Como utilizar o operador rest/spread'
+
+        console.log(tituloArtigo)
+        console.log(...tituloArtigo)
+        console.log([...tituloArtigo])
+
+        //arrays
+        let listaCursos1 = ['NodeJS e MongoDB', 'ES6, TypeScript e AngularJS']
+        let listaCursos2 = ['Multiplataforma Android/IOS', 'Introdução ao GNU/Linux']
+        let listaCursosCompleto = ['Web Completo', 'Android Completo', ...listaCursos1,...listaCursos2]
+
+        console.log(listaCursosCompleto)
+
+        //Objetos
+
+        let pessoa = { nome: 'João', idade: 27 }
+        let clone = { endereco: 'Rua Abc', ...pessoa }
+
+        console.log(clone)
+
+
+        // contexto Rest
+
+        function soma(...param){
+            let resultado = 0
+
+            console.log(param)
+            param.forEach( v => resultado += v )
+
+            return resultado
+        }
+
+        console.log(soma(3,8,7,5,-8,10,115))
+
+        function multiplicacao(m, ...p){
+            let resultado = 0
+            console.log(m)
+            console.log(p)
+
+            p.forEach( v => resultado += m * v)
+            return resultado
+        }
+
+       console.log(multiplicacao(5,7,12,3,49))
+
+function* teste(){
+
+    yield function(){
+
+    }, 
+    yield function f1(){
+
+    }
+}
+
+const p = new teste();
+
+p.function1();
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+.title{
+    margin-left: 28px;
+    font-size: 20px;
+}
+
+.lote{
+    top: 50px;
+    right: 7%;
+    position: absolute;
+    font-size: 22px;
+}
+
+.line{
+    top: 65px;
+    left: 26%;
+    position:absolute;
+    height: 2px;
+    width: 62%;
+    background-color: #ccc;
+    opacity: 0.2;
+    
+}
+
+
+.time-line{
+    border-radius: 2.5px;
+    margin-top: 20px;
+    width: 100%;
+    height:  60px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+
+}
+
+label{
+    color: black;
+    margin:-10px 0 0 10px;
+    font-size: 12px;
+    font-weight:400;
+}
+
+.one{
+    margin:25px 0 0 -0.4%;
+}
+
+.two{
+    margin-left:5%;
+}
+
+.three,.four{
+    margin-left:80px;
+}
+
+.five,.seven,.eight{
+    margin-left:60px;
+}
+
+.six{
+    margin-left: 35px;
+}
+
+.nine{
+    margin-left: 50px;
+}
+
+.ten{
+   margin-left: 45.7px;
+}
+.etapa1,.etapa2,.etapa3,.etapa4,.etapa5,.etapa6,.etapa7,.etapa8,.etapa9,.etapa10{
+    width: 25px;
+    padding: 2px;
+    margin-left: 10px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 50px;   
+    position: relative;  
+    z-index: 1;
+}
+
+.etapa1{
+    top:19.5%;
+    position:absolute;
+    background-color: red;
+}
+
+.etapa2{
+    top:19.5%;
+    left: 13.5%;
+    position:absolute;
+}
+
+.etapa3{
+    top:19.5%;
+    left: 22.5%;
+    position:absolute;
+}
+
+.etapa4{
+    top:19.5%;
+    left: 32.5%;
+    position:absolute;
+}
+
+.etapa5{
+    top:19.5%;
+    left: 42.5%;
+    position:absolute;
+}
+
+.etapa6{
+    top:19.5%;
+    left: 52.5%;
+    position:absolute;
+}
+
+.etapa7{
+    top:19.5%;
+    left: 62.5%;
+    position:absolute;
+}
+.etapa8{
+    top:19.5%;
+    left: 72.5%;
+    position:absolute;
+}
+.etapa9{
+    top:19.5%;
+    left: 82.5%;
+    position:absolute;
+}
+.etapa10{
+    top:19.5%;
+    left: 92%;
+    position:absolute;
+}
+
+.progress-line{
+    margin: 10px 0 0 10px;
+    position:absolute;
+    height: 2px;
+    width:89%;
+    background-color: #ccc;
+    opacity: 0.5;
+}
+
+.progress{
+    margin: 10px 0 0 10px;
+    position:absolute;
+    height: 2px;
+    width:0%;
+    background-color: green;
+    opacity: 0.9;
+}
+
+
+.dados{
+    border-radius: 2.5px;
+    margin: 30px 0 0 20px;
+    width: 96%;
+    height:  60%;
+    padding: 150px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+}
+
+.title-mantenedora{
+    top:36%;
+    left: 70px;
+    position:absolute;
+}
+
+.line-mantenedora{
+    top: 40%;
+    left: 18%;
+    position:absolute;
+    height: 2px;
+    width: 75%;
+    background-color: black;
+    opacity: 0.1;
+}
+
+form{
+     margin: -100px 0 0 -140px ;
+}
+
+ form label{
+    font-size: 14px;
+}
+
+#labelCnpj{
+    margin-left:60% ;
+}
+
+input{
+    margin-left: 10px;
+    
+}
+
+#inputNome{
+    width: 114%;
+}
+
+#inputRazao{
+    width: 145%;
+}
+
+#inputCnpj{
+   margin-left: 60%; 
+   width: 70%;
+}
+
+.title-endereco{
+    margin-bottom: -20px;
+}
+
+.line-endereco{
+    top: 72%;
+    left: 15%;
+    position:absolute;
+    height: 2px;
+    width: 77%;
+    background-color: black;
+    opacity: 0.1;
+}
+
+#inputCep{
+    width: 60%;
+}
+
+#inputLaga{
+    margin-left: -120px;    
+    width: 130%;
+}
+
+#labelLaga{
+    margin-left: -120px;
+}
+
+#inputNum{
+    width: 180%;
+}
+
+#inputCom{
+    width: 192%;
+}
+
+#inputBai{
+    width: 125%;
+   left: 120%;
+   position: relative;
+}
+
+ #inputEst{
+    width: 125%;
+    left: 160%;
+    position: relative;
+ }
+
+ #inputCid{
+    left: 220%;
+    width: 180%;
+   position: relative;
+ }
+
+ #labelBai{
+    margin-left: 130%;
+ }
+
+ #labelEst{
+    margin-left: 168%;
+ }
+
+ #labelCid{
+  
+    margin-left: 230%;
+ }
+ #voltar{
+    width: 10%;
+    top: 300%;
+    left: 30%;
+    position:relative;
+ }
+
+ #proximo{
+    width: 10%;
+    top: 122%;
+    right:30%;
+    position:absolute;
+ }

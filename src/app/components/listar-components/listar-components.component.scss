@@ -1,0 +1,27 @@
+.page{
+    color: white;
+    padding: 0 1rem;
+    background:ghostwhite;
+    
+}
+
+.page__content{
+    min-height: 80vh;
+    padding: 10px;
+    border-radius: 20px;
+    left: 10px;
+    font-size: 2rem;
+} 
+
+
+.page__block{
+    min-height: 60vh;
+    color: white;
+    margin-top: 2%;
+    padding: 1rem;
+    background:white;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+
+    
+}

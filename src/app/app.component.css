@@ -1,0 +1,41 @@
+
+.po-menu{
+    background-color: #2c3739;
+}
+
+.po-wrapper{
+    margin-left: -55px;
+    max-width: 140%;
+   
+}
+
+.page{
+    color: white;
+    padding: 0 1rem;
+    background:ghostwhite;
+    width: 100%;
+    
+}
+
+.page_content{
+    min-height: 100vh;
+    padding: 1px;
+    border-radius: 10px;
+    left: 10px;
+    font-size: 2rem;
+    
+} 
+
+
+.page_block{
+    min-height: 120vh;
+    color: white;
+    margin: 2% 0 0 -8px;
+    padding: 1rem;
+    background:white;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    max-width: 120%;
+    width: 101.5%;
+    
+}

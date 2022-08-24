@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Funções de Callback</title>
+</head>
+<body>
+
+
+
+    <script>
+
+        // Funções de datas
+
+        var data = new Date();
+
+        document.write(data.getDate() + "/") 
+        document.write((data.getMonth()+1 )+ "/")
+        document.write(data.getFullYear() + " - ")
+        document.write(data.getHours() + ":" + data.getMinutes() + ":" + data.getSeconds())
+
+        // Funções de callbacks - funcções encaminhadas como perâmetros para outras funcções
+
+        //callbackSucesso(titulo, descricao)                callbackErro(erro)
+     //                                  |                       |
+     //                                  \/                      \/
+     //        function exibirArtigo(id, callbackSucesso, callbackErro) {}
+
+// lógica para recuperar o artigo com base no ID
+
+            // if (?) {
+            //     callbackSucesso('Titulo', 'Descricao')
+            // } else {
+            //     calbackErro('Erro')
+            // }
+
+
+            function exibirArtigo(id,callbackSucesso, calbackErro){
+                if(true){
+                    callbackSucesso('Funcções de callback em JS', 'Funcções de callbackSucesso')
+                } else {
+                    callbackErro('Erro ao rcuperar os dados!')
+                }
+            }
+            var callbackSucesso = function(titulo, descricao){
+                document.write('<h1>'+ titulo+ '</h1>')
+                document.write('<hr/>')
+                document.write('<p>' + descricao + '</p>')
+
+            }
+
+            var callbackErro = function(erro)
+            {
+                document.write('<p><b>Erro: ' + erro + '</p>')
+            }
+
+            exibirArtigo(1,callbackSucesso, callbackErro)
+
+
+
+    </script>
+    
+</body>
+</html>

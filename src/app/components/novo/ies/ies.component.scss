@@ -1,0 +1,440 @@
+.title{
+    margin-left: 28px;
+    font-size: 20px;
+}
+
+.lote{
+    top: 50px;
+    right: 7%;
+    position: absolute;
+    font-size: 30px;
+}
+
+.line{
+    top: 65px;
+    left: 26%;
+    position:absolute;
+    height: 2px;
+    width: 60%;
+    background-color: #ccc;
+    opacity: 0.2;
+    
+}
+
+.time-line{
+    border-radius: 2.5px;
+    margin-top: 20px;
+    width: 100%;
+    height:  60px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+
+}
+
+
+.info-1{
+    position: relative;
+    left: 2%;
+    border-radius: 2.5px;
+    width: 95%;
+    height:  45px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+span{
+    font-size: 16px;
+    color: black;
+    font-weight: 400;
+}
+
+label{
+    color: black;
+    margin:-10px 0 0 10px;
+    font-size: 12px;
+    font-weight:400;
+}
+
+.one{
+    margin:25px 0 0 -0.4%;
+}
+
+.two{
+    margin-left:5%;
+}
+
+.three,.four{
+    margin-left:80px;
+}
+
+.five,.seven,.eight{
+    margin-left:60px;
+}
+
+.six{
+    margin-left: 35px;
+}
+
+.nine{
+    margin-left: 50px;
+}
+
+.ten{
+   margin-left: 45.7px;
+}
+.etapa1,.etapa2,.etapa3,.etapa4,.etapa5,.etapa6,.etapa7,.etapa8,.etapa9,.etapa10{
+    width: 25px;
+    padding: 2px;
+    margin-left: 10px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 50px;   
+    position: relative;  
+    z-index: 1;
+}
+
+.etapa1{
+    background-color: #007bff;
+    top:19.5%;
+    position:absolute;
+}
+
+.etapa2{
+    background-color: red;
+    top:19.5%;
+    left: 13.5%;
+    position:absolute;
+}
+
+.etapa3{
+    top:19.5%;
+    left: 22.5%;
+    position:absolute;
+}
+
+.etapa4{
+    top:19.5%;
+    left: 32.5%;
+    position:absolute;
+}
+
+.etapa5{
+    top:19.5%;
+    left: 42.5%;
+    position:absolute;
+}
+
+.etapa6{
+    top:19.5%;
+    left: 52.5%;
+    position:absolute;
+}
+
+.etapa7{
+    top:19.5%;
+    left: 62.5%;
+    position:absolute;
+}
+.etapa8{
+    top:19.5%;
+    left: 72.5%;
+    position:absolute;
+}
+.etapa9{
+    top:19.5%;
+    left: 82.5%;
+    position:absolute;
+}
+.etapa10{
+    top:19.5%;
+    left: 92%;
+    position:absolute;
+}
+
+.progress-line{
+    margin: 10px 0 0 10px;
+    position:absolute;
+    height: 2px;
+    width:89%;
+    background-color: #ccc;
+    opacity: 0.5;
+}
+
+.progress{
+    margin: 10px 0 0 10px;
+    position:absolute;
+    height: 2px;
+    width:10%;
+    background-color: #007bff;
+    opacity: 0.9;
+}
+
+
+.dados{
+    border-radius: 2.5px;
+    margin: 40px 0 0 20px;
+    width: 96%;
+    height:  60%;
+    padding: 150px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+}
+
+
+.title-ies{
+    margin-bottom: -40px;
+    bottom: 130px;
+    right: 130px;
+    position:relative;
+}
+
+.line-ies{
+    bottom: 117px;
+    position:relative;
+    height: 2px;
+    width: 117%;
+    background-color: black;
+    opacity: 0.1;
+}
+
+
+form{
+    margin: -100px 0 0 -140px ;
+}
+
+form label{
+   font-size: 14px;
+}
+
+
+#inputNome{
+    width: 130%;
+}
+
+#labelNome{
+
+    margin-left: 1px;
+}
+
+#labelCod{
+    margin-left:50% ;
+}
+
+#inputCod{
+    margin-left: 50%; 
+    width: 80%;
+ }
+
+ 
+.title-endereco{
+    
+    margin-bottom: -20px;
+}
+
+.line-endereco{
+    bottom: 20px;
+    left: 80px;
+    position:relative;
+    height: 2px;
+    width: 120%;
+    background-color: black;
+    opacity: 0.1;
+}
+
+.title-credenc{
+    margin: 40px 0 -30px 0;
+}
+
+.line-credenc{
+    bottom: 10px;
+    left: 160px;
+    position:relative;
+    height: 2px;
+    width: 95%;
+    background-color: black;
+    opacity: 0.1;
+}
+
+#inputCep{
+    width: 60%;
+}
+
+#inputLaga{
+    margin-left: -120px;    
+    width: 130%;
+}
+
+#labelLaga{
+    margin-left: -120px;
+}
+
+#inputNum{
+    width: 180%;
+}
+
+
+#labelCep{
+    margin-left: 1px;
+}
+
+#labelNum{
+    margin-left: 2px;
+}
+
+#inputCom{
+    width: 192%;
+}
+
+#inputBai{
+    width: 125%;
+   left: 120%;
+   position: relative;
+}
+
+ #inputEst{
+    width: 125%;
+    left: 160%;
+    position: relative;
+ }
+
+ #inputCid{
+    left: 220%;
+    width: 180%;
+   position: relative;
+ }
+
+#labelCom{
+    margin-left: 3px;
+}
+
+ #labelBai{
+    margin-left: 120%;
+ }
+
+ #labelEst{
+    margin-left: 160%;
+ }
+
+ #labelCid{
+  
+    margin-left: 220%;
+ }
+
+
+
+
+ #labelTipo{
+    margin-left: 3px;
+}
+
+ #labelNumero{
+    margin-left: 70%;
+ }
+
+ #labelData{
+    margin-left: 182%;
+ }
+
+  #labelPub{
+    top:0;
+    left: 245%;
+    position: relative;
+ } 
+
+
+
+ 
+#inputTipo{
+    width: 160%;
+ 
+}
+
+option{
+    color: black;
+}
+
+#inputNumero{
+   width: 160%;
+   left: 70%;
+   position: relative;
+}
+
+ #inputData{
+    width: 160%;
+    left: 180%;
+    position: relative;
+ }
+
+ #inputPub{
+   
+    left: 250%;
+    width: 160%;
+   position: relative;
+ }
+ 
+
+ #labelCom{
+    margin-left: 3px;
+}
+
+ #labelBai{
+    margin-left: 120%;
+ }
+
+ #labelEst{
+    margin-left: 160%;
+ }
+
+ #labelCid{
+  
+    margin-left: 220%;
+ }
+
+ #inputSeç{
+    width: 106%;
+ }
+
+ #inputPag{
+ 
+    margin-left: 90px;
+    width: 106%;
+ }
+
+ #labelSeç{
+    margin:10px 0 0 -0.5px;
+ }
+ 
+ #labelPag{
+    margin: 10px 0 0  90px;
+ }
+
+ .title-recred{
+    margin: 40px 0 -30px 0;
+ }
+
+ .line-recred{
+    bottom: 10px;
+    left: 180px;
+    position:relative;
+    height: 2px;
+    width: 95%;
+    background-color: black;
+    opacity: 0.1;
+}
+
+#voltar{
+    width: 10%;
+    top:300%;
+    left: 35%;
+    position:relative;
+ }
+
+ #proximo{
+    width: 10%;
+    top: 155%;
+    left: 65%;
+    position:relative;
+ }

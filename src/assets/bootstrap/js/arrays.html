@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Arrays</title>
+</head>
+<body>
+    <h1>JS - Arrays</h1>
+
+    <div id="resultado"></div>
+
+    <SCRIpt>
+        var listaFuncionarios = ['Viviane','Nell', 'Rosângela','Miguel', 'Lucas', 'Fernanda']
+
+        let resultado = document.getElementById('resultado').innerHTML = listaFuncionarios
+
+        listaFuncionarios.forEach(function(valor, indice, array) {
+            if (valor == 'Lucas' ) {
+                valor = 'Novo valor'
+            }
+            let resultado = document.getElementById('resultado')
+            resultado.innerHTML += '<br> Indice: ' +  indice + ' - ' + valor + "<br>"
+        })
+
+console.log(resultado)
+
+    
+        const aprovados = ['Agatha','Aldo', 'Daniel', 'Raquel']
+        
+        aprovados.forEach(function(nome, indice, array){
+            console.log(`${indice + 1} | ${nome} | array: ${array}`)
+        })
+
+        aprovados.forEach(nome => console.log(nome))
+    
+    </SCRIpt>
+    
+</body>
+</html>

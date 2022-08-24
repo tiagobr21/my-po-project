@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Array Filter</title>
+</head>
+<body>
+    <h1>JS - Array filter</h1>
+    <p>Resultado no console</p>
+
+    <div id="resultado"></div>
+
+    <script>
+        let funcionarios = [
+            { nome: 'Fernanda', cargo: 'Analista de RH', salario: 3100, status: 'ativo' }, 
+            { nome: 'Miguel', cargo: 'Assistente ADM', salario: 1700, status: 'ativo' }, 
+            { nome: 'Rosa', cargo: 'Auxiliar de Contabilidade', salario: 1600, status: 'inativo' }, 
+            { nome: 'Roberto', cargo: 'Programador PHP', salario: 4500, status: 'ativo' }, 
+            { nome: 'Maria', cargo: 'Engenheira Mecânica', salario: 7500, status: 'ativo' }, 
+        ]
+
+        console.log(funcionarios)
+
+        let res = funcionarios.filter( function(f) { return f.salario < 2000 })
+        console.log(res)
+
+        let res1 = funcionarios.filter( function(f) { return f.salario > 2000 })
+        console.log(res1)
+    </script>
+    
+</body>
+</html>

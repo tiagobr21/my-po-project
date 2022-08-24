@@ -1,0 +1,57 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div class="form-group row">
+  <div class="col-sm-2">Checkbox</div>
+  <div class="col-sm-10">
+    <div class="form-check">
+      <input class="form-check-input pai" type="checkbox" id="idPai">
+      <label class="form-check-label" for="gridCheck1">
+                Checkbox exemplo (Pai)
+            </label>
+    </div>
+    <ul style="display: inline-block; text-decoration: none; list-style: none;">
+      <li>
+        <div class="form-check">
+          <input class="form-check-input filhoidPai" type="checkbox" id="idOption1">
+          <label class="form-check-label" for="gridCheck1">
+                        Checkbox exemplo (Filho)
+                    </label>
+        </div>
+      </li>
+      <li>
+        <div class="form-check">
+          <input class="form-check-input filhoidPai pai" type="checkbox" id="idOption2">
+          <label class="form-check-label" for="gridCheck1">
+                        Checkbox exemplo (Pai e Filho)
+                    </label>
+        </div>
+        <ul style="display: inline-block; text-decoration: none; list-style: none;">
+          <li>
+            <div class="form-check">
+              <input class="form-check-input filhoidOption2" type="checkbox" id="idOption2SubOption">
+              <label class="form-check-label" for="gridCheck1">
+                                Checkbox exemplo (Neto e Filho)
+                            </label>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+$(".pai").on("change", function(e) {
+  var filhos = $(this)
+    .parents('.form-check') /** Seleciona o elemento pai `.form-check` */
+    .next('ul') /** Busca o elemento `ul` irmão do pai */
+    .find('input:checkbox') /** Seleciona todos os `input` do tipo `checkbox` */
+  
+  var isChecked = $(this).prop('checked');
+
+  $(filhos).each(function(e) {
+    $(this).prop("checked", isChecked);
+  })
+});
+
+</script>
