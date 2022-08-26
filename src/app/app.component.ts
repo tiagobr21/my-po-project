@@ -15,18 +15,11 @@ import { style } from '@angular/animations';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent{
   
-  @ViewChild('viewer') viewerRef!:ElementRef;
+  
 
-  ngAfterViewInit():void{
-    WebViewer({
-     path:'../assets/lib',
-     initialDoc:'https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf'
-    },this.viewerRef.nativeElement).then(instance => {
-
-    });
-  }
+  
  /*  readonly menus: Array<PoMenuItem> = [
     
     {label: 'Dashboard', action: this.onClick.bind(this), icon: 'fas fa-table', shortLabel: 'Dashboard'},

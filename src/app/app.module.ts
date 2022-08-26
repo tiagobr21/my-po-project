@@ -21,7 +21,7 @@ import { AssinaturasComponent } from './components/assinaturas/assinaturas.compo
 import { EmissaoXmlDipComponent } from './components/emissao-xml-dip/emissao-xml-dip.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FiltroDiplomadoPipe } from './pipe/filtro-diplomado.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MantenedoraComponent } from './components/novo/mantenedora/mantenedora.component';
 import { IesComponent } from './components/novo/ies/ies.component';
 import { TimeLineComponent } from './components/novo/time-line/time-line.component';
@@ -31,6 +31,8 @@ import { LivroRegistroComponent } from './components/novo/livro-registro/livro-r
 import { AssinaturaComponent } from './components/novo/assinatura/assinatura.component';
 import { SelecionarCursoComponent } from './components/novo/selecionar-curso/selecionar-curso.component';
 import { AppMaterialModule } from './components/material/app-material.module';
+import { AreaPublicaComponent } from './components/area-publica/area-publica.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 @NgModule({
@@ -56,6 +58,9 @@ import { AppMaterialModule } from './components/material/app-material.module';
     LivroRegistroComponent,
     AssinaturaComponent,
     SelecionarCursoComponent,
+    AreaPublicaComponent
+    
+    
  
 
   ],
@@ -71,6 +76,11 @@ import { AppMaterialModule } from './components/material/app-material.module';
     BrowserAnimationsModule,
     FormsModule,
     AppMaterialModule,
+    ReactiveFormsModule,
+    NgxCaptchaModule,
+    
+  
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

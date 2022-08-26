@@ -2,7 +2,7 @@
 
 <h2 class="title">PROCESSO DE DIPLOMA</h2>
     <div class="line"></div>
-    <h3 class="lote">#132</h3>
+    <h3 class="lote">#{{dataRequest.DadosRegistroLivroRegistroProcessoDoDiploma}}</h3>
  
     <section class="time-line">
 
@@ -65,14 +65,14 @@
             <h3 class="nome-aluno"> {{dataRequest.DadosDiplomaDiplomadoNome}}</h3>
             
             <label class="labelId">ID:</label>
-            <span class="Id"> {{dataRequest.DadosDiplomaDiplomadoID}}</span>
+            <span class="Id">{{dataRequest.DadosDiplomaDiplomadoID}}</span>
 
             <label class="labelCpf">CPF:</label>
-            <span class="cpf"> {{dataRequest.DadosDiplomaDiplomadoCPF}}</span>
+            <span class="cpf">{{dataRequest.DadosDiplomaDiplomadoCPF}}</span>
 
             
             <label class="labelGrau">Data da Colação de Grau:</label>
-            <span class="grau"><p id="date" class="po-icon po-icon-calendar"> {{dataRequest.DadosRegistroLivroRegistroDataColacaoGrau}}</p></span>
+            <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dataRequest.DadosRegistroLivroRegistroDataColacaoGrau}}</p></span>
             
             <label class="labelPros">Processo:</label>
             <span class="pros">{{dataRequest.DadosRegistroLivroRegistroProcessoDoDiploma}}</span>
@@ -80,7 +80,7 @@
               
 
             <label class="labelReg">Registro Interno:</label>
-            <span class="registro"> {{dataRequest.DadosDiplomaDiplomadoID}}</span>
+            <span class="registro">{{dataRequest.DadosDiplomaDiplomadoID}}</span>
 
             <label class="labelLiv">Livro:</label>
             <span class="livro">####</span>
@@ -90,11 +90,12 @@
             <span class="folha">{{dataRequest.DadosRegistroLivroRegistroNumeroFolhaDoDiploma}} </span>
 
                
-            <label class="labelSeq">Sequência do diploma:</label>
-            <span class="sequencia">####</span>
+      <label class="labelSeq">Sequência do diploma:</label>
+            <span class="sequencia">####</span> 
 
             <button type="button" id="assinar" class="btn btn-primary">Assinar</button>
             <button type="button" (click)=" viewPdf()" *ngIf="gerarDiploma == true" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>
+            <button type="button" (click)=" viewXml()" *ngIf="gerarDiploma == true" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>  
 
              <div  *ngIf="gerado == true" class="alert alert-success" id="status-valido" role="alert">
                 VALIDADO
@@ -103,11 +104,20 @@
              <div  *ngIf="gerado == false" class="alert alert-success" id="status-aguardando" role="alert">
                PENDENTE
             </div> 
-          </div>
-        
+
+         <div *ngIf="view == true && displayStatus == false" [ngStyle]="{'display': display}" class="viewXml">
+           <div class="view">
+            <button class="btn btn-danger" id="close-button-top" (click)="fechar()">Fechar</button>
+             <p class="text-xml">{{viewXmls()}}</p>
+             <button class="btn btn-danger" id="close-button-down" (click)="fechar()">Fechar</button>
+         </div>
+         </div>
+             
+           </div> 
+           <div #viewer class="webviewer"></div>  
 
           
-         <div class="col-12">
+        <div class="col-12">
             <a id="gerar" *ngIf="gerado == false"  (click)="gerarDiplomados()" [ngStyle]="{'opacity':opacity}"  class="btn btn-primary">Gerar Diploma</a>
          </div> 
           <div class="col-12">
@@ -115,4 +125,4 @@
          </div> 
          
       </form>
-   </section>
+   </section> 

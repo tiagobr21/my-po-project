@@ -15,7 +15,7 @@ import { AlunoComponent } from './components/novo/aluno/aluno.component';
 import { LivroRegistroComponent } from './components/novo/livro-registro/livro-registro.component';
 import { AssinaturaComponent } from './components/novo/assinatura/assinatura.component';
 import { SelecionarCursoComponent } from './components/novo/selecionar-curso/selecionar-curso.component';
-
+import { AreaPublicaComponent } from './components/area-publica/area-publica.component';
 
 const routes: Routes = [
  
@@ -33,7 +33,8 @@ const routes: Routes = [
   {path:'aluno',component:AlunoComponent},
   {path:'livro-registro',component:LivroRegistroComponent},
   {path:'assinatura',component:AssinaturaComponent},
-  {path:'selecionar-curso',component:SelecionarCursoComponent}
+  {path:'selecionar-curso',component:SelecionarCursoComponent},
+  {path:'area-publica',component:AreaPublicaComponent}
  
 ];
 

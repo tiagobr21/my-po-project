@@ -1,6 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnInit,ViewChild } from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
-import { WebViewerOptions } from '@pdftron/webviewer';
+import WebViewer from '@pdftron/webviewer';
+import { ThisReceiver } from '@angular/compiler';
+import { validValue, valuesFromObject } from '@po-ui/ng-components/lib/utils/util';
+import { zipAll } from 'rxjs';
 
 @Component({
   selector: 'app-selecionar-curso',
@@ -9,7 +12,7 @@ import { WebViewerOptions } from '@pdftron/webviewer';
 })
 export class SelecionarCursoComponent implements OnInit{
   
-
+   /* @ViewChild('viewer') viewerRef!:ElementRef; */
 
   dataRequest:any;
   gerar:any;
@@ -19,6 +22,20 @@ export class SelecionarCursoComponent implements OnInit{
   next:boolean = false;
   pdf:any;
   gerado:boolean =false;
+  diplomaXml:any;
+  xml:any;
+  view:boolean = false
+  display:string = 'block';
+  displayStatus:boolean = false;
+
+/*   ngAfterViewInit():void{
+    WebViewer({
+     path:'../assets/lib',
+     initialDoc:'https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf'
+    },this.viewerRef.nativeElement).then(instance => {
+
+    });
+  } */
 
 
 
@@ -34,8 +51,11 @@ export class SelecionarCursoComponent implements OnInit{
 
     this.service.gerarDiplomado().subscribe((res)=>{
       this.gerar = res.data;
+      
       this.pdf =  this.gerar['rvdd'];
-       console.log(this.pdf );
+      this.diplomaXml = this.gerar['diploma'];
+      console.log( this.diplomaXml);
+      //  console.log(this.pdf );
        this.next = true;
     });
 
@@ -56,15 +76,47 @@ export class SelecionarCursoComponent implements OnInit{
   downloadPdf(base64String:any, fileName:any) {
     const source = `data:application/pdf;base64,${base64String}`;
     const link = document.createElement("a");
-    link.href = source;
     link.download = `${fileName}.pdf`
+    link.href = source;
     link.click();
   }
 
 
+  
   viewPdf(){
     let base64String =  this.pdf;
     this.downloadPdf(base64String,"sample");
+  }
+
+  
+ downloadXml(filename:any, text:any) {
+
+  const element = document.createElement('a');
+  element.setAttribute('href', ' data:application/xml;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+  document.body.appendChild(element);
+  document.body.removeChild(element);
+  element.click();
+
+
+}
+
+viewXmls(){
+  let text =  this.diplomaXml;
+  let filename;
+  this.downloadXml(filename,text)
+
+}
+
+  viewXml(){
+    this.view = !this.view
+    this.display = 'block';
+
+  }
+
+  fechar(){
+    this.display = 'none';
+    
   }
  
   check(){
@@ -74,6 +126,8 @@ export class SelecionarCursoComponent implements OnInit{
 check2(){
 
     this.opacity2 ='1';
+    
   }
+
 
 }

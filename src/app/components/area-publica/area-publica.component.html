@@ -1,0 +1,102 @@
+
+    <div id="container mt-40">
+        <div id="content">
+
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-flex justify-content-center mt-20">
+                    <img class="" src="../../../assets/logo.png" width="150" alt="LOGO FAMETRO">
+                </div> <br><br>
+                <div class="d-flex justify-content-center mt-20">
+                    <h1 class="text-center">Consulta Pública de Diploma Digital</h1>
+                </div>
+                <form action="#" name="consultaPublica" id="consultaPublica">
+
+
+                    <div class="d-flex justify-content-center  ">
+                        <h3 class="text-center">Digite o Código de validação do diploma:</h3>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="cod-validacao">
+                      </div>
+                      
+                    
+                    <div class="form-group align-center">
+                        <h3 class="text-center">Ou</h3>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <h3 class="text-center">CPF ou Nome do diplomado:</h3>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="cpf">
+                      </div>
+                      
+
+                    <div class="g-recaptcha" data-sitekey="6LcRdyIgAAAAAJzRwhDHWYfXZtFhf5wWQs65kZeZ"></div>
+                    <div class="d-flex justify-content-center"><input type="submit" class="btn btn-outline-primary" id="enviaConsultaPublica" value="Consultar"></div>
+                </form>
+
+                <span></span>
+                <div class="d-flex justify-content-center p-20"><a href="https://validadordiplomadigital.mec.gov.br/diploma" target="_blank"> Consultar no site do MEC ou abaixo:</a> </div>
+                <div class="d-flex justify-content-center">><h3><iframe width="800" height="600" src="https://validadordiplomadigital.mec.gov.br/diploma"></iframe></h3>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <div class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Campo em branco</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Você deve preencher um dos campos para realizar a consulta!</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+<div class="modal fade" id="camposObrigatorios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Campos obrigatórios</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h1>Você precisa preencher um dos campos!</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="recaptcha">
+  <h4> Google recaptcha</h4>
+  <form [formGroup]="aFormGroup">
+      <ngx-recaptcha2 #captchaElem
+        siteKey="siteKey"
+        formControlName="recaptcha">
+      </ngx-recaptcha2>
+  </form>
+</div>
