@@ -1,9 +1,57 @@
-     
+
+   
+
+<h2 class="title">Usuários</h2>
+<div class="line"></div>
+
+
+ 
 <div class="po-wrapper">
 
-    <po-page-default>
-    <p>Cadastro</p>
-
-    </po-page-default>
-</div>
-
+    <div class="submit-line">
+      <input  [(ngModel)]="filtroConforme" name="filtroConforme" type="text"  placeholder="Procurar..."/>
+      <button class="submit-lupa" type="submit">
+        <i id="search" class="fa fa-search"></i>
+      </button>
+    </div>
+  
+  
+    <a id="new"  routerLink="/selecionar-curso"  routerLinkActive="list-item-active" class="btn btn-primary" ><i id="plus" class="fa fa-plus" aria-hidden="true"></i> Novo </a>
+   
+  
+       <div class="dados">
+          <table class="table">
+              <thead>
+                <tr>
+                  <td scope="col">Nomes</td>
+                  <td scope="col">Email</td>
+                  <td scope="col">Ativo</td>
+                  <td scope="col">Criado em</td>
+                  <td scope="col">Açoes</td>
+              
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Karla Brilhante</th>
+                  <th>karla.brilhante@fametro.edu.br</th>
+                  <th>Sim</th>
+                  <th>07/12/2021 16:50</th>
+                  <th><button id="pen" class="btn btn-primary fa fa-pen"></button> </th>
+                  <th><button id="trash" class="btn btn-danger fas fa-trash-alt"></button> </th>
+                <tr>
+                  <th>Hugo Santos</th>
+                  <th>hugo.santos@fametro.edu.br</th>
+                  <th>Sim</th>
+                  <th>07/12/2021 17:06</th>
+                  <th><button id="pen" class="btn btn-primary fa fa-pen"></button> </th>
+                  <th><button id="trash" class="btn btn-danger fas fa-trash-alt"></button> </th>
+                </tr>
+              
+              </tbody>
+          </table>  
+  
+        </div>
+   
+  </div>
+  

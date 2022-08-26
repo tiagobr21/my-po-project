@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastro-usuario.component.scss']
 })
 export class CadastroUsuarioComponent implements OnInit {
-
+  
+  filtroConforme:any;
+   
   constructor() { }
 
   ngOnInit(): void {
+
+    scrollTo(10, 0);
   }
 
 }

@@ -9,11 +9,12 @@ import { FormGroup } from "@angular/forms";
 export class BackconnectService {
    
   urlDataRequest = 'http://localhost:8080/api/dataRequest';
-  urlGerarDiplomado = 'http://localhost:8080/api/gerardiplomado';  
+  urlGerarDiplomado = 'http://localhost:8080/api/gerardiplomado'; 
+  urlDiplipomados = 'http://localhost:8080/api/listardiplomados';
 
 
   dataRequest():Observable<any>{
-     return this._http.get(`${this.urlDataRequest}`);
+     return this._http.get(`${this.urlDiplipomados}`);
   }
 
 gerarDiplomado():Observable<any>{

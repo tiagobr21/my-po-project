@@ -1,8 +1,11 @@
 
 
+
 <h2 class="title">PROCESSO DE DIPLOMA</h2>
+
     <div class="line"></div>
-    <h3 class="lote">#{{dataRequest.DadosRegistroLivroRegistroProcessoDoDiploma}}</h3>
+
+    <h3 class="lote"  *ngFor="let listar of dataRequest">#{{listar.DadosRegistroLivroRegistroProcessoDoDiploma}}</h3>
  
     <section class="time-line">
 
@@ -50,8 +53,8 @@
 
       <form class="row g-3" *ngIf="next" >
 
-        
-         <div class="alunos">
+   
+         <div class="alunos" *ngFor="let listar of dataRequest">
 
             <div class="form-check" >
                <input class="form-check-input" *ngIf="gerado == false" (click)="check()" id="check-aluno"  type="checkbox" >
@@ -62,36 +65,36 @@
 
             <div class="user"></div>
             
-            <h3 class="nome-aluno"> {{dataRequest.DadosDiplomaDiplomadoNome}}</h3>
+            <h3 class="nome-aluno"> {{listar.DadosDiplomaDiplomadoNome}}</h3>
             
             <label class="labelId">ID:</label>
-            <span class="Id">{{dataRequest.DadosDiplomaDiplomadoID}}</span>
+            <span class="Id">{{listar.DadosDiplomaDiplomadoId}}</span>
 
             <label class="labelCpf">CPF:</label>
-            <span class="cpf">{{dataRequest.DadosDiplomaDiplomadoCPF}}</span>
+            <span class="cpf">{{listar.DadosDiplomaDiplomadoCpf}}</span>
 
             
             <label class="labelGrau">Data da Colação de Grau:</label>
-            <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dataRequest.DadosRegistroLivroRegistroDataColacaoGrau}}</p></span>
+            <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{listar.DadosRegistroLivroRegistroDataColacaoGrau}}</p></span>
             
             <label class="labelPros">Processo:</label>
-            <span class="pros">{{dataRequest.DadosRegistroLivroRegistroProcessoDoDiploma}}</span>
+            <span class="pros">{{listar.DadosRegistroLivroRegistroProcessoDoDiploma}}</span>
 
               
 
             <label class="labelReg">Registro Interno:</label>
-            <span class="registro">{{dataRequest.DadosDiplomaDiplomadoID}}</span>
+            <span class="registro">{{listar.DadosDiplomaDiplomadoId}}</span>
 
             <label class="labelLiv">Livro:</label>
             <span class="livro">####</span>
             
             
             <label class="labelFol">Folha:</label>
-            <span class="folha">{{dataRequest.DadosRegistroLivroRegistroNumeroFolhaDoDiploma}} </span>
+            <span class="folha">{{listar.DadosRegistroLivroRegistroNumeroFolhaDoDiploma}} </span>
 
-               
-      <label class="labelSeq">Sequência do diploma:</label>
-            <span class="sequencia">####</span> 
+              <!--  
+           <label class="labelSeq">Sequência do diploma:</label>
+            <span class="sequencia">####</span>    -->
 
             <button type="button" id="assinar" class="btn btn-primary">Assinar</button>
             <button type="button" (click)=" viewPdf()" *ngIf="gerarDiploma == true" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>

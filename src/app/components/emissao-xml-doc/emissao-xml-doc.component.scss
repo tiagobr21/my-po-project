@@ -43,9 +43,18 @@ input{
     background-color: #7266ba;
 }
 
+#search{
+    color: #656565;
+  }
+
+
+#plus,#file{
+    color: white;
+}
+
 #new{
     top: 50px;
-    right: 4%; 
+    right: 3%; 
     position:absolute;
     padding: 5px;
     background-color:#37bc9b;
@@ -87,3 +96,4 @@ td{
 .conforme,.nao-conforme,.novo{
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
+

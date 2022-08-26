@@ -1,5 +1,5 @@
 .title{
-    margin-left: 15px;
+    margin-left: 30px;
     font-size: 20px;
 }
 
@@ -293,7 +293,7 @@ form label{
 
 .nome-aluno{
     bottom: 180px;
-    margin-left: 11%;
+    margin-left: 13%;
     position: relative;
     color: black;
 }
@@ -421,6 +421,7 @@ form label{
     left: 11%;
     position: relative;
     color: black;
+    opacity: 0;
 }
 
 
@@ -430,6 +431,7 @@ form label{
      left:  12%;
     position: relative;
     color: #0c9abe;
+    opacity: 0;
 }
 
 
@@ -496,7 +498,7 @@ form label{
 
  #gerar{
     width: 20%;
-    top: 200%;
+    margin-top: -180%;
     left: 50%;
     position:relative;
  } 
