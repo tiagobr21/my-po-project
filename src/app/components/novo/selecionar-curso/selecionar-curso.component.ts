@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit,ViewChild, ViewChildren } from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
-import WebViewer from '@pdftron/webviewer';
+
+
 
 
 
@@ -21,7 +22,7 @@ export class SelecionarCursoComponent implements OnInit,AfterViewInit{
   checked:boolean = false;
   opacity='0.5';
   opacity2='0.5';
-  gerarDiploma:boolean =false;
+  gerarDiploma:string[] = [''];;
   next:boolean = false;
   pdf:any;
   gerado:boolean =false;
@@ -30,6 +31,8 @@ export class SelecionarCursoComponent implements OnInit,AfterViewInit{
   view:boolean = false
   display:string = 'block';
   displayStatus:boolean = false;
+  status_true:string[] = [];
+  
 
 
  ngAfterViewInit():void{
@@ -48,21 +51,21 @@ export class SelecionarCursoComponent implements OnInit,AfterViewInit{
 
     this.service.dataRequest().subscribe((res)=>{
       this.dataRequest = res; 
-      console.log(this.dataRequest);
+   
      
     }); 
 
     this.service.gerarDiplomado().subscribe((res)=>{
+      
       this.gerar = res.data;
       this.pdf =  this.gerar['rvdd'];
       this.diplomaXml = this.gerar['diploma'];
-  
-       this.next = true;
+      this.next = true;
+
     });
 
    
-
-    
+   
     
     scrollTo(10, 0);
   }
@@ -71,11 +74,14 @@ export class SelecionarCursoComponent implements OnInit,AfterViewInit{
     if(this.checked == false){
       return 0;
      }else{
-      this.gerarDiploma = !this.gerarDiploma;
+
       this.gerado = !this.gerado;
      }
-  
-  
+
+    
+    
+    
+
     
   }
 
@@ -92,6 +98,10 @@ export class SelecionarCursoComponent implements OnInit,AfterViewInit{
   viewPdf(){
     let base64String =  this.pdf;
     this.downloadPdf(base64String,"sample");
+    
+
+  
+    
   }
 
   
@@ -107,35 +117,54 @@ export class SelecionarCursoComponent implements OnInit,AfterViewInit{
 
 }
 
-viewXmls(){
-  let text =  this.diplomaXml;
-  let filename;
-  this.downloadXml(filename,text)
+/* viewXmls(){
+
 
 }
-
+ */
   viewXml(){
-    this.view = !this.view
-    this.display = 'block';
-
+    let text =  this.diplomaXml;
+    let filename;
+    this.downloadXml(filename,text);
+     
   }
+
+   /*    this.view = !this.view
+    this.display = 'block'; */
 
   fechar(){
     this.display = 'none';
     
   }
- 
-  check(){
-    this.checked = !this.checked;
-    if(this.checked == true){
-      this.opacity = '1';
-    }else{
-      this.opacity = '0.5';
-    }
-    
 
-    
-  } 
+
+ 
+  check(id:any){
+   
+   this.checked = !this.checked
+
+   console.log('O id clicado é: '+ id);
+     
+
+  
+    for(let i=0; i<this.dataRequest.length;i++){
+
+      this.dataRequest[i].DadosDiplomaDiplomadoId;
+  
+       if(id == this.dataRequest[i].DadosDiplomaDiplomadoId){
+        
+        this.status_true[i] = id;
+     
+       console.log(this.status_true);
+        
+      
+  
+      }
+    }
+
+      console.log('___________________________________________');
+  }
+
 
   check2(){
 
