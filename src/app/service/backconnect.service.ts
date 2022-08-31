@@ -9,7 +9,7 @@ import { FormGroup } from "@angular/forms";
 export class BackconnectService {
    
   urlDataRequest = 'http://localhost:8080/api/dataRequest';
-  urlGerarDiplomado = 'http://localhost:8080/api/gerardiplomado'; 
+  urlGerarDiplomado = 'http://localhost:8080/api/gerardiplomado?id'; 
   urlDiplipomados = 'http://localhost:8080/api/listardiplomados';
 
 

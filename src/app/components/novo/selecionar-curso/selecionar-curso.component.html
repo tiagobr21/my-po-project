@@ -51,15 +51,17 @@
         <mat-spinner *ngIf="!next"></mat-spinner>
       </div>   
 
-      <form class="row g-3" *ngIf="next" >
+      <form class="row g-3" *ngIf="next" [formGroup]="formulario" (ngSubmit)="ngSubmit()">
 
    
-         <div class="alunos" *ngFor="let listar of dataRequest">
+         <div class="alunos" *ngFor="let listar of dataRequest; let i = index">
 
             <div class="form-check" >
-               <input class="form-check-input" *ngIf="gerado == false" (click)="check(listar.DadosDiplomaDiplomadoId)" id="check-aluno"  type="checkbox" >
+               <input class="form-check-input" [value]="listar.DadosDiplomaDiplomadoID" (change)="controlOnChange($event)" (click)="check()" id="check-aluno"  type="checkbox" >
+           
             </div>
-            <div class="form-check" >
+
+            <div class="form-group form-check" >
                 <input class="form-check-input" *ngIf="gerado == true" (click)="check2()" id="check-aluno2"  type="checkbox" >
              </div>
 
@@ -97,9 +99,11 @@
             <span class="sequencia">####</span>    -->
 
             <button type="button" id="assinar" class="btn btn-primary">Assinar</button>
-            <button type="button" (click)="viewPdf()"  id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>
-            <button type="button" (click)="viewXml()"  id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>  
-
+           
+            
+               <button  type="button" (click)="viewXml(listar.DadosDiplomaDiplomadoId)"  id="visualizar-pdf" class="btn btn-primary">Visualizar Xml</button>
+               <button type="button" (click)="viewPdf()"  id="visualizar-xml" class="btn btn-primary">Visualizar Pdf</button>   
+   
              <div  *ngIf="gerado == true" class="alert alert-success" id="status-valido" role="alert">
                 VALIDADO
              </div>  
@@ -114,19 +118,24 @@
              <!-- <p class="text-xml">{{viewXmls()}}</p> -->
              <button class="btn btn-danger" id="close-button-down" (click)="fechar()">Fechar</button>
          </div>
-    
-      </div>
+          </div>
+      
              
            </div> 
            <div #viewer class="webviewer"></div>  
 
           
         <div class="col-12">
-            <a id="gerar" *ngIf="gerado == false"  (click)="gerarDiplomados()" [ngStyle]="{'opacity':opacity}"  class="btn btn-primary">Gerar Diploma</a>
+            <button id="gerar"  type="submit" *ngIf="gerado == false"  [disabled]="!formulario.valid" (click)="ngSubmit()" [ngStyle]="{'opacity':opacity}" value="Gerar Diploma"  class="btn btn-primary">ngSubmit</button>
          </div> 
           <div class="col-12">
             <a id="gerar" *ngIf="gerado == true"  [ngStyle]="{'opacity':opacity2}"  class="btn btn-primary">Assinar</a>
          </div> 
-   
+         
+         <h4>No of Selected Checks: {{selectedCheckBoxList.length}} </h4>
+         <ul>
+            <li *ngFor="let tech of selectedCheckBoxList">{{tech}}</li>
+          </ul>
+    
       </form>
    </section> 
