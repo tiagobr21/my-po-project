@@ -57,7 +57,7 @@
          <div class="alunos" *ngFor="let listar of dataRequest; let i = index">
 
             <div class="form-check" >
-               <input class="form-check-input" [value]="listar.DadosDiplomaDiplomadoID" (change)="controlOnChange($event)" (click)="check()" id="check-aluno"  type="checkbox" >
+               <input class="form-check-input" [value]="dataRequest[i].DadosDiplomaDiplomadoId" (change)="controlOnChange($event)" (click)="check()" id="check-aluno"  type="checkbox" >
            
             </div>
 
@@ -101,7 +101,7 @@
             <button type="button" id="assinar" class="btn btn-primary">Assinar</button>
            
             
-               <button  type="button" (click)="viewXml(listar.DadosDiplomaDiplomadoId)"  id="visualizar-pdf" class="btn btn-primary">Visualizar Xml</button>
+               <button  type="button" (click)="viewXml(listar.DadosDiplomaDiplomadoId)" [disabled]="!formulario.value" id="visualizar-pdf" class="btn btn-primary">Visualizar Xml</button>
                <button type="button" (click)="viewPdf()"  id="visualizar-xml" class="btn btn-primary">Visualizar Pdf</button>   
    
              <div  *ngIf="gerado == true" class="alert alert-success" id="status-valido" role="alert">

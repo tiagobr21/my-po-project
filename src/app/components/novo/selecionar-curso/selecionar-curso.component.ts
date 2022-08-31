@@ -34,6 +34,7 @@ export class SelecionarCursoComponent implements OnInit{
   arr:any[]=[];
   checkado:any
   selectedCheckBoxList:string[]= [];
+  id_xml:any
   
   constructor(private service:BackconnectService,private formBuilder:FormBuilder) {
     this.formulario = this.formBuilder.group({
@@ -57,9 +58,17 @@ export class SelecionarCursoComponent implements OnInit{
  
   ngSubmit(){
     this.keys = this.formulario.value['technology'];
-   this.keys = Object.keys(this.keys);
-   this.keys = true;
-   console.log(this.keys)
+    this.keys = Object.keys(this.keys);
+    console.log(this.formulario.value)
+    for(let i=0; i<this.keys.length;i++){
+    
+      this.formulario.value[i] = true;
+      console.log(this.formulario.value[i])
+    }
+  
+        
+      
+       
   }
 
   ngOnInit(): void{
@@ -79,7 +88,8 @@ export class SelecionarCursoComponent implements OnInit{
       this.next = true;
 
     });
-
+   
+   this.id_xml = this.viewXml(this.keys);
     
 
     scrollTo(10, 0);
@@ -137,11 +147,11 @@ export class SelecionarCursoComponent implements OnInit{
 
 
 
-  viewXml(_id:any):any{
+  viewXml(id:any){
       
-       let text =  this.diplomaXml;
+      /*  let text =  this.diplomaXml;
        let filename;
-       this.downloadXml(filename,text);
+       this.downloadXml(filename,text); */
       
       
       
