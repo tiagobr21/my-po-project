@@ -58,8 +58,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     LivroRegistroComponent,
     AssinaturaComponent,
     SelecionarCursoComponent,
-    AreaPublicaComponent
-    
+    AreaPublicaComponent,
+  
     
  
 

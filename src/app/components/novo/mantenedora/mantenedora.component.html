@@ -1,7 +1,7 @@
 
      
-
-   
+  
+  
     <h2 class="title">PROCESSO DE DIPLOMA</h2>
     <div class="line"></div>
     <h3 class="lote">#132</h3>
@@ -34,26 +34,31 @@
        <label class="ten">Registro</label>
  
     </section>
- 
-    <section class="dados">
-
-        <div class="title-mantenedora"><h2>Mantenedora</h2></div>
-        <div class="line-mantenedora"></div>
-        
-
+     
+    <app-selecionar-curso (cursoEscolhidos)="cursos($event)"></app-selecionar-curso>
+  
+  
+    
+    <section *ngIf="loading" class="dados">
+   
+   
         <form class="row g-3">
 
+         <div class="loading" *ngIf="!loading">  
+            <mat-spinner *ngIf="!loading"></mat-spinner>
+          </div>  
+   
             <div class="col-12">
                <label for="inputAddress2" class="form-label">Nome da Mantenedora: *</label>
-               <input type="text" class="form-control" id="inputNome" required >
+               <input value="{{cursoSelecionado.Dadosdiplomaiesemissoranome}}"  type="text" class="form-control" id="inputNome" required >
             </div>
             <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Razão Social: *</label>
-            <input type="email" class="form-control" id="inputRazao" required>
+            <input value="{{cursoSelecionado.Dadosdiplomaiesemissoramantenedorarazaosocial}}" type="text" class="form-control" id="inputRazao" required>
             </div>
             <div class="col-md-6">
             <label for="inputPassword4" id="labelCnpj" class="form-label">CNPJ: *</label>
-            <input type="password" class="form-control" id="inputCnpj" required>
+            <input value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoracnpj}}" type="text" class="form-control" id="inputCnpj" required>
             </div>
          
             <div class="title-endereco"><h2>Endereço</h2></div>
@@ -62,15 +67,15 @@
 
             <div class="col-md-6">
             <label for="inputCity" class="form-label">Cep: *</label>
-            <input type="text" class="form-control" id="inputCep" required>
+            <input value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraenderecocep}}" type="text" class="form-control" id="inputCep" required>
             </div>
             <div class="col-md-4">
-            <label for="inputState" id="labelLaga" class="form-label">Lagadouro: *</label>
-            <input type="text" class="form-control" id="inputLaga" required>
+            <label for="inputState" id="labelLaga" class="form-label">Logadouro: *</label>
+            <input  value="{{cursoSelecionado.Dadosdiplomaiesemissoramantenedoraenderecologradouro}}" type="text" class="form-control" id="inputLaga" required>
             </div>
             <div class="col-md-2">
             <label for="inputZip" class="form-label">Número: *</label>
-            <input type="text" class="form-control" id="inputNum" required>
+            <input value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraendereconumero}}" type="text" class="form-control" id="inputNum" required>
             </div>
 
             <div class="col-md-2">
@@ -79,23 +84,27 @@
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelBai" class="form-label">Bairro:*</label>
-               <input type="text" class="form-control" id="inputBai" required>
+               <input  value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraenderecobairro}}"  type="text" class="form-control" id="inputBai" required>
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelEst" class="form-label">Estado:*</label>
-               <input type="text" class="form-control" id="inputEst" required>
+               <input value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraenderecouf}}" type="text" class="form-control" id="inputEst" required>
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelCid" class="form-label">Cidade:*</label>
-               <input type="text" class="form-control" id="inputCid" required>
+               <input value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraendereconomemunicipio}}" type="text" class="form-control" id="inputCid" required>
             </div>
-      
+            
+            
+
             <div class="col-12">
-               <a id="voltar" class="btn btn-primary">Voltar</a>
+               <a id="voltar"  routerLink="/selecionar-curso" class="btn btn-primary">Voltar</a>
             </div>
             <div class="col-12">
                <a id="proximo" type="submit" routerLink="/ies" routerLinkActive="list-item-active" class="btn btn-primary">Próximo</a>
             </div> 
        </form>
+     
+
     </section>
- 
+   

@@ -1,11 +1,11 @@
 .title{
-    margin-left: 28px;
+    margin-left: 30px;
     font-size: 20px;
 }
 
 .lote{
     top: 50px;
-    right: 7%;
+    right: 3%;
     position: absolute;
     font-size: 30px;
 }
@@ -48,94 +48,105 @@ label{
     margin-left:5%;
 }
 
-.three,.four{
-    margin-left:80px;
+.three{
+    margin-left:8%;
 }
 
-.five,.seven,.eight{
-    margin-left:60px;
+.four{
+    margin-left:7.5%;
 }
-
+.five{
+    margin-left:5.5%;
+}
 .six{
-    margin-left: 35px;
+    margin-left:3.5%;
 }
+.seven{
+    margin-left:6%;
+}
+
+.eight{
+    margin-left:6%;
+}
+
 
 .nine{
-    margin-left: 50px;
+    margin-left: 4%;
 }
 
 .ten{
-   margin-left: 45.7px;
+   margin-left: 4.5%;
 }
 .etapa1,.etapa2,.etapa3,.etapa4,.etapa5,.etapa6,.etapa7,.etapa8,.etapa9,.etapa10{
     width: 25px;
     padding: 2px;
+    margin-top: -5px;
     margin-left: 10px;
     height: 25px;
     background-color: #ccc;
     border-radius: 50px;   
-    position: relative;  
+    position: fixed;  
     z-index: 1;
 }
 
 .etapa1{
     background-color: #007bff;
-    top:19.5%;
+    top:21.5%;
     position:absolute;
 }
 
 .etapa2{
     background-color: #007bff;
-    top:19.5%;
+    top:21.5%;
     left: 13.5%;
     position:absolute;
 }
 
 .etapa3{
     background-color: #007bff;
-    top:19.5%;
+    top:21.5%;
     left: 22.5%;
     position:absolute;
 }
 
 .etapa4{
     background-color: #007bff;
-    top:19.5%;
+    top:21.5%;
     left: 32.5%;
     position:absolute;
 }
 
 .etapa5{
     background-color: #007bff;
-    top:19.5%;
+    top:21.5%;
     left: 42.5%;
     position:absolute;
 }
 
 .etapa6{
     background-color: red;
-    top:19.5%;
+    top:21.5%;
     left: 52.5%;
     position:absolute;
 }
 
 .etapa7{
-    top:19.5%;
+    top:21.5%;
     left: 62.5%;
     position:absolute;
 }
 .etapa8{
-    top:19.5%;
+    top:21.5%;
     left: 72.5%;
     position:absolute;
 }
 .etapa9{
-    top:19.5%;
+    top:21.5%;
     left: 82.5%;
     position:absolute;
 }
 .etapa10{
-    top:19.5%;
+    top:21.5%;
     left: 92%;
     position:absolute;
 }
@@ -271,9 +282,16 @@ form label{
     position: relative;
   
 }
+#check-aluno2{
+    bottom: 70px;
+    right:  30px;
+    position: relative;
+  
+}
+
 
 .user{
-    bottom: 82px;
+    bottom: 102px;
     right: 5px;
     position: relative;
     padding: 40px;
@@ -285,84 +303,86 @@ form label{
 }
 
 .nome-aluno{
-    bottom: 160px;
-    margin-left: 11%;
+    bottom: 180px;
+    margin-left: 13%;
     position: relative;
     color: black;
 }
 
 .labelId{
-    bottom: 165px;
-    margin-left: 11%;
+    bottom: 185px;
+    margin-left: 13%;
     position: relative;
     color: black;
 }
 
 .Id{
     font-size: 12px;
-    bottom: 165px;
+    bottom: 185px;
     position: relative;
     color: #0c9abe;
 }
 
 .labelCpf{
-    bottom: 165px;
+    bottom: 185px;
     left: -60px;
-    margin-left: 11%;
+    margin-left: 14%;
     position: relative;
     color: black;
 }
 
 .cpf{
     font-size: 12px;
-    bottom: 165px;
+    bottom: 185px;
     left: -60px;
     position: relative;
     color: #0c9abe;
 }
 
 .labelGrau{
-    bottom: 165px;
+    bottom: 185px;
     left: -60px;
+    margin-left: 5%;
     position: relative;
     color: black;
 }
 
 .grau{
     font-size: 12px;
-    bottom: 165px;
+    bottom: 185px;
     left: -60px;
     position: relative;
     color: #0c9abe;
 }
 
 .labelPros{
-    bottom: 165px;
+    bottom: 185px;
     left: -50px;
+    margin-left: 21%;
     position: relative;
     color: black;
 }
 
 .pros{
     font-size: 12px;
-    bottom: 165px;
-    right:  5%;
+    bottom: 185px;
+    right:  7%;
     position: relative;
     color: #0c9abe;
 }
 
 
 .labelReg{
-    bottom: 165px;
-    left:  10%;
+    bottom: 185px;
+    right:  7%;
     position: relative;
     color: black;
 }
 
 .registro{
     font-size: 12px;
-    bottom: 165px;
-    left:  10%;
+    bottom: 185px;
+    right:  7%;
     position: relative;
     color: #0c9abe;
 }
@@ -371,11 +391,12 @@ form label{
     color: #0c9abe;
     margin-left: 10px;
     font-size: 14px;
+  
 }
 
 .labelLiv{
-    bottom: 165px;
-    left:  15%;
+    bottom: 185px;
+    right: 7%;
     position: relative;
     color: black;
 }
@@ -383,15 +404,15 @@ form label{
 
 .livro{
     font-size: 12px;
-    bottom: 165px;
-    left:  16%;
+    bottom: 185px;
+    right:  6%;
     position: relative;
     color: #0c9abe;
 }
 
 .labelFol{
-    bottom: 165px;
-    left:  22%;
+    bottom: 185px;
+    right:  6%;
     position: relative;
     color: black;
 }
@@ -399,35 +420,58 @@ form label{
 
 .folha{
     font-size: 12px;
-    bottom: 165px;
-    left:  23%;
+    bottom: 185px;
+    right:  5%;
     position: relative;
     color: #0c9abe;
 }
 
 
 .labelSeq{
-    bottom: 165px;
-    left: 25.5%;
+    bottom: 185px;
+    left: 11%;
     position: relative;
     color: black;
+    opacity: 0;
 }
 
 
 .sequencia{
     font-size: 12px;
-    bottom: 165px;
-    left:  26%;
+    bottom: 185px;
+     left:  12%;
     position: relative;
     color: #0c9abe;
+    opacity: 0;
 }
 
 
 #assinar{
     border-radius: 20px;
     font-size: 12px;
-    bottom: 185px;
-    left:  30%;
+    bottom: 230px;
+    left: 18%;
+    position: relative;
+    color: white;
+    width: 18%;
+}
+
+
+#visualizar-pdf{
+    border-radius: 20px;
+    font-size: 12px;
+    bottom: 225px;  
+    left: 80%;
+    position: relative;
+    color: white;
+    width: 18%;
+}
+
+#visualizar-xml{
+    border-radius: 20px;
+    font-size: 12px;
+    bottom: 200px;  
+    left: 89.5%;
     position: relative;
     color: white;
     width: 18%;
@@ -435,7 +479,7 @@ form label{
 
 #status-valido{
     font-size: 12px;
-    bottom: 270px;
+    bottom: 295px;
     left:  87%;
     position: relative;
     color: white;
@@ -449,7 +493,7 @@ form label{
 
 #status-aguardando{
     font-size: 12px;
-    bottom: 270px;
+    bottom: 295px;
     left:  87%;
     position: relative;
     color: white;
@@ -463,16 +507,74 @@ form label{
 
 
 
-#voltar{
-    width: 10%;
-    top:700%;
-    left: 35%;
-    position:relative;
- }
-
- #proximo{
-    width: 10%;
-    top: 555%;
-    left: 65%;
+ #gerar{
+    width: 20%;
+    margin-top: -180%;
+    left: 50%;
     position:relative;
  } 
+ 
+
+ .loading{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.20);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+ }
+
+ .webviewer{
+    width: 100%;
+    height: 100vh;
+}
+
+.viewXml{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.20);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    
+}
+
+.view{
+    margin: 10px 0 0 100px;
+    width: 90%;
+    height:  100%;
+    padding: 100px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+    overflow:auto;
+  
+}
+
+.text-xml{
+    color: black;
+}
+
+#close-button-top{
+    position: relative;
+    left: 40%;
+    bottom: 10%;
+    width: 25%;
+}
+
+
+#close-button-down{
+    position: relative;
+    left: 40%;
+    top: 10%;
+    width: 25%;
+    
+}
+
