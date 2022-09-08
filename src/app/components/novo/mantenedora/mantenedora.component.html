@@ -37,71 +37,77 @@
      
     <app-selecionar-curso (cursoEscolhidos)="cursos($event)"></app-selecionar-curso>
   
-  
+    
+    
     
     <section *ngIf="loading" class="dados">
-   
-   
-        <form class="row g-3">
+
+
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()"  class="row g-3">
+
+         <div class="info-1"><h3>Curso Selecionado:<input  formControlName="curso" ngModel="{{cursoEscolhido}}" id="inputCurso" readonly>  </h3></div> 
 
          <div class="loading" *ngIf="!loading">  
             <mat-spinner *ngIf="!loading"></mat-spinner>
           </div>  
-   
+          
+          
+          <div class="title-mantenedora"><h2>Mantenedora</h2></div>
+       
+
             <div class="col-12">
                <label for="inputAddress2" class="form-label">Nome da Mantenedora: *</label>
-               <input value="{{cursoSelecionado.Dadosdiplomaiesemissoranome}}"  type="text" class="form-control" id="inputNome" required >
+               <input formControlName="nome-mantenedora" ngModel="{{cursoSelecionado.Dadosdiplomaiesemissoranome}}"  type="text" class="form-control" id="inputNome" required >
             </div>
             <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Razão Social: *</label>
-            <input value="{{cursoSelecionado.Dadosdiplomaiesemissoramantenedorarazaosocial}}" type="text" class="form-control" id="inputRazao" required>
+            <input formControlName="razao-mantenedora" ngModel="{{cursoSelecionado.Dadosdiplomaiesemissoramantenedorarazaosocial}}" type="text" class="form-control" id="inputRazao" required>
             </div>
             <div class="col-md-6">
             <label for="inputPassword4" id="labelCnpj" class="form-label">CNPJ: *</label>
-            <input value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoracnpj}}" type="text" class="form-control" id="inputCnpj" required>
+            <input formControlName="cnpj-mantenedora" ngModel="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoracnpj}}" type="text" class="form-control" id="inputCnpj" required>
             </div>
          
             <div class="title-endereco"><h2>Endereço</h2></div>
-            <div class="line-endereco"></div>
  
 
             <div class="col-md-6">
             <label for="inputCity" class="form-label">Cep: *</label>
-            <input value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraenderecocep}}" type="text" class="form-control" id="inputCep" required>
+            <input formControlName="cep-mantenedora" ngModel="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraenderecocep}}" type="text" class="form-control" id="inputCep" required>
             </div>
             <div class="col-md-4">
             <label for="inputState" id="labelLaga" class="form-label">Logadouro: *</label>
-            <input  value="{{cursoSelecionado.Dadosdiplomaiesemissoramantenedoraenderecologradouro}}" type="text" class="form-control" id="inputLaga" required>
+            <input formControlName="logradouro-mantenedora" ngModel="{{cursoSelecionado.Dadosdiplomaiesemissoramantenedoraenderecologradouro}}" type="text" class="form-control" id="inputLaga" required>
             </div>
             <div class="col-md-2">
             <label for="inputZip" class="form-label">Número: *</label>
-            <input value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraendereconumero}}" type="text" class="form-control" id="inputNum" required>
+            <input formControlName="numero-mantenedora" ngModel="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraendereconumero}}" type="text" class="form-control" id="inputNum" required>
             </div>
 
             <div class="col-md-2">
                <label for="inputZip" class="form-label">Complemento:*</label>
-               <input type="text" class="form-control" id="inputCom" required>
+               <input formControlName="complemento-mantenedora" type="text" class="form-control" id="inputCom" required>
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelBai" class="form-label">Bairro:*</label>
-               <input  value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraenderecobairro}}"  type="text" class="form-control" id="inputBai" required>
+               <input formControlName="bairro-mantenedora" ngModel="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraenderecobairro}}"  type="text" class="form-control" id="inputBai" required>
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelEst" class="form-label">Estado:*</label>
-               <input value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraenderecouf}}" type="text" class="form-control" id="inputEst" required>
+               <input formControlName="uf-mantenedora" ngModel="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraenderecouf}}" type="text" class="form-control" id="inputEst" required>
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelCid" class="form-label">Cidade:*</label>
-               <input value="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraendereconomemunicipio}}" type="text" class="form-control" id="inputCid" required>
+               <input formControlName="municipio-mantenedora" ngModel="{{cursoSelecionado.Dadosregistroiesregistradoramantenedoraendereconomemunicipio}}" type="text" class="form-control" id="inputCid" required>
             </div>
             
             
 
             <div class="col-12">
-               <a id="voltar"  routerLink="/selecionar-curso" class="btn btn-primary">Voltar</a>
+               <a id="voltar" class="btn btn-primary">Voltar</a>
             </div>
             <div class="col-12">
-               <a id="proximo" type="submit" routerLink="/ies" routerLinkActive="list-item-active" class="btn btn-primary">Próximo</a>
+               <a id="proximo" type="submit" (click)="onSubmit()" class="btn btn-primary">Próximo</a>
             </div> 
        </form>
      

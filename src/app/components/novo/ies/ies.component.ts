@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { BackconnectService } from 'src/app/service/backconnect.service';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-ies',
@@ -7,12 +9,53 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IesComponent implements OnInit {
 
-  constructor() { }
+  @Input() enable:boolean = false;
+  @Input() curso:any;
+  Diplomados:any;
+  cursoSelecionado:any
+   
+  constructor(private service:BackconnectService) { 
+  
+  }
+
+  
+  ngOnInit(): void {
+    
+  }
+
+  ngOnChanges() {
+    this.service.listarDiplomados().subscribe((res):any=>{
+     this.Diplomados = res;
+     // console.log(this.Diplomados)
+       for(let i=0;i<this.Diplomados.length;i++){ 
+         if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.curso){
+           this.cursoSelecionado = this.Diplomados[i];
+         } else{
+           return 0
+         }
+       }
+   });  
+  }
+
+  onSubmit(){
+
+  }
+
+  userForm = new FormGroup({
+    'curso':new FormControl(null,Validators.required),
+    'nome':new FormControl(null,Validators.required),
+    'razao':new FormControl(null,Validators.required),
+    'cnpj':new FormControl(null,Validators.required),
+    'cep':new FormControl(null,Validators.required),
+    'logradouro':new FormControl(null,Validators.required),
+    'numero':new FormControl(null,Validators.required),
+    'complemento':new FormControl(null,Validators.prototype),
+    'bairro':new FormControl(null,Validators.required),
+    'uf':new FormControl(null,Validators.required),
+    'municipio':new FormControl(null,Validators.required),
+  });
 
   
 
-  ngOnInit(): void {
-    scrollTo(10, 0);
-  }
 
 }

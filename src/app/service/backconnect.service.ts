@@ -1,15 +1,13 @@
 import { Injectable,EventEmitter, Output } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable} from "rxjs";
-
+import { HttpClient,HttpErrorResponse } from "@angular/common/http";
+import { Observable,throwError} from "rxjs";
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BackconnectService {
   
- @Output() emitirCursoSelecionado:EventEmitter<string> = new EventEmitter();
-
 
   urlDataRequest = 'http://localhost:8080/api/dataRequest';
   // urlGerarDiplomado = 'http://localhost:8080/api/gerardiplomado?id'; 
@@ -18,8 +16,17 @@ export class BackconnectService {
 
 
   listarDiplomados():Observable<any>{
-     return this._http.get(`${this.urlDiplipomados}`);
-  }
+     return this._http.get(`${this.urlDiplipomados}`).pipe(
+      catchError((error, caught) => {
+       alert('O servidor não está respondendo no momento, por favor aguarde e atualize a página (F5) !');
+       return error
+      }))
+  
+ }
+  
+
+ 
+
 
 /* gerarDiplomado():Observable<any>{
   console.log("conectado");
@@ -28,13 +35,14 @@ export class BackconnectService {
 
  listarCursos():Observable<any>{
 
-    return this._http.get(`${this.urlCursos}`);
+    return this._http.get(`${this.urlCursos}`).pipe(
+      catchError((error, caught) => {
+        alert('O servidor não está respondendo no momento, por favor aguarde e atualize a página (F5) !');
+       return error
+      }))
   
  }
  
- cursoEscolhido(curso:any){
-  this.emitirCursoSelecionado.emit(curso);
- }
 
 
   constructor(private _http:HttpClient) { }

@@ -16,6 +16,7 @@ import { LivroRegistroComponent } from './components/novo/livro-registro/livro-r
 import { AssinaturaComponent } from './components/novo/assinatura/assinatura.component';
 import { SelecionarCursoComponent } from './components/novo/selecionar-curso/selecionar-curso.component';
 import { AreaPublicaComponent } from './components/area-publica/area-publica.component';
+import { NovoComponent } from './components/novo/novo.component';
 
 const routes: Routes = [
  
@@ -34,8 +35,10 @@ const routes: Routes = [
   {path:'livro-registro',component:LivroRegistroComponent},
   {path:'assinatura',component:AssinaturaComponent},
   {path:'selecionar-curso',component:SelecionarCursoComponent},
-  {path:'area-publica',component:AreaPublicaComponent}
+  {path:'area-publica',component:AreaPublicaComponent},
+  {path:'novo',component:NovoComponent}
  
+
 ];
 
 @NgModule({

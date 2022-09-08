@@ -24,7 +24,6 @@ import { FiltroDiplomadoPipe } from './pipe/filtro-diplomado.pipe';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MantenedoraComponent } from './components/novo/mantenedora/mantenedora.component';
 import { IesComponent } from './components/novo/ies/ies.component';
-import { TimeLineComponent } from './components/novo/time-line/time-line.component';
 import { CursoComponent } from './components/novo/curso/curso.component';
 import { AlunoComponent } from './components/novo/aluno/aluno.component';
 import { LivroRegistroComponent } from './components/novo/livro-registro/livro-registro.component';
@@ -33,6 +32,8 @@ import { SelecionarCursoComponent } from './components/novo/selecionar-curso/sel
 import { AppMaterialModule } from './components/material/app-material.module';
 import { AreaPublicaComponent } from './components/area-publica/area-publica.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { NovoComponent } from './components/novo/novo.component';
+
 
 
 @NgModule({
@@ -52,18 +53,17 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     FiltroDiplomadoPipe,
     MantenedoraComponent,
     IesComponent,
-    TimeLineComponent,
     CursoComponent,
     AlunoComponent,
     LivroRegistroComponent,
     AssinaturaComponent,
     SelecionarCursoComponent,
     AreaPublicaComponent,
-  
-    
- 
+    NovoComponent
 
   ],
+
+  
   imports: [
     BrowserModule,
     AppRoutingModule,

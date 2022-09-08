@@ -1,10 +1,5 @@
-   
 
-   
-    <h2 class="title">PROCESSO DE DIPLOMA</h2>
-    <div class="line"></div>
-    <h3 class="lote">#132</h3>
- 
+ <section *ngIf="enable == true" class="ies">
     <section class="time-line">
 
        <div class="etapa1"></div>
@@ -33,25 +28,25 @@
        <label class="ten">Registro</label>
 
     </section>
-    
-    
-    <div class="info-1"><h3>Mantenedora:<span>  Fundação Exemplo</span></h3></div> 
 
+
+    <div class="info-1"><h3>Mantenedora:<span> {{cursoSelecionado.Dadosdiplomaiesemissoranome}}</span></h3></div> 
+  
     <section class="dados">
 
         <div class="title-ies"><h2>Dados da IES</h2></div>
         <div class="line-ies"></div>
 
-        
-        <form class="row g-3">
 
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="row g-3">
+      
         <div class="col-md-6">
             <label for="inputEmail4" id="labelNome" class="form-label">Nome da Instituição:*</label>
-            <input type="email" class="form-control" id="inputNome" required>
+            <input value="{{cursoSelecionado.Dadosdiplomaiesemissoranome}}" type="email" class="form-control" id="inputNome" required>
             </div>
             <div class="col-md-6">
             <label for="inputPassword4" id="labelCod" class="form-label">Código MEC:*</label>
-            <input type="password" class="form-control" id="inputCod" required>
+            <input value="{{cursoSelecionado.Dadosregistroiesregistradoracodigomec}}" type="text" class="form-control" id="inputCod" required>
             </div>
             
             <div class="title-endereco"><h4>Endereço</h4></div>
@@ -60,7 +55,7 @@
 
             <div class="col-md-6">
             <label for="inputCity" id="labelCep" class="form-label">Cep: *</label>
-            <input type="text" class="form-control" id="inputCep" required>
+            <input value="" type="text" class="form-control" id="inputCep" required>
             </div>
             <div class="col-md-4">
             <label for="inputState" id="labelLaga" class="form-label">Lagadouro: *</label>
@@ -176,8 +171,7 @@
             </div> 
    
         </form>
-       
     
     </section>
-
+</section>
   

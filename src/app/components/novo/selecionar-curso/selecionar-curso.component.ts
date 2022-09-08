@@ -18,7 +18,7 @@ export class SelecionarCursoComponent implements OnInit{
 
 
   listarCursos:any
-
+ hide:boolean = false
  @Output() cursoEscolhidos = new EventEmitter();
  curso:any
 
@@ -50,6 +50,7 @@ export class SelecionarCursoComponent implements OnInit{
    this.curso = Object.values(this.userForm.value);
    this.curso =  this.curso.toString();
    this.cursoEscolhidos.emit(this.curso);
+  
   }
  
 
