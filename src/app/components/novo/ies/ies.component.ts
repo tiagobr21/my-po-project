@@ -42,14 +42,14 @@ export class IesComponent implements OnInit {
   }
 
   userForm = new FormGroup({
-    'curso':new FormControl(null,Validators.required),
-    'nome':new FormControl(null,Validators.required),
+    'nome-instituicao':new FormControl(null,Validators.required),
+    'codigoMec':new FormControl(null,Validators.required),
     'razao':new FormControl(null,Validators.required),
     'cnpj':new FormControl(null,Validators.required),
-    'cep':new FormControl(null,Validators.required),
-    'logradouro':new FormControl(null,Validators.required),
-    'numero':new FormControl(null,Validators.required),
-    'complemento':new FormControl(null,Validators.prototype),
+    'cep-ies':new FormControl(null,Validators.required),
+    'logradouro-ies':new FormControl(null,Validators.required),
+    'numero-ies':new FormControl(null,Validators.required),
+    'complemento-ies':new FormControl(null,Validators.prototype),
     'bairro':new FormControl(null,Validators.required),
     'uf':new FormControl(null,Validators.required),
     'municipio':new FormControl(null,Validators.required),

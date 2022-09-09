@@ -17,6 +17,7 @@ export class NovoComponent implements OnInit {
 
   cursoSelecionado(curso:any){
     this.curso = curso
+    scrollBy(0,200);
 
   }
 

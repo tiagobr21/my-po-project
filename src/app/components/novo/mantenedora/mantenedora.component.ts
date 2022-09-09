@@ -40,17 +40,18 @@ export class MantenedoraComponent implements OnInit {
  
   cursos(curso:any):any{
        this.cursoEscolhido = curso
+       console.log(this.cursoEscolhido)
        this.service.listarDiplomados().subscribe((res):any=>{
         this.Diplomados = res;
-        console.log(this.Diplomados)
         this.loading = true;
+          
           for(let i=0;i<this.Diplomados.length;i++){ 
-            if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == curso){
+           
+            if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.cursoEscolhido){
+          
               this.cursoSelecionado = this.Diplomados[i];
-              this.ids = this.Diplomados[i].Dadosdiplomadadoscursonomecurso
-              return this.cursoSelecionado
-            } else{
-              return 0
+              console.log(this.Diplomados[i]);
+              
             }
           }
       });  
@@ -59,7 +60,7 @@ export class MantenedoraComponent implements OnInit {
 
   userForm = new FormGroup({
     'curso':new FormControl(null,Validators.required),
-    'nome-mantenedoras':new FormControl(null,Validators.required),
+    'nome-mantenedora':new FormControl(null,Validators.required),
     'razao-mantenedora':new FormControl(null,Validators.required),
     'cnpj-mantenedora':new FormControl(null,Validators.required),
     'cep-mantenedora':new FormControl(null,Validators.required),
