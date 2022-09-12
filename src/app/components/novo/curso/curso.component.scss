@@ -173,10 +173,32 @@ label{
     position:absolute;
     height: 2px;
     width:20%;
+    animation: progress2 3s;
     background-color: #007bff;
     opacity: 0.9;
 }
 
+@keyframes progress2 {
+    from {
+      width: 10%;
+      opacity: 0;
+    }
+  
+    to {
+      width: 20%;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes opacity {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
 .info-1{
     position: relative;
     left: 2%;
