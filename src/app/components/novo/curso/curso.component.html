@@ -1,7 +1,6 @@
 
-    <h2 class="title">PROCESSO DE DIPLOMA</h2>
-    <div class="line"></div>
-    <h3 class="lote">#132</h3>
+
+    <section  *ngIf="enable2 == true " class="curso">
  
     <section class="time-line">
 
@@ -46,60 +45,50 @@
         <form class="row g-3">
 
                 <div class="col-md-4">
-                    <label for="inputZip" id="labelCurso"class="form-label">Nome do Curso:*</label>
-                    <select class="form-select" id="inputCurso"  aria-label="Default select example">
-                      <option selected>Selecione uma opção</option>
-                      <option value="1">Portaria</option>
-                      <option value="2">Portaria</option>
-                      <option value="3">Portaria</option>
-                    </select>
+                    <label for="inputZip" id="labelCurso"class="form-label">Nome do Curso: *</label>
+                    <input type="text" class="form-control" id="inputCurso" required>
                 </div>
+                
                 <div class="col-md-4">
-                <label for="inputState" id="labelCod" class="form-label">Código do Curso MEC: *</label>
-                <input type="text" class="form-control" id="inputCod" required>
-                </div>
-                <div class="col-md-4">
-                <label for="inputZip" id="labelHab" class="form-label">Nome Habilitação: *</label>
-                <input type="text" class="form-control" id="inputHab" required>
+                  <label for="inputState" id="labelCod" class="form-label">Código do Curso MEC: *</label>
+                  <input type="text" class="form-control" id="inputCod" required>
                 </div>
 
+                <div class="col-md-4">
+                  <label for="inputZip" id="labelHab" class="form-label">Nome Habilitação: *</label>
+                  <input type="text" class="form-control" id="inputHab" required>
+                </div>
 
                 <div class="col-md-4">
                     <label for="inputZip" id="labelTit"class="form-label">Título Conferido:*</label>
-                    <select class="form-select" id="inputTit"  aria-label="Default select example">
-                      <option selected>Selecione uma opção</option>
-                      <option value="1">Portaria</option>
-                      <option value="2">Portaria</option>
-                      <option value="3">Portaria</option>
-                    </select>
+                    <input type="text" class="form-control" id="inputTit" required>
                 </div>
+
                 <div class="col-md-4">
-                <label for="inputState" id="labelGrau" class="form-label">Grau Conferido: *</label>
-                <input type="text" class="form-control" id="inputGrau" required>
+                  <label for="inputState" id="labelGrau" class="form-label">Grau Conferido: *</label>
+                  <input type="text" class="form-control" id="inputGrau" required>
                 </div>
+
                 <div class="col-md-4">
-                <label for="inputZip" id="labelDoc" class="form-label">N° do Documento de Autorização : *</label>
-                <input type="text" class="form-control" id="inputDoc" required>
+                  <label for="inputZip" id="labelDoc" class="form-label">N° do Documento de Autorização : *</label>
+                  <input type="text" class="form-control" id="inputDoc" required>
                 </div>
 
 
                 <div class="col-md-4">
                   <label for="inputZip" id="labelMod"class="form-label">Modalidade:*</label>
-                  <select class="form-select" id="inputMod"  aria-label="Default select example">
-                    <option selected>Selecione uma opção</option>
-                    <option value="1">Portaria</option>
-                    <option value="2">Portaria</option>
-                    <option value="3">Portaria</option>
-                  </select>
-              </div>
-              <div class="col-md-4">
-              <label for="inputState" id="labelRec" class="form-label">N° do Documento de Reconhecimento: *</label>
-              <input type="text" class="form-control" id="inputRec" required>
-              </div>
-              <div class="col-md-4">
-              <label for="inputZip" id="labelData" class="form-label">Data da Colação de Grau : *</label>
-              <input type="text" class="form-control" id="inputData" required>
-              </div>
+                  <input type="text" class="form-control" id="inputMod" required>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="inputState" id="labelRec" class="form-label">N° do Documento de Reconhecimento: *</label>
+                  <input type="text" class="form-control" id="inputRec" required>
+                </div>
+                
+                <div class="col-md-4">
+                  <label for="inputZip" id="labelData" class="form-label">Data da Colação de Grau : *</label>
+                  <input type="text" class="form-control" id="inputData" required>
+                </div>
   
                     
               <div class="title-endereco"><h2>Endereço da oferta do Curso</h2></div>
@@ -148,13 +137,16 @@
              </div>
  
     
-            <div class="col-12">
-                <a id="voltar" routerLink="/ies" routerLinkActive="list-item-active" class="btn btn-primary">Voltar</a>
-             </div>
              <div class="col-12">
-                <a id="proximo" routerLink="/aluno" routerLinkActive="list-item-active" type="submit"  class="btn btn-primary">Próximo</a>
+                <a id="proximo"  type="submit"  class="btn btn-primary">Próximo</a>
              </div> 
+
+             <div class="col-12">
+               <a id="refresh"  (click)="refresh()" class="btn btn-danger">Fazer Novamente</a>
+            </div> 
        </form>
 
     </section>
  
+
+   </section>

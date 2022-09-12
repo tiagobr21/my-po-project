@@ -16,10 +16,10 @@ import { FormGroup,FormControl,FormBuilder,FormArray, Validators } from '@angula
 
 export class SelecionarCursoComponent implements OnInit{
 
-
-  listarCursos:any
+ listarCursos:any
  hide:boolean = false
  @Output() cursoEscolhidos = new EventEmitter();
+ @Output() loading = new EventEmitter();
  curso:any
 
   constructor(private service:BackconnectService,private formBuilder:FormBuilder) {}
@@ -32,9 +32,6 @@ export class SelecionarCursoComponent implements OnInit{
     this.service.listarCursos().subscribe((res)=>{
       this.listarCursos = res; 
       this.listarCursos = this.listarCursos['Resultado'];
-
-  
-     
     }); 
 
     scrollTo(10, 0);
@@ -50,7 +47,8 @@ export class SelecionarCursoComponent implements OnInit{
    this.curso = Object.values(this.userForm.value);
    this.curso =  this.curso.toString();
    this.cursoEscolhidos.emit(this.curso);
-  
+
+
   }
  
 

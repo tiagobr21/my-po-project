@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
 import { FormGroup, FormControl,Validators } from '@angular/forms';
 
@@ -9,8 +9,21 @@ import { FormGroup, FormControl,Validators } from '@angular/forms';
 })
 export class IesComponent implements OnInit {
 
-  @Input() enable:boolean = false;
+  @Input() enable:any;
   @Input() curso:any;
+  @Input() backPage:any;
+  @Input() showPage2:any
+
+
+  @Output() show = new EventEmitter();
+  showPage:boolean = true;
+
+  @Output() buttonClick2 = new EventEmitter();
+  enable2:boolean= false;
+
+  @Output() back = new EventEmitter();
+  
+  loading:boolean = false
   Diplomados:any;
   cursoSelecionado:any
    
@@ -24,21 +37,36 @@ export class IesComponent implements OnInit {
   }
 
   ngOnChanges() {
+    
     this.service.listarDiplomados().subscribe((res):any=>{
      this.Diplomados = res;
-     // console.log(this.Diplomados)
+
+     console.log(this.Diplomados)
        for(let i=0;i<this.Diplomados.length;i++){ 
          if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.curso){
            this.cursoSelecionado = this.Diplomados[i];
+            
          } else{
            return 0
          }
        }
-   });  
+   });
+
+    
   }
 
-  onSubmit(){
+  
+  refresh(){
+    location.reload()
+  }
 
+  onSubmit(){ 
+    this.enable = false
+
+    this.enable2 = this.enable2 == false ? true : false;
+    this.buttonClick2.emit(this.enable2);
+
+    console.log(this.enable2);
   }
 
   userForm = new FormGroup({
@@ -50,10 +78,30 @@ export class IesComponent implements OnInit {
     'logradouro-ies':new FormControl(null,Validators.required),
     'numero-ies':new FormControl(null,Validators.required),
     'complemento-ies':new FormControl(null,Validators.prototype),
-    'bairro':new FormControl(null,Validators.required),
-    'uf':new FormControl(null,Validators.required),
-    'municipio':new FormControl(null,Validators.required),
+    'bairro-ies':new FormControl(null,Validators.required),
+    'estado-ies':new FormControl(null,Validators.required),
+    'cidade-ies':new FormControl(null,Validators.required), 
+    'cred-tipo':new FormControl(null,Validators.required),
+    'cred-numero':new FormControl(null,Validators.required),
+    'cred-data':new FormControl(null,Validators.required),
+    'cred-data-publicacao':new FormControl(null,Validators.required),
+    'cred-secao':new FormControl(null,Validators.required),
+    'cred-pagina':new FormControl(null,Validators.required),
+    'tipo-re':new FormControl(null,Validators.required),
+    'recred-numero':new FormControl(null,Validators.required),
+    'recred-data':new FormControl(null,Validators.required),
+    'recred-data-publicacao':new FormControl(null,Validators.required),
+    'recred-secao':new FormControl(null,Validators.required),
+    'recred-pagina':new FormControl(null,Validators.required)
+
+   
   });
+
+  backPages(){
+    this.enable = false
+    this.show.emit(this.showPage = true);
+   
+  }
 
   
 

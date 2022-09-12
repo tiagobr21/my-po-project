@@ -432,6 +432,11 @@ form label{
  
 }
 
+#inputTipo2{
+    width: 160%;
+ 
+}
+
 option{
     color: black;
 }
@@ -505,16 +510,18 @@ option{
     opacity: 0.1;
 }
 
-#voltar{
+#proximo{
     width: 10%;
-    top:300%;
-    left: 35%;
+    top: 150%;
+    left:50.5%;
     position:relative;
  }
 
- #proximo{
-    width: 10%;
-    top: 155%;
-    left: 65%;
+ #refresh{
+    width: 15%;
+    top: 170%;
+    left:48%;
     position:relative;
  }
+
+

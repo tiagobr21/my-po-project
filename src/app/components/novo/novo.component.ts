@@ -8,22 +8,47 @@ import { Component, OnInit } from '@angular/core';
 export class NovoComponent implements OnInit {
   
   enable:boolean = false
+  enable2:boolean = false
   curso:any
+  backPage:any
+  showPage:any
+
+
+
 
   constructor() { }
 
   ngOnInit(): void {
+  
+  }
+
+ 
+
+  show(show:any){
+   this.showPage = show
+   console.log('show: '+this.showPage)
+  }
+
+
+  back(back:any){
+    this.backPage = back;
+   
   }
 
   cursoSelecionado(curso:any){
     this.curso = curso
-    scrollBy(0,200);
+
 
   }
 
   handleButtonClick(value:any){
     this.enable = value
+     
+  }
 
+  handleButtonClick2(value2:any){
+    this.enable2 = value2
+     
   }
 
 }

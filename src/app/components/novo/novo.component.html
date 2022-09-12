@@ -1,2 +1,24 @@
-<app-mantenedora (buttonClick)="handleButtonClick($event)" (cursoAtual)="cursoSelecionado($event)"></app-mantenedora>
-<app-ies [enable]="enable" [curso]="curso"></app-ies>
+<app-mantenedora (backPages)="back($event)"  (buttonClick)="handleButtonClick($event)" (cursoAtual)="cursoSelecionado($event)" (show)="show($event)" [showPage]="showPage"></app-mantenedora>
+<app-ies (buttonClick2)="handleButtonClick2($event)" [enable]="enable" (cursoAtual)="cursoSelecionado($event)"  (backPages)="back($event)"  (buttonClick)="handleButtonClick($event)"  [curso]="curso"  [backPage]="backPage" (show)="show($event)"></app-ies>
+
+<app-curso  [curso]="curso"  [enable2]="enable2" ></app-curso>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

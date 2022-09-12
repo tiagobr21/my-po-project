@@ -27,13 +27,6 @@ const routes: Routes = [
   {path:'emissao-xml-dip',component:EmissaoXmlDipComponent},
   {path:'emissao-rvdd',component:EmissaoRvddComponent},
   {path:'historico',component:HistoricoComponent },
-  {path:'assinaturas',component:AssinaturasComponent },
-  {path:'mantenedora',component: MantenedoraComponent},
-  {path:'ies',component:IesComponent},
-  {path:'curso',component:CursoComponent},
-  {path:'aluno',component:AlunoComponent},
-  {path:'livro-registro',component:LivroRegistroComponent},
-  {path:'assinatura',component:AssinaturaComponent},
   {path:'selecionar-curso',component:SelecionarCursoComponent},
   {path:'area-publica',component:AreaPublicaComponent},
   {path:'novo',component:NovoComponent}

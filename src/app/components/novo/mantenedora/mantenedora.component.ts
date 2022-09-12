@@ -12,49 +12,51 @@ import { FormGroup, FormControl,Validators, FormControlName } from '@angular/for
 })
 export class MantenedoraComponent implements OnInit {
 
-  
+ @Input() showPage:any;
+
+ @Output() back = new EventEmitter();
+backPage:boolean = false;
  @Output() cursoAtual = new EventEmitter();
-
  @Output() buttonClick = new EventEmitter();
-
  enable:boolean = false;
+ @Output() show = new EventEmitter();
   
-  hide:boolean = false
+  loading:boolean =false;
   cursoEscolhido:any
   cursoSelecionado:any
   Diplomados:any
-  loading:boolean = false
+
   ids:any
 
   constructor(private service:BackconnectService) { }
 
   ngOnInit(): void {
-   
-    scrollTo(10, 0);
+ 
   }
 
-   
- 
 
- 
  
   cursos(curso:any):any{
        this.cursoEscolhido = curso
-       console.log(this.cursoEscolhido)
+       
        this.service.listarDiplomados().subscribe((res):any=>{
+        
         this.Diplomados = res;
-        this.loading = true;
+ 
           
           for(let i=0;i<this.Diplomados.length;i++){ 
            
             if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.cursoEscolhido){
           
               this.cursoSelecionado = this.Diplomados[i];
-              console.log(this.Diplomados[i]);
+           
               
             }
           }
       });  
+      
+
+    
   }
 
 
@@ -72,15 +74,29 @@ export class MantenedoraComponent implements OnInit {
     'municipio-mantenedora':new FormControl(null,Validators.required),
   });
 
+  refresh(){
+    location.reload()
+  }
 
   onSubmit(){
-  this.cursoEscolhido = this.userForm.value.curso;
-  this.cursoAtual.emit(this.cursoEscolhido);
+      this.cursoEscolhido = this.userForm.value.curso;
+      this.cursoAtual.emit(this.cursoEscolhido);
+      
 
-  this.enable = this.enable == false ? true : false;
-  this.buttonClick.emit(this.enable);
- 
-  }
+      this.enable = this.enable == false ? true : false;
+      this.buttonClick.emit(this.enable);
+
+      this.backPage = this.backPage == false ? true : false
+      this.back.emit(this.backPage );
+      
+      // showPage vem primeiro  undefined e depois true 
+
+      this.show.emit(this.showPage = false);
+      
+
+}
+
+
 
 }
   
