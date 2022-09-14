@@ -108,10 +108,12 @@ label{
     margin-top: -1px;
     left: 22.5%;
     position:absolute;
+
 }
 
 .etapa3:hover{
    border:  2px solid green;
+   cursor: pointer;
 }
 
 .etapa4{
@@ -167,7 +169,7 @@ label{
     position:absolute;
     height: 2px;
     width:10%;
-    animation-duration: 3s;
+    animation-duration: 5s;
     animation-name:progress;
     background-color: #0a58ca;
     opacity: 0.9;

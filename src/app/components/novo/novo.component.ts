@@ -9,6 +9,7 @@ export class NovoComponent implements OnInit {
   
   enable:boolean = false
   enable2:boolean = false
+  enable3:boolean = false
   curso:any
   backPage:any
   showPage:any
@@ -26,7 +27,7 @@ export class NovoComponent implements OnInit {
 
   show(show:any){
    this.showPage = show
-   console.log('show: '+this.showPage)
+
   }
 
 
@@ -48,6 +49,12 @@ export class NovoComponent implements OnInit {
 
   handleButtonClick2(value2:any){
     this.enable2 = value2
+     
+  }
+
+  
+  handleButtonClick3(value3:any){
+    this.enable3 = value3
      
   }
 

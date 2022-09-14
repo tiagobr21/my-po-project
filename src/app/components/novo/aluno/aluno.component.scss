@@ -79,20 +79,20 @@ label{
 }
 
 .etapa1{
-    background-color: #007bff;
+    background-color: #0a58ca;
     top:19.5%;
     position:absolute;
 }
 
 .etapa2{
-    background-color: #007bff;
+    background-color: #0a58ca;
     top:19.5%;
     left: 13.5%;
     position:absolute;
 }
 
 .etapa3{
-    background-color: #007bff;
+    background-color: #0a58ca;
     top:19.5%;
     left: 22.5%;
     position:absolute;
@@ -152,10 +152,32 @@ label{
     position:absolute;
     height: 2px;
     width:30%;
+    animation: progress3 5s;
     background-color: #007bff;
     opacity: 0.9;
 }
 
+@keyframes progress3 {
+    from {
+      width: 20%;
+      opacity: 0;
+    }
+  
+    to {
+      width: 30%;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes opacity {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
 .info-1{
     position: relative;
     left: 2%;
@@ -184,7 +206,7 @@ label{
     position: relative;
     left: 2%;
     border-radius: 2.5px;
-    width: 50%;
+    width: 58%;
     height:  45px;
     padding: 10px;
     background-color: whitesmoke;
@@ -195,9 +217,9 @@ label{
 .info-3-5{
     position: relative;
     bottom: 55px;
-    left: 50%;
+    left: 60%;
     border-radius: 2.5px;
-    width: 47%;
+    width: 37%;
     height:  45px;
     padding: 10px;
     background-color: whitesmoke;

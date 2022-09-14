@@ -81,7 +81,7 @@ backPage:boolean = false;
   onSubmit(){
       this.cursoEscolhido = this.userForm.value.curso;
       this.cursoAtual.emit(this.cursoEscolhido);
-      
+
 
       this.enable = this.enable == false ? true : false;
       this.buttonClick.emit(this.enable);

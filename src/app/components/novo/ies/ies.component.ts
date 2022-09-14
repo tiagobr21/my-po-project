@@ -41,14 +41,14 @@ export class IesComponent implements OnInit {
     this.service.listarDiplomados().subscribe((res):any=>{
      this.Diplomados = res;
 
-     console.log(this.Diplomados)
+
+  
        for(let i=0;i<this.Diplomados.length;i++){ 
          if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.curso){
-           this.cursoSelecionado = this.Diplomados[i];
-            
-         } else{
-           return 0
-         }
+    
+            this.cursoSelecionado = this.Diplomados[i];
+         
+         } 
        }
    });
 
@@ -66,7 +66,7 @@ export class IesComponent implements OnInit {
     this.enable2 = this.enable2 == false ? true : false;
     this.buttonClick2.emit(this.enable2);
 
-    console.log(this.enable2);
+
   }
 
   userForm = new FormGroup({
