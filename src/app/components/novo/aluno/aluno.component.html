@@ -33,21 +33,21 @@
     <div class="info-1"><h3>Mantenedora:<span> {{cursoSelecionado.Dadosregistroiesregistradoranome}} </span></h3></div>  
     <div class="info-2"><h3>Instituição:<span> {{cursoSelecionado.Dadosregistroiesregistradoranome}} </span></h3></div>
     <div class="info-3"><h3>Curso:<span>{{cursoSelecionado.Dadosdiplomadadoscursonomecurso}}</span></h3></div>
-    <div class="info-3-5"><h3>Data do Inicio do processo  do diploma:<span> {{cursoSelecionado.Dadosdiplomadataconclusao}} </span></h3></div>
+    <div class="info-3-5"><h3>Data do Inicio do processo  do diploma: <span> {{cursoSelecionado.Dadosdiplomadataconclusao}} </span></h3></div>
  
     <section class="dados">
 
-         <form class="row g-3">
+         <form [formGroup]="userForm"  class="row g-3">
 
             <div class="form-check">
-               <input class="form-check-input" id="input-all" type="checkbox" value="">
+               <input (change)="bulk($event)" class="form-check-input" id="input-all" type="checkbox" value="">
                <label class="form-check-label" for="flexCheckDefault"  id="check-all">
                   Selecionar Tudo    
                </label>
             </div>
             
             <div class="mb-3">
-               <input type="email" class="form-control" id="buscar" placeholder="Buscar">
+               <input   type="email" class="form-control" id="buscar" placeholder="Buscar">
              </div>
               
              <select class="form-select" id="filtro">
@@ -59,44 +59,147 @@
 
              <button id="inserir" class="btn btn-primary btn-sm">+ Inserir aluno</button>
              <button id="importar" class="btn btn-primary btn-sm"> Importar alunos</button>
-
-             <div *ngFor="let dados of dadosAlunos | slice:0:contador"  class="alunos">
-
-               <div class="form-check" >
-                  <input class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
-               </div>
-
-               <div class="user"></div>
-               
-               <h3 class="nome-aluno">{{dados.Dadosdiplomadiplomadonome}}</h3>
-               
-               <label class="labelId">ID:</label>
-               <span class="Id">{{dados.Dadosdiplomadiplomadoid}}</span>
-
-               <label class="labelCpf">CPF:</label>
-               <span class="cpf">{{dados.Dadosdiplomadiplomadocpf}}</span>
-          
-               
-               <label class="labelGrau">Data da Colação de Grau:</label>
-               <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dados.Dadosregistrolivroregistrodatacolacaograu}} </p></span>
-
-
-             </div>
-
-            <div class="navegation">
+              
+             <div class="navegation">
                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                  <button type="button" class="btn btn-primary"><p id="back" class="po-icon po-icon-arrow-left"></p></button>
-                  <button type="button" class="btn btn-primary">1</button>
-                  <button type="button" class="btn btn-primary">2</button>
-                  <button type="button" class="btn btn-primary">3</button>
-                  <button type="button" class="btn btn-primary"><p id="next" class="po-icon po-icon-arrow-right"></p></button>
+                
+                  <button (click)="page1Ativo()" type="button" class="btn btn-primary">1</button>
+                  <button (click)="page2Ativo()" type="button" class="btn btn-primary">2</button>
+                  <button (click)="page3Ativo()" type="button" class="btn btn-primary">3</button>
+                  <button (click)="page4Ativo()" type="button" class="btn btn-primary">4</button>
+                  <button (click)="page5Ativo()" type="button" class="btn btn-primary">5</button>
+                 
                 </div>
             </div>
+       
+            <div class="page1" *ngIf="page1Select == true">
+               <div  *ngFor="let dados of page1 | slice:0:contador; let i=index"   class="alunos">
+
+                  <div class="form-check" >
+                     <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" formControlName="aluno"  class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
+                  </div>
+
+                  <div class="user"></div>
+                  
+                  <h3 class="nome-aluno">{{dados.Dadosdiplomadiplomadonome}}</h3>
+                  
+                  <label class="labelId">ID:</label>
+                  <span class="Id">{{dados.Dadosdiplomadiplomadoid}}</span>
+
+                  <label class="labelCpf">CPF:</label>
+                  <span class="cpf">{{dados.Dadosdiplomadiplomadocpf}}</span>
+            
+                  
+                  <label class="labelGrau">Data da Colação de Grau:</label>
+                  <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dados.Dadosregistrolivroregistrodatacolacaograu}} </p></span>
+
+               </div>
+            </div>
+
+            <div class="page1" *ngIf="page2Select == true">
+               <div  *ngFor="let dados of page2 | slice:0:contador"   class="alunos">
+
+                  <div class="form-check" >
+                     <input class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
+                  </div>
+
+                  <div class="user"></div>
+                  
+                  <h3 class="nome-aluno">{{dados.Dadosdiplomadiplomadonome}}</h3>
+                  
+                  <label class="labelId">ID:</label>
+                  <span class="Id">{{dados.Dadosdiplomadiplomadoid}}</span>
+
+                  <label class="labelCpf">CPF:</label>
+                  <span class="cpf">{{dados.Dadosdiplomadiplomadocpf}}</span>
+            
+                  
+                  <label class="labelGrau">Data da Colação de Grau:</label>
+                  <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dados.Dadosregistrolivroregistrodatacolacaograu}} </p></span>
+                  
+               </div>
+            </div>
+
+            
+            <div class="page1" *ngIf="page3Select == true">
+               <div  *ngFor="let dados of page3 | slice:0:contador"   class="alunos">
+
+                  <div class="form-check" >
+                     <input class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
+                  </div>
+
+                  <div class="user"></div>
+                  
+                  <h3 class="nome-aluno">{{dados.Dadosdiplomadiplomadonome}}</h3>
+                  
+                  <label class="labelId">ID:</label>
+                  <span class="Id">{{dados.Dadosdiplomadiplomadoid}}</span>
+
+                  <label class="labelCpf">CPF:</label>
+                  <span class="cpf">{{dados.Dadosdiplomadiplomadocpf}}</span>
+            
+                  
+                  <label class="labelGrau">Data da Colação de Grau:</label>
+                  <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dados.Dadosregistrolivroregistrodatacolacaograu}} </p></span>
+                  
+               </div>
+            </div>
+
+            <div class="page4" *ngIf="page4Select == true">
+               <div  *ngFor="let dados of page4 | slice:0:contador"   class="alunos">
+
+                  <div class="form-check" >
+                     <input  class="form-check-input"  id="check-aluno"  type="checkbox"  >
+                    
+                  </div>
+
+                  <div class="user"></div>
+                  
+                  <h3 class="nome-aluno">{{dados.Dadosdiplomadiplomadonome}}</h3>
+                  
+                  <label class="labelId">ID:</label>
+                  <span class="Id">{{dados.Dadosdiplomadiplomadoid}}</span>
+
+                  <label class="labelCpf">CPF:</label>
+                  <span class="cpf">{{dados.Dadosdiplomadiplomadocpf}}</span>
+            
+                  
+                  <label class="labelGrau">Data da Colação de Grau:</label>
+                  <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dados.Dadosregistrolivroregistrodatacolacaograu}} </p></span>
+                  
+               </div>
+            </div>
+            
+            <div class="page1" *ngIf="page5Select == true">
+               <div  *ngFor="let dados of page5 | slice:0:contador"   class="alunos">
+
+                  <div class="form-check" >
+                     <input class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
+                  </div>
+
+                  <div class="user"></div>
+                  
+                  <h3 class="nome-aluno">{{dados.Dadosdiplomadiplomadonome}}</h3>
+                  
+                  <label class="labelId">ID:</label>
+                  <span class="Id">{{dados.Dadosdiplomadiplomadoid}}</span>
+
+                  <label class="labelCpf">CPF:</label>
+                  <span class="cpf">{{dados.Dadosdiplomadiplomadocpf}}</span>
+            
+                  
+                  <label class="labelGrau">Data da Colação de Grau:</label>
+                  <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dados.Dadosregistrolivroregistrodatacolacaograu}} </p></span>
+                  
+               </div>
+            </div>
+
+          
       
              
 
             <div class="col-12">
-               <a id="proximo" routerLink="/livro-registro" routerLinkActive="list-item-active"  class="btn btn-primary">Próximo</a>
+               <button id="proximo" (click)="submitForm()"   class="btn btn-primary">Próximo</button>
             </div> 
 
 

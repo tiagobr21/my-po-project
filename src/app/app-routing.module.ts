@@ -19,7 +19,7 @@ import { AreaPublicaComponent } from './components/area-publica/area-publica.com
 import { NovoComponent } from './components/novo/novo.component';
 
 const routes: Routes = [
- 
+  {path:'',redirectTo:'dashboard', pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent},
   {path:'cadastro',component:CadastroUsuarioComponent},
   {path:'token',component:TokenComponent},
