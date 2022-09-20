@@ -1,5 +1,5 @@
 
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
 import { FormBuilder,FormGroup,FormControl,FormArray,ValidatorFn, Validators } from '@angular/forms';
 
@@ -14,6 +14,9 @@ export class AlunoComponent implements OnInit {
     
   @Input() curso:any;
   @Input() enable3:any;
+  @Output() buttonClick4 = new EventEmitter();
+  enable4:boolean = false; 
+  @Output() alunosSelecionados = new EventEmitter();
   
   checks:boolean = false
   Diplomados:any;
@@ -62,14 +65,19 @@ export class AlunoComponent implements OnInit {
   bulk(e:any){
 
     if(e.target.checked){
-      this.checks = false;
+      this.checks = true;
     }else{
       this.checks = false;
     }
   }
   
-  submitForm(){
-    console.log(this.userForm.value);
+  ngSubmit(){
+    this.enable3 = false;
+    this.enable4 = this.enable4 == false ? true : false;
+    this.buttonClick4.emit(this.enable4)
+    this.alunosSelecionados.emit(this.userForm.value)
+  
+
   }
 
   ngOnInit(): void {
@@ -90,32 +98,26 @@ export class AlunoComponent implements OnInit {
            this.cursoSelecionado = this.Diplomados[i];
            
            this.dadosAlunos.push(this.Diplomados[i]);
+        
            
            // Exibição da Página
 
-           this.page1 = this.dadosAlunos.slice(0,40);
-            this.keys = Object.keys(this.page1);
-           this.contador = this.keys.length/2;
-
-           this.page2 = this.dadosAlunos.slice(40,80);
-           this.keys = Object.keys(this.page2);
-           this.contador = this.keys.length/2;
-
-           this.page3 = this.dadosAlunos.slice(80,120);
-           this.keys = Object.keys(this.page3);
-           this.contador = this.keys.length/2;
-
-           this.page4 = this.dadosAlunos.slice(120,140);
-           this.keys = Object.keys(this.page4);
-           this.contador = this.keys.length/2;
-
-           this.page5 = this.dadosAlunos.slice(140,180);
-           this.keys = Object.keys(this.page5);
-           this.contador = this.keys.length/2;
+           this.keys = Object.keys(this.dadosAlunos)
+           this.contador = this.keys.length/2
+           
+           if(this.contador > 20){
+           this.page1 = this.dadosAlunos.slice(0,this.contador/4);
+           this.page2 = this.dadosAlunos.slice(this.contador/4,this.contador/2);
+           this.page3 = this.dadosAlunos.slice(this.contador/2,this.contador);
+           }else{
+            this.page1 = this.dadosAlunos.slice(0,this.contador);
+       
+           }
         }
         
       } 
-       
+  
+
      });
   }
   
@@ -155,4 +157,7 @@ export class AlunoComponent implements OnInit {
     this.page5Select = true
   }
 
+  refresh(){
+    location.reload();
+  }
 }

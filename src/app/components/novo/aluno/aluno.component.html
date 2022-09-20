@@ -6,7 +6,7 @@
        <div class="etapa2"></div>
        <div class="etapa3"></div>
        <div class="etapa4"></div>
-       <div class="etapa5"></div>
+       <div (click)="ngSubmit()" class="etapa5"></div>
        <div class="etapa6"></div>
        <div class="etapa7"></div>
        <div class="etapa8"></div>
@@ -66,17 +66,17 @@
                   <button (click)="page1Ativo()" type="button" class="btn btn-primary">1</button>
                   <button (click)="page2Ativo()" type="button" class="btn btn-primary">2</button>
                   <button (click)="page3Ativo()" type="button" class="btn btn-primary">3</button>
-                  <button (click)="page4Ativo()" type="button" class="btn btn-primary">4</button>
-                  <button (click)="page5Ativo()" type="button" class="btn btn-primary">5</button>
+<!--                   <button (click)="page4Ativo()" type="button" class="btn btn-primary">4</button>
+                  <button (click)="page5Ativo()" type="button" class="btn btn-primary">5</button> -->
                  
                 </div>
             </div>
        
             <div class="page1" *ngIf="page1Select == true">
-               <div  *ngFor="let dados of page1 | slice:0:contador; let i=index"   class="alunos">
+               <div  *ngFor="let dados of page1; let i=index"   class="alunos">
 
-                  <div class="form-check" >
-                     <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" formControlName="aluno"  class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
+                  <div class="form-check">
+                     <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)"  class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
                   </div>
 
                   <div class="user"></div>
@@ -96,11 +96,11 @@
                </div>
             </div>
 
-            <div class="page1" *ngIf="page2Select == true">
+            <div class="page2" *ngIf="page2Select == true">
                <div  *ngFor="let dados of page2 | slice:0:contador"   class="alunos">
 
                   <div class="form-check" >
-                     <input class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
+                     <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
                   </div>
 
                   <div class="user"></div>
@@ -121,11 +121,11 @@
             </div>
 
             
-            <div class="page1" *ngIf="page3Select == true">
+            <div class="page3" *ngIf="page3Select == true">
                <div  *ngFor="let dados of page3 | slice:0:contador"   class="alunos">
 
                   <div class="form-check" >
-                     <input class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
+                     <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
                   </div>
 
                   <div class="user"></div>
@@ -149,7 +149,7 @@
                <div  *ngFor="let dados of page4 | slice:0:contador"   class="alunos">
 
                   <div class="form-check" >
-                     <input  class="form-check-input"  id="check-aluno"  type="checkbox"  >
+                     <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" class="form-check-input"  id="check-aluno"  type="checkbox"  >
                     
                   </div>
 
@@ -170,11 +170,11 @@
                </div>
             </div>
             
-            <div class="page1" *ngIf="page5Select == true">
+            <div class="page5" *ngIf="page5Select == true">
                <div  *ngFor="let dados of page5 | slice:0:contador"   class="alunos">
 
                   <div class="form-check" >
-                     <input class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
+                     <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
                   </div>
 
                   <div class="user"></div>
@@ -193,17 +193,18 @@
                   
                </div>
             </div>
-
-          
       
-             
-
             <div class="col-12">
-               <button id="proximo" (click)="submitForm()"   class="btn btn-primary">Próximo</button>
+               <button id="proximo" (click)="ngSubmit()" [disabled]="!userForm.valid" class="btn btn-primary">Próximo</button>
+            </div> 
+           
+            <div class="col-12">
+               <a id="refresh"  (click)="refresh()" class="btn btn-danger">Fazer Novamente</a>
             </div> 
 
-
          </form>
+
+         
 
     </section>
 

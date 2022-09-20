@@ -1,142 +1,136 @@
 
+<section class="assinatura" *ngIf="enable5 == true">
+
+   <section class="time-line">
+
+      <div class="etapa1"></div>
+      <div class="etapa2"></div>
+      <div class="etapa3"></div>
+      <div class="etapa4"></div>
+      <div class="etapa5"></div>
+      <div class="etapa6"></div>
+      <div class="etapa7"></div>
+      <div class="etapa8"></div>
+      <div class="etapa9"></div>
+      <div class="etapa10"></div>
+      
+      <div class="progress-line"></div>
+      <div class="progress"></div>
+
+      <label class="one">Mantenedora</label>
+      <label class="two">IES</label>
+      <label class="three">Curso</label>
+      <label class="four">Aluno</label>  
+      <label class="five">Livro de Registro</label>
+      <label class="six">Assinatura</label>
+      <label class="seven">Expedição</label>
+      <label class="eight">Publicação</label>
+      <label class="nine">Transmissão</label>
+      <label class="ten">Registro</label>
 
 
-<h2 class="title">PROCESSO DE DIPLOMA</h2>
+   </section>
 
-<div class="line"></div>
+   <div class="info-1"><h3>Mantenedora:<span>{{cursoSelecionado.Dadosregistroiesregistradoranome}}</span></h3></div>  
+   <div class="info-2"><h3>Instituição:<span>{{cursoSelecionado.Dadosregistroiesregistradoranome}}</span></h3></div>
+   <div class="info-3"><h3>Curso:<span>{{cursoSelecionado.Dadosdiplomadadoscursonomecurso}}</span></h3></div>
+   <div class="info-3-5"><h3>Data do Inicio do processo  do diploma:<span> {{cursoSelecionado.Dadosdiplomadataconclusao}} </span></h3></div>
 
-<h3 class="lote"  *ngFor="let listar of dataRequest">#{{listar.DadosRegistroLivroRegistroProcessoDoDiploma}}</h3>
+   <section class="dados">
 
-<section class="time-line">
+   <div class="title-assinar"><h1>Assinar Diploma</h1></div>
+   <div class="line-assinar"></div>
 
-   <div class="etapa1"></div>
-   <div class="etapa2"></div>
-   <div class="etapa3"></div>
-   <div class="etapa4"></div>
-   <div class="etapa5"></div>
-   <div class="etapa6"></div>
-   <div class="etapa7"></div>
-   <div class="etapa8"></div>
-   <div class="etapa9"></div>
-   <div class="etapa10"></div>
-   
-   <div class="progress-line"></div>
-   <div class="progress"></div>
+      <form class="row g-3"  [formGroup]="userForm">
+      
 
-   <label class="one">Mantenedora</label>
-   <label class="two">IES</label>
-   <label class="three">Curso</label>
-   <label class="four">Aluno</label>  
-   <label class="five">Livro de Registro</label>
-   <label class="six">Assinatura</label>
-   <label class="seven">Expedição</label>
-   <label class="eight">Publicação</label>
-   <label class="nine">Transmissão</label>
-   <label class="ten">Registro</label>
+         <div class="alunos" *ngFor="let dados of alunosSelecionado">
 
+            <div class="form-check" >
+               <input class="form-check-input" [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" *ngIf="gerado == false"  (click)="check()" id="check-aluno"  type="checkbox" >
+            
+            </div>
 
+            <div class="form-group form-check" >
+                  <input class="form-check-input" *ngIf="gerado == true"  (click)="check2()" id="check-aluno2"  type="checkbox" >
+               </div>
+
+            <div class="user"></div>
+      
+            <h3 class="nome-aluno"> {{dados.Dadosdiplomadiplomadonome}}</h3>
+            
+            <label class="labelId">ID:</label>
+            <span class="Id">{{dados.Dadosdiplomadiplomadoid}}</span>
+
+            <label class="labelCpf">CPF:</label>
+            <span class="cpf">{{dados.Dadosdiplomadiplomadocpf}}</span>
+
+            
+            <label class="labelGrau">Data da Colação de Grau:</label>
+            <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dados.Dadosregistrolivroregistrodatacolacaograu}}</p></span>
+            
+            <label class="labelPros">Processo:</label>
+            <span class="pros">{{dados.Dadosregistrolivroregistroprocessododiploma}}</span>
+
+               
+
+            <label class="labelReg">Registro Interno:</label>
+            <span class="registro">{{dados.Dadosregistrolivroregistrolivroregistro}}</span>
+
+            <label class="labelLiv">Livro:</label>
+            <span class="livro">####</span>
+            
+            
+            <label class="labelFol">Folha:</label>
+            <span class="folha">{{dados.Dadosregistrolivroregistronumerofolhadodiploma}}</span> 
+
+            <button type="button" id="assinar" class="btn btn-primary">Assinar</button>
+             
+            <button [ngStyle]="{'opacity':opacity2}" (click)=" viewXml(dados.Dadosdiplomadiplomadoid)"  type="button"   id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
+            <button [ngStyle]="{'opacity':opacity2}" type="button" (click)="viewPdf(dados.Dadosdiplomadiplomadoid)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>   
+           
+            <div *ngIf="!gerado" class="alert alert-success" id="status-aguardando" role="alert">
+               PENDENTE
+            </div> 
+            <div *ngIf="gerado" (change)="onCheckboxChange($event)" class="alert alert-success" id="status-valido" role="alert">
+               VALIDADO
+            </div>
+         </div>
+         
+            
+         <div class="col-12">
+            <button id="gerar" *ngIf="!gerar"  type="submit"  [disabled]="!userForm.valid" (click)="ngSubmit()"  value="Gerar Diploma"  class="btn btn-primary">Gerar</button> 
+         </div> 
+            <div class="col-12">
+            <a id="gerar" *ngIf="gerar"  [ngStyle]="{'opacity':opacity2}"  class="btn btn-primary">Assinar</a>
+         </div> 
+         
+
+      </form>
+   </section> 
 </section>
 
-<div class="info-1"><h3>Mantenedora:<span> Fundação Exemplo</span></h3></div>  
-<div class="info-2"><h3>Instituição:<span> Centro Universitário Fametro</span></h3></div>
-<div class="info-3"><h3>Curso:<span> Medicina  </span></h3></div>
-<div class="info-3-5"><h3>Data do Inicio do processo  do diploma:<span> 22/04/2022 </span></h3></div>
 
-<section class="dados">
-
-  <div class="title-assinar"><h1>Assinar Diploma</h1></div>
-  <div class="line-assinar"></div>
 <!-- 
+   <div *ngIf="view == true && displayStatus == false" [ngStyle]="{'display': display}" class="viewXml">
+     <div class="view">
+      <button class="btn btn-danger" id="close-button-top" (click)="fechar()">Fechar</button>
+       <p class="text-xml">{{viewXmls()}}</p> 
+       <button class="btn btn-danger" id="close-button-down" (click)="fechar()">Fechar</button>
+-->
+
+ <!--  <div class="alert alert-success" id="status-valido" role="alert">
+            VALIDADO
+         </div>   -->
+
+         
+<!--        <label class="labelSeq">Sequência do diploma:</label>
+        <span class="sequencia">####</span>    
+ -->
+
+
+ <!-- 
   <div class="loading" *ngIf="!next">  
     <mat-spinner *ngIf="!next"></mat-spinner>
   </div>    -->
   <!-- *ngIf="next" -->
-  <form class="row g-3"  [formGroup]="formulario" (ngSubmit)="ngSubmit()">
-
-
-     <div class="alunos" *ngFor="let listar of dataRequest; let i = index">
-
-        <div class="form-check" >
-           <input class="form-check-input"  *ngIf="gerado == false"  [value]="dataRequest[i].DadosDiplomaDiplomadoId" (change)="controlOnChange($event)" (click)="check()" id="check-aluno"  type="checkbox" >
-       
-        </div>
-
-        <div class="form-group form-check" >
-            <input class="form-check-input" *ngIf="gerado == true"  [value]="dataRequest[i].DadosDiplomaDiplomadoId" (change)="controlOnChange($event)" (click)="check2()" id="check-aluno2"  type="checkbox" >
-         </div>
-
-        <div class="user"></div>
-        
-        <h3 class="nome-aluno"> {{listar.DadosDiplomaDiplomadoNome}}</h3>
-        
-        <label class="labelId">ID:</label>
-        <span class="Id">{{listar.DadosDiplomaDiplomadoId}}</span>
-
-        <label class="labelCpf">CPF:</label>
-        <span class="cpf">{{listar.DadosDiplomaDiplomadoCpf}}</span>
-
-        
-        <label class="labelGrau">Data da Colação de Grau:</label>
-        <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{listar.DadosRegistroLivroRegistroDataColacaoGrau}}</p></span>
-        
-        <label class="labelPros">Processo:</label>
-        <span class="pros">{{listar.DadosRegistroLivroRegistroProcessoDoDiploma}}</span>
-
-          
-
-        <label class="labelReg">Registro Interno:</label>
-        <span class="registro">{{listar.DadosDiplomaDiplomadoId}}</span>
-
-        <label class="labelLiv">Livro:</label>
-        <span class="livro">####</span>
-        
-        
-        <label class="labelFol">Folha:</label>
-        <span class="folha">{{listar.DadosRegistroLivroRegistroNumeroFolhaDoDiploma}} </span>
-
-          <!--  
-       <label class="labelSeq">Sequência do diploma:</label>
-        <span class="sequencia">####</span>    -->
-
-        <button type="button" id="assinar" class="btn btn-primary">Assinar</button>
-       
-        
-           <button [value]="i" (click)=" viewXml(listar.DadosDiplomaDiplomadoId)" *ngIf="keys[i] == i" type="button"   id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
-           <button type="button" (click)="viewPdf(listar.DadosDiplomaDiplomadoId)" *ngIf="keys[i] == i"  id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>   
-
-         <div  *ngIf="gerado == true" class="alert alert-success" id="status-valido" role="alert">
-            VALIDADO
-         </div>  
-
-         <div  *ngIf="gerado == false" class="alert alert-success" id="status-aguardando" role="alert">
-           PENDENTE
-        </div> 
-
-     <div *ngIf="view == true && displayStatus == false" [ngStyle]="{'display': display}" class="viewXml">
-       <div class="view">
-        <button class="btn btn-danger" id="close-button-top" (click)="fechar()">Fechar</button>
-         <!-- <p class="text-xml">{{viewXmls()}}</p> -->
-         <button class="btn btn-danger" id="close-button-down" (click)="fechar()">Fechar</button>
-     </div>
-      </div>
-     <h1></h1> 
-         
-       </div> 
-       <div #viewer class="webviewer"></div>  
-
-      
-    <div class="col-12">
-        <button id="gerar"  type="submit" *ngIf="gerado == false"  [disabled]="!formulario.valid" (click)="ngSubmit()" [ngStyle]="{'opacity':opacity}" value="Gerar Diploma"  class="btn btn-primary">ngSubmit</button>
-     </div> 
-      <div class="col-12">
-        <a id="gerar" *ngIf="gerado == true"  [ngStyle]="{'opacity':opacity2}"  class="btn btn-primary">Assinar</a>
-     </div> 
-     
-     <h4>No of Selected Checks: {{selectedCheckBoxList.length}} </h4>
-     <ul>
-        <li *ngFor="let tech of selectedCheckBoxList">{{tech}}</li>
-       
-      </ul>
-
-  </form>
-</section> 

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit,ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit,ViewChild, ViewChildren } from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
 import { FormGroup,FormControl,FormBuilder,FormArray, Validators } from '@angular/forms';
 
@@ -10,11 +10,18 @@ import { FormGroup,FormControl,FormBuilder,FormArray, Validators } from '@angula
   styleUrls: ['./assinatura.component.scss']
 })
 export class AssinaturaComponent implements OnInit {
-    formulario!:FormGroup;
     
+    @Input() enable5:any;
+    @Input() alunos_assinar:any;
+    @Input() curso:any;
   
-    dataRequest:any;
-    gerar:any;
+    userForm:FormGroup;
+    
+    checks:any
+    alunosSelecionado:any[]=[];
+    cursoSelecionado:any;
+    Diplomados:any;
+    gerar:boolean = false;
     checked:boolean = false;
     opacity='0.5';
     opacity2='0.5';
@@ -31,81 +38,82 @@ export class AssinaturaComponent implements OnInit {
     selectedCheckBoxList:string[]= [];
     margin:string ='0'
     
-    constructor(private service:BackconnectService,private formBuilder:FormBuilder) {
-      this.formulario = this.formBuilder.group({
-        technology: this.formBuilder.array([], [Validators.required])
+    constructor(private service:BackconnectService,private fb:FormBuilder) {
+      this.userForm = this.fb.group({
+        checkArray: this.fb.array([],[Validators.required]),
+    
       })
     }
   
-    controlOnChange(e:any) {
-      const technologies: FormArray = this.formulario.get('technology') as FormArray;
+
+    onCheckboxChange(e:any){
+      const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
     
-      if (e.target.checked) {
-        technologies.push(new FormControl(e.target.value));
-        this.selectedCheckBoxList.push(e.target.value);
-       
-      } else {
-         const index = technologies.controls.findIndex(technology => technology.value === e.target.value);
-         technologies.removeAt(index);
+        if(e.target.checked){
+          checkArray.push(new FormControl(e.target.value))
+        }else{
+          var i=0; 
+    
+          checkArray.controls.forEach((item:any)=>{
+            if (item.value == e.target.value){
+              checkArray.removeAt(i);
+              return;
+            }
+            i++;
+          });
+        }
       }
-    }
+    
+      bulk(e:any){
+    
+        if(e.target.checked){
+          this.checks = true;
+        }else{
+          this.checks = false;
+        }
+      }
+   
   
+    ngOnChanges() {
+     
+   
+      this.service.listarDiplomados().subscribe((res):any=>{
+        this.Diplomados = res;
+        this. alunos_assinar =  this. alunos_assinar['checkArray'];
+ 
+        this. alunos_assinar.forEach((element:any) => {
+     
+          for(let i=0;i<this.Diplomados.length;i++){ 
+              
+            if(this.Diplomados[i].Dadosdiplomadiplomadoid == element){
+            
+            this.cursoSelecionado = this.Diplomados[i];
+            
+            this.alunosSelecionado.push(this.Diplomados[i]);
+           
+           
+             }
+          } 
+          console.log(this.alunosSelecionado)
+      
+        }); 
+       });
+    
+
+    }
    
     ngSubmit(){
-     this.gerado = true;
-  
-      this.keys = this.formulario.value['technology'];
-      this.keys = Object.keys(this.keys);
      
-     console.log(this.keys)
-      for(let i=0; i<this.keys.length;i++){
-          this.keys[i]
-      }
-   
-      this.margin = '-32px'
-        
-         
+       this.userForm.value 
+     
+       this.opacity2 ='1';
+       
     }
   
     ngOnInit(): void{
-  
-      this.service.listarDiplomados().subscribe((res)=>{
-        this.dataRequest = res; 
-       
-          
-       
-      }); 
-  
-      /* this.service.gerarDiplomado().subscribe((res)=>{
-        
-        this.gerar = res.data;
-        this.pdf =  this.gerar['rvdd'];
-        this.diplomaXml = this.gerar['diploma'];
-        this.next = true;
-  
-      }); */
      
-      this.keys= false
-     
-    
-  
-      scrollTo(10, 0);
     }
     
-   
-  
-  
-  
-    gerarDiplomados():any{
-      if(this.checked == false){
-        return 0;
-       }else{
-        this.gerado = !this.gerado;
-  
-      
-    }
-  
-    }
   
     downloadPdf(base64String:any, fileName:any) {
       const source = `data:application/pdf;base64,${base64String}`;
@@ -115,111 +123,44 @@ export class AssinaturaComponent implements OnInit {
       link.click();
     }
   
-  
-    
-    viewPdf(id:any){
+    viewPdf(id:any):any{
+      
       let base64String =  this.pdf;
-      this.downloadPdf(base64String,"sample");
+      this.downloadPdf(base64String,"sample"); 
       
     }
-  
     
-   downloadXml(filename:any, text:any) {
-  
-    const element = document.createElement('a');
-    element.setAttribute('href', ' data:application/xml;charset=utf-8,' + encodeURIComponent(text));
-    element.setAttribute('download', filename);
-    document.body.appendChild(element);
-    document.body.removeChild(element);
-    element.click();
-  
-  
-  }
-  
-  /* viewXmls(){
-  
-  
-  }
-   */
-  
-  
-  
-    viewXml(id:any){
-        
-        /*  let text =  this.diplomaXml;
-         let filename;
-         this.downloadXml(filename,text); */
-        
-        
-  
-     
-        
+    downloadXml(filename:any, text:any) {
+      const element = document.createElement('a');
+      element.setAttribute('href', ' data:application/xml;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+      document.body.appendChild(element);
+      document.body.removeChild(element);
+      element.click();
+
     }
   
-     /*    this.view = !this.view
-      this.display = 'block'; */
+    viewXml(id:any){
+      
+      let text =  this.diplomaXml;
+      let filename;
+      this.downloadXml(filename,text); 
+    }
   
     fechar(){
       this.display = 'none';
-      
     }
-  
-  
-   
+    
     check(){
-     
-     this.checked = !this.checked
-     this.opacity ='1';
-       
+    /*  this.checked = !this.checked
+     this.opacity ='1'; */
     }
-  
-  
+
     check2(){
-  
-      this.opacity2 ='1';
-  
-      
+      /* this.opacity2 ='1';  */   
     }
   
   
   }
   
   
-    
-  /*
-   ngAfterViewInit():void{
-       WebViewer({
-       path:'../assets/lib',
-       initialDoc:'https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf'
-      },this.viewerRef.nativeElement).then(instance => {
-  
-      }); 
-  
-    }*/
-  
-  
-       
-    /*   for(let i=0; i<this.dataRequest.length;i++){
-  
-        this.dataRequest[i].DadosDiplomaDiplomadoId;
-    
-         if(id == this.dataRequest[i].DadosDiplomaDiplomadoId){
-          
-          this.status_true[i] = id;
-         
-          this.key = Object.keys(this.status_true);
-    
-         this.bool_check = !this.bool_check;
-        
-          this.key = this.key.pop();
-       
-      
-        
-         
-          console.log(this.key);
-         
-  
-          this.key = this.key.pop();
-           */
-
-

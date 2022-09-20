@@ -7,12 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NovoComponent implements OnInit {
   
-  enable:boolean = false
-  enable2:boolean = false
-  enable3:boolean = false
-  curso:any
-  backPage:any
-  showPage:any
+  enable:boolean = false;
+  enable2:boolean = false;
+  enable3:boolean = false;
+  enable4:boolean = false;
+  enable5:boolean = false;
+  alunos:any;
+  alunos_assinar:any;
+  curso:any;
+  backPage:any;
+  showPage:any;
 
 
 
@@ -42,6 +46,16 @@ export class NovoComponent implements OnInit {
 
   }
 
+  alunosSelecionados(alunos:any){
+   this.alunos = alunos
+  
+  }
+
+  alunosAssinar(alunos_assinar:any){
+    this.alunos_assinar = alunos_assinar
+   
+   }
+
   handleButtonClick(value:any){
     this.enable = value
      
@@ -58,4 +72,43 @@ export class NovoComponent implements OnInit {
      
   }
 
+  handleButtonClick4(value4:any){
+    this.enable4 = value4
+     
+  }
+
+  handleButtonClick5(value5:any){
+    this.enable5 = value5;
+     
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
