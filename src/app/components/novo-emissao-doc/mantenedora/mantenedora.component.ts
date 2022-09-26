@@ -42,7 +42,8 @@ backPage:boolean = false;
        this.service.listarDiplomados().subscribe((res):any=>{
         
         this.Diplomados = res;
- 
+        
+
           
           for(let i=0;i<this.Diplomados.length;i++){ 
            

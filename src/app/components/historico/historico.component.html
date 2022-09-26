@@ -1,8 +1,49 @@
-     
+
+ 
 <div class="po-wrapper">
 
-    <po-page-default>
-    <p>Historico</p>
-
-    </po-page-default>
-</div>
+    <div class="submit-line">
+      <input  [(ngModel)]="conformeFiltro" type="text"  placeholder="Procurar..."/>
+      <button class="submit-lupa" type="submit">
+        <i id="search" class="fa fa-search"></i>
+      </button>
+    </div>
+  
+    <a id="impor-xml"  class="btn btn-primary" ><i id="file" class="fa fa-file" aria-hidden="true"></i> Importar XML </a>
+  
+    <a id="new"  routerLink="/dados-pessoais"  routerLinkActive="list-item-active" class="btn btn-primary" ><i id="plus" class="fa fa-plus" aria-hidden="true"></i> Novo </a>
+   
+  
+       <div>
+          <table class="table">
+              <thead>
+                <tr>
+                  <td scope="col">Versão do XML</td>
+                  <td scope="col">ID do Diploma</td>
+                  <td scope="col">Código de Validação</td>
+                  <td scope="col">Origem</td>
+                  <td scope="col">Situação</td>
+                  <td scope="col">Data de emissão</td>
+                  <td scope="col">Última Atualização</td>
+                  <td scope="col">Usuário</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dados of infos | emissao:conformeFiltro" >
+                  <th>{{dados.VersaoXML}}</th>
+                  <th>{{dados.IdDiploma}}</th>
+                  <th>{{dados.CodigoValidacao}}</th>
+                  <th><button class="novo">{{dados.Origem}}</button></th>
+                  <th><p class="conforme">{{dados.Situacao}}</p></th>
+                  <th>{{dados.DataEmissao}}</th>
+                  <th>{{dados.UltimaAtualizacao}}</th>
+                  <th>{{dados.Usuario}}</th>
+                </tr>
+              
+              </tbody>
+          </table>  
+  
+        </div>
+   
+  </div>
+  

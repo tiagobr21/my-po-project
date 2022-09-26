@@ -9,7 +9,7 @@
 <div class="po-wrapper">
 
     <div class="submit-line">
-      <input  [(ngModel)]="filtroConforme" name="filtroConforme" type="text"  placeholder="Procurar..."/>
+      <input  [(ngModel)]="userFiltro" type="text"  placeholder="Procurar..."/>
       <button class="submit-lupa" type="submit">
         <i id="search" class="fa fa-search"></i>
       </button>
@@ -23,7 +23,7 @@
           <table class="table">
               <thead>
                 <tr>
-                  <td scope="col">Nomes</td>
+                  <td scope="col">Nome</td>
                   <td scope="col">Email</td>
                   <td scope="col">Ativo</td>
                   <td scope="col">Criado em</td>
@@ -32,22 +32,17 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th>Karla Brilhante</th>
-                  <th>karla.brilhante@fametro.edu.br</th>
-                  <th>Sim</th>
-                  <th>07/12/2021 16:50</th>
+                <tr *ngFor="let dados of infos | usuarios:userFiltro">
+                
+                  <th>{{dados.Nome}}</th>
+                  <th>{{dados.Email}}</th>
+                  <th>{{dados.Ativo}}</th>
+                  <th>{{dados.Criadoem}}</th>
                   <th><button id="pen" class="btn btn-primary fa fa-pen"></button> </th>
-                  <th><button id="trash" class="btn btn-danger fas fa-trash-alt"></button> </th>
-                <tr>
-                  <th>Hugo Santos</th>
-                  <th>hugo.santos@fametro.edu.br</th>
-                  <th>Sim</th>
-                  <th>07/12/2021 17:06</th>
-                  <th><button id="pen" class="btn btn-primary fa fa-pen"></button> </th>
-                  <th><button id="trash" class="btn btn-danger fas fa-trash-alt"></button> </th>
-                </tr>
-              
+                  <th><button id="trash" class="btn btn-danger fas fa-trash-alt"></button>
+                  
+                </th>
+                   
               </tbody>
           </table>  
   

@@ -13,7 +13,7 @@ export class SidenavComponent implements OnInit {
   readonly menus: Array<PoMenuItem> = [
     
     {label: 'Dashboard', link:'/dashboard', icon: 'po-icon po-icon-device-desktop', shortLabel: 'Dashboard'},
-    {label: 'Administrativo', icon:'po-icon po-icon-waiter', shortLabel: 'início' ,subItems:[ { label: 'Cadastro de Usuários', link:'/cadastro', icon:'po-icon-users', shortLabel: 'Usuários'  },{ label: 'Token', link:'token', icon:'po-icon po-icon-credit-payment', shortLabel: 'Usuários'  } ]},
+    {label: 'Administrativo', icon:'po-icon po-icon-waiter', shortLabel: 'início' ,subItems:[ { label: 'Usuários', link:'/cadastro', icon:'po-icon-users', shortLabel: 'Usuários'  },{ label: 'Token', link:'token', icon:'po-icon po-icon-credit-payment', shortLabel: 'Usuários'  } ]},
 
 
     

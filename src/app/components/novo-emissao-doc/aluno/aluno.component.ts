@@ -10,7 +10,31 @@ import { FormBuilder,FormGroup,FormControl,FormArray,ValidatorFn, Validators } f
 })
 export class AlunoComponent implements OnInit {
  
-  userForm:FormGroup
+  userForm:FormGroup;
+  alunosFiltro:string = '';
+
+  infos = [
+    {
+      VersaoXML:'v1.04.1',
+      IdDiploma:'20030103',
+      CodigoValidacao:'1283467024671c6c58b8',
+      Origem:'Novo',
+      Situacao:'EM CONFORMIDADE',
+      DataEmissao:'04/08/2022 13:29',
+      UltimaAtualizacao:'04/08/2022 14:00',
+      Usuario:'Hugo Santos'
+    },
+    {
+       VersaoXML:'v1.04.1',
+       IdDiploma:'646442334',
+       CodigoValidacao:'34mfenpn3om567k7m3l',
+       Origem:'Novo',
+       Situacao:'NÃO CONFORMIDADE',
+       DataEmissao:'05/08/2022 08:43',
+       UltimaAtualizacao:'04/08/2022 11:37',
+       Usuario:'Tiago Souza'
+      }
+  ]
     
   @Input() curso:any;
   @Input() enable3:any;
@@ -35,6 +59,7 @@ export class AlunoComponent implements OnInit {
   page3Select:boolean=false
   page4Select:boolean=false
   page5Select:boolean=false
+  checkbox:any[]=[{}]
   
 
   constructor(private service:BackconnectService,private fb:FormBuilder) {
@@ -47,25 +72,30 @@ export class AlunoComponent implements OnInit {
   onCheckboxChange(e:any){
   const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
 
+
     if(e.target.checked){
       checkArray.push(new FormControl(e.target.value))
     }else{
       var i=0; 
 
       checkArray.controls.forEach((item:any)=>{
+        console.log(item.value)
         if (item.value == e.target.value){
+      
           checkArray.removeAt(i);
           return;
         }
         i++;
       });
     }
+  
   }
 
   bulk(e:any){
 
     if(e.target.checked){
       this.checks = true;
+      
     }else{
       this.checks = false;
     }
@@ -76,7 +106,7 @@ export class AlunoComponent implements OnInit {
     this.enable4 = this.enable4 == false ? true : false;
     this.buttonClick4.emit(this.enable4)
     this.alunosSelecionados.emit(this.userForm.value)
-  
+
 
   }
 
@@ -91,7 +121,7 @@ export class AlunoComponent implements OnInit {
   
     this.service.listarDiplomados().subscribe((res):any=>{
       this.Diplomados = res;
- 
+    
        for(let i=0;i<this.Diplomados.length;i++){ 
          if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.curso){
    
@@ -113,6 +143,7 @@ export class AlunoComponent implements OnInit {
             this.page1 = this.dadosAlunos.slice(0,this.contador);
        
            }
+       
         }
         
       } 

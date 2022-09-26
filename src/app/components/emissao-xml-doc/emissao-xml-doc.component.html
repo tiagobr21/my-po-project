@@ -3,7 +3,7 @@
 <div class="po-wrapper">
 
   <div class="submit-line">
-    <input  [(ngModel)]="filtroConforme" name="filtroConforme" type="text"  placeholder="Procurar..."/>
+    <input  [(ngModel)]="conformeFiltro" type="text"  placeholder="Procurar..."/>
     <button class="submit-lupa" type="submit">
       <i id="search" class="fa fa-search"></i>
     </button>
@@ -29,26 +29,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>v1.04.1</th>
-                <th>20030103</th>
-                <th>1283467024671c6c58b8</th>
-                <th><button class="novo">Novo</button></th>
-                <th><button class="conforme">EM CONFORMIDADE</button></th>
-                <th>04/08/2022 13:29</th>
-                <th>04/08/2022 13:29</th>
-                <th>Hugo Santos</th>
-              </tr>
-
-              <tr>
-                <th>v1.04.1</th>
-                <th>646442334</th>
-                <th>34mfenpn3om567k7m3l</th>
-                <th><button class="novo">Novo</button></th>
-                <th><button class="nao-conforme">NÃO CONFORMIDADE</button></th>
-                <th>04/08/2022 13:29</th>
-                <th>04/08/2022 13:29</th>
-                <th>Tiago Souza</th>
+              <tr *ngFor="let dados of infos | emissao:conformeFiltro" >
+                <th>{{dados.VersaoXML}}</th>
+                <th>{{dados.IdDiploma}}</th>
+                <th>{{dados.CodigoValidacao}}</th>
+                <th><button class="novo">{{dados.Origem}}</button></th>
+                <th><p class="conforme">{{dados.Situacao}}</p></th>
+                <th>{{dados.DataEmissao}}</th>
+                <th>{{dados.UltimaAtualizacao}}</th>
+                <th>{{dados.Usuario}}</th>
               </tr>
             
             </tbody>

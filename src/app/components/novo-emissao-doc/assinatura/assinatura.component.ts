@@ -16,7 +16,9 @@ export class AssinaturaComponent implements OnInit {
     @Input() curso:any;
   
     userForm:FormGroup;
-    
+
+    status_1:string = 'PENDENTE';
+    status_2:string = 'VALIDADO';
     checks:any
     alunosSelecionado:any[]=[];
     cursoSelecionado:any;
@@ -37,14 +39,19 @@ export class AssinaturaComponent implements OnInit {
     keys:any
     selectedCheckBoxList:string[]= [];
     margin:string ='0'
+    test:any;
+    response:string ='';
     
     constructor(private service:BackconnectService,private fb:FormBuilder) {
       this.userForm = this.fb.group({
+        status_1: ["PENDENTE",[Validators.required]],
         checkArray: this.fb.array([],[Validators.required]),
-    
+        status_2: ["VALIDADO",[Validators.required]],
       })
     }
   
+  
+
 
     onCheckboxChange(e:any){
       const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
@@ -79,7 +86,7 @@ export class AssinaturaComponent implements OnInit {
    
       this.service.listarDiplomados().subscribe((res):any=>{
         this.Diplomados = res;
-        this. alunos_assinar =  this. alunos_assinar['checkArray'];
+        this. alunos_assinar =  this.alunos_assinar['checkArray'];
  
         this. alunos_assinar.forEach((element:any) => {
      
@@ -94,8 +101,7 @@ export class AssinaturaComponent implements OnInit {
            
              }
           } 
-          console.log(this.alunosSelecionado)
-      
+        
         }); 
        });
     
@@ -103,15 +109,18 @@ export class AssinaturaComponent implements OnInit {
     }
    
     ngSubmit(){
-     
-       this.userForm.value 
-     
-       this.opacity2 ='1';
+      this.gerado = true;
+      console.log(this.userForm.value);
+      this.response =  this.userForm.value['checkArray'];
+
+      this.opacity2 ='1';
+
+    
        
     }
   
     ngOnInit(): void{
-     
+  
     }
     
   
@@ -124,9 +133,13 @@ export class AssinaturaComponent implements OnInit {
     }
   
     viewPdf(id:any):any{
-      
-      let base64String =  this.pdf;
-      this.downloadPdf(base64String,"sample"); 
+      if(this.gerado == true){
+        let base64String = this.pdf;
+        this.downloadPdf(base64String,"sample");
+      }else{
+        return 0;
+      }
+       
       
     }
     
@@ -140,11 +153,14 @@ export class AssinaturaComponent implements OnInit {
 
     }
   
-    viewXml(id:any){
-      
+    viewXml(id:any):any{
+      if(this.gerado == true){
       let text =  this.diplomaXml;
       let filename;
       this.downloadXml(filename,text); 
+      }else{
+        return 0;
+      }
     }
   
     fechar(){

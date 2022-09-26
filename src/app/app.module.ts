@@ -22,17 +22,25 @@ import { EmissaoXmlDipComponent } from './components/emissao-xml-dip/emissao-xml
 import { HeaderComponent } from './components/header/header.component';
 import { FiltroDiplomadoPipe } from './pipe/filtro-diplomado.pipe';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MantenedoraComponent } from './components/novo/mantenedora/mantenedora.component';
-import { IesComponent } from './components/novo/ies/ies.component';
-import { CursoComponent } from './components/novo/curso/curso.component';
-import { AlunoComponent } from './components/novo/aluno/aluno.component';
-import { LivroRegistroComponent } from './components/novo/livro-registro/livro-registro.component';
-import { AssinaturaComponent } from './components/novo/assinatura/assinatura.component';
-import { SelecionarCursoComponent } from './components/novo/selecionar-curso/selecionar-curso.component';
+import { MantenedoraComponent } from './components/novo-emissao-doc/mantenedora/mantenedora.component';
+import { IesComponent } from './components/novo-emissao-doc/ies/ies.component';
+import { CursoComponent } from './components/novo-emissao-doc/curso/curso.component';
+import { AlunoComponent } from './components/novo-emissao-doc/aluno/aluno.component';
+import { LivroRegistroComponent } from './components/novo-emissao-doc/livro-registro/livro-registro.component';
+import { AssinaturaComponent } from './components/novo-emissao-doc/assinatura/assinatura.component';
+import { SelecionarCursoComponent } from './components/novo-emissao-doc/selecionar-curso/selecionar-curso.component';
 import { AppMaterialModule } from './components/material/app-material.module';
 import { AreaPublicaComponent } from './components/area-publica/area-publica.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
-import { NovoComponent } from './components/novo/novo.component';
+import { NovoComponent } from './components/novo-emissao-doc/novo.component';
+import { EmissaoPipe } from './components/filters/emissao.pipe';
+import { UsuariosPipe } from './components/filters/usuarios.pipe';
+import { HistoricoPipe } from './components/filters/historico.pipe';
+import { DadosPessoaisComponent } from './components/novo-historico/dados-pessoais/dados-pessoais.component';
+import { AlunosPipe } from './components/filters/alunos.pipe';
+import { DadosAlunosPipe } from './components/filters/dadosAlunos.pipe';
+
+
 
 
 
@@ -59,7 +67,15 @@ import { NovoComponent } from './components/novo/novo.component';
     AssinaturaComponent,
     SelecionarCursoComponent,
     AreaPublicaComponent,
-    NovoComponent
+    NovoComponent,
+    EmissaoPipe,
+    UsuariosPipe,
+    HistoricoPipe,
+    DadosPessoaisComponent,
+    AlunosPipe,
+    DadosAlunosPipe
+
+ 
 
   ],
 

@@ -44,7 +44,7 @@
       <form class="row g-3"  [formGroup]="userForm">
       
 
-         <div class="alunos" *ngFor="let dados of alunosSelecionado">
+         <div class="alunos" *ngFor="let dados of alunosSelecionado; let i = index  ">
 
             <div class="form-check" >
                <input class="form-check-input" [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" *ngIf="gerado == false"  (click)="check()" id="check-aluno"  type="checkbox" >
@@ -85,24 +85,22 @@
             <span class="folha">{{dados.Dadosregistrolivroregistronumerofolhadodiploma}}</span> 
 
             <button type="button" id="assinar" class="btn btn-primary">Assinar</button>
-             
-            <button [ngStyle]="{'opacity':opacity2}" (click)=" viewXml(dados.Dadosdiplomadiplomadoid)"  type="button"   id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
-            <button [ngStyle]="{'opacity':opacity2}" type="button" (click)="viewPdf(dados.Dadosdiplomadiplomadoid)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>   
+              
+            <button *ngIf="response[i] == dados.Dadosdiplomadiplomadoid" (click)=" viewXml(dados.Dadosdiplomadiplomadoid)"  type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
+            <button *ngIf="response[i] == dados.Dadosdiplomadiplomadoid" type="button" (click)="viewPdf(dados.Dadosdiplomadiplomadoid)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>    
            
-            <div *ngIf="!gerado" class="alert alert-success" id="status-aguardando" role="alert">
-               PENDENTE
-            </div> 
-            <div *ngIf="gerado" (change)="onCheckboxChange($event)" class="alert alert-success" id="status-valido" role="alert">
-               VALIDADO
-            </div>
+            <input *ngIf="response[i] != dados.Dadosdiplomadiplomadoid" class="alert alert-success" id="status-aguardando" formControlName="status_1">    
+            <input  *ngIf="response[i] == dados.Dadosdiplomadiplomadoid" class="alert alert-success" id="status-valido" formControlName="status_2" > 
+           
+         
          </div>
          
             
          <div class="col-12">
-            <button id="gerar" *ngIf="!gerar"  type="submit"  [disabled]="!userForm.valid" (click)="ngSubmit()"  value="Gerar Diploma"  class="btn btn-primary">Gerar</button> 
+            <button id="gerar" *ngIf="!gerado"  type="submit"  [disabled]="!userForm.valid" (click)="ngSubmit()"  value="Gerar Diploma"  class="btn btn-primary">Gerar</button> 
          </div> 
             <div class="col-12">
-            <a id="gerar" *ngIf="gerar"  [ngStyle]="{'opacity':opacity2}"  class="btn btn-primary">Assinar</a>
+            <a id="gerar" *ngIf="gerado"  [ngStyle]="{'opacity':opacity2}"  class="btn btn-primary">Assinar</a>
          </div> 
          
 
