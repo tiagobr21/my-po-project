@@ -7,7 +7,9 @@
     <form [formGroup]="userForm"  class="row g-3">
 
        <div class="form-check">
-          <input (change)="bulk($event)" class="form-check-input" id="input-all" type="checkbox" value="">
+  
+          <input [(ngModel)]="allCheckes" [value]="-1" (change)="onCheckboxChange($event)" class="form-check-input" id="input-all" type="checkbox">
+      
           <label class="form-check-label" for="flexCheckDefault"  id="check-all">
              Selecionar Tudo    
           </label>
@@ -23,6 +25,7 @@
           <option value="2">Two</option>
           <option value="3">Three</option>
         </select>
+ 
 
         <button id="inserir" class="btn btn-primary btn-sm">+ Inserir aluno</button>
         <button id="importar" class="btn btn-primary btn-sm"> Importar alunos</button>
@@ -42,7 +45,7 @@
           <div  *ngFor="let dados of Diplomados | dados:dadosFiltro"   class="alunos">
 
              <div class="form-check">
-                <input [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)"  class="form-check-input"  id="check-aluno"  type="checkbox" >
+                <input [checked]="dados.Checked" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" class="form-check-input"  id="check-aluno"  type="checkbox" >
              </div>
 
              <div class="user"></div>
@@ -161,7 +164,7 @@
        </div> -->
  
        <div class="col-12">
-          <button id="proximo" (click)="ngSubmit()"  [disabled]="!userForm.valid" class="btn btn-primary">Próximo</button>
+          <button id="proximo" (click)="ngSubmit()" class="btn btn-primary">Próximo</button>
        </div> 
   
     </form>
