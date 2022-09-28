@@ -12,29 +12,6 @@ export class AlunoComponent implements OnInit {
  
   userForm:FormGroup;
   alunosFiltro:string = '';
-
-  infos = [
-    {
-      VersaoXML:'v1.04.1',
-      IdDiploma:'20030103',
-      CodigoValidacao:'1283467024671c6c58b8',
-      Origem:'Novo',
-      Situacao:'EM CONFORMIDADE',
-      DataEmissao:'04/08/2022 13:29',
-      UltimaAtualizacao:'04/08/2022 14:00',
-      Usuario:'Hugo Santos'
-    },
-    {
-       VersaoXML:'v1.04.1',
-       IdDiploma:'646442334',
-       CodigoValidacao:'34mfenpn3om567k7m3l',
-       Origem:'Novo',
-       Situacao:'NÃO CONFORMIDADE',
-       DataEmissao:'05/08/2022 08:43',
-       UltimaAtualizacao:'04/08/2022 11:37',
-       Usuario:'Tiago Souza'
-      }
-  ]
     
   @Input() curso:any;
   @Input() enable3:any;
@@ -59,7 +36,9 @@ export class AlunoComponent implements OnInit {
   page3Select:boolean=false
   page4Select:boolean=false
   page5Select:boolean=false
-  checkbox:any[]=[{}]
+  checkbox:any[]=[]
+  allCheckes:any
+
   
 
   constructor(private service:BackconnectService,private fb:FormBuilder) {
@@ -70,43 +49,70 @@ export class AlunoComponent implements OnInit {
   }
 
   onCheckboxChange(e:any){
-  const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
+    const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
+    const id = e.target.value;
+    const isChecked = e.target.checked;
+
+    this.Diplomados =  this.Diplomados.map((i:any)=>{
+ 
+      if(i.Dadosdiplomadiplomadoid === id){
+        i.Checked = isChecked
+        this.allCheckes = false;
+
+        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid));
+        return i;
+    
+      }else if(id == -1){
+        i.Checked = this.allCheckes;
+        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid));
+       
+        if(e.target.checked){
+          this.checks = true;
+        }else{
+          this.checks = false;
+          
+          let contador = 0; 
+
+          checkArray.controls.forEach((item:any)=>{
+        
+              checkArray.removeAt(contador);
+              contador++;
+              console.log(checkArray.value)
+              return;
+
+          });
+        } 
+
+        return i;
+
+      } else{
+        let contador = 0; 
+
+        checkArray.controls.forEach((item:any)=>{
+        
+          if (item.value == e.target.value){
+            console.log(item.value)
+            checkArray.removeAt(contador);
+            return;
+          }
 
 
-    if(e.target.checked){
-      checkArray.push(new FormControl(e.target.value))
-    }else{
-      var i=0; 
-
-      checkArray.controls.forEach((item:any)=>{
-        console.log(item.value)
-        if (item.value == e.target.value){
-      
-          checkArray.removeAt(i);
-          return;
-        }
-        i++;
-      });
-    }
-  
+          contador++;
+        });
+      }
+    
+      return i;
+    });
+    
   }
 
-  bulk(e:any){
 
-    if(e.target.checked){
-      this.checks = true;
-      
-    }else{
-      this.checks = false;
-    }
-  }
-  
   ngSubmit(){
     this.enable3 = false;
     this.enable4 = this.enable4 == false ? true : false;
     this.buttonClick4.emit(this.enable4)
     this.alunosSelecionados.emit(this.userForm.value)
-
+    console.log(this.userForm.value)
 
   }
 
@@ -121,6 +127,10 @@ export class AlunoComponent implements OnInit {
   
     this.service.listarDiplomados().subscribe((res):any=>{
       this.Diplomados = res;
+
+      this.Diplomados.map( (diplomado:any) => {
+        diplomado.Checked = false;
+      }) 
     
        for(let i=0;i<this.Diplomados.length;i++){ 
          if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.curso){
@@ -128,7 +138,7 @@ export class AlunoComponent implements OnInit {
            this.cursoSelecionado = this.Diplomados[i];
            
            this.dadosAlunos.push(this.Diplomados[i]);
-        
+          
            
            // Exibição da Página
 

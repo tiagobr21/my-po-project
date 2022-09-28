@@ -38,11 +38,39 @@
 
    <section class="dados">
 
-   <div class="title-assinar"><h1>Assinar Diploma</h1></div>
-   <div class="line-assinar"></div>
-
       <form class="row g-3"  [formGroup]="userForm">
-      
+         <div class="form-check">
+            <input [(ngModel)]="allCheckes" [value]="-1" (change)="onCheckboxChange($event)"class="form-check-input" id="input-all" type="checkbox" value="">
+            <label class="form-check-label" for="flexCheckDefault"  id="check-all">
+               Selecionar Tudo    
+            </label>
+         </div>
+         
+         <div class="mb-3">
+            <input   type="text" class="form-control" id="buscar" placeholder="Buscar">
+          </div>
+           
+          <select class="form-select" id="filtro">
+            <option selected>Filtro</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+
+          <button id="inserir" class="btn btn-primary btn-sm">+ Inserir aluno</button>
+          <button id="importar" class="btn btn-primary btn-sm"> Importar alunos</button>
+           
+          <div class="navegation">
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+             
+             <!--     <button (click)="page1Ativo()" type="button" class="btn btn-primary">1</button>
+               <button (click)="page2Ativo()" type="button" class="btn btn-primary">2</button>
+               <button (click)="page3Ativo()" type="button" class="btn btn-primary">3</button>
+                <button (click)="page4Ativo()" type="button" class="btn btn-primary">4</button>
+               <button (click)="page5Ativo()" type="button" class="btn btn-primary">5</button> -->
+              
+             </div>
+         </div>
 
          <div class="alunos" *ngFor="let dados of alunosSelecionado; let i = index  ">
 

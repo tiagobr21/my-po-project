@@ -300,6 +300,52 @@ form label{
    font-size: 14px;
 }
 
+
+#input-all{
+    margin:1px 0 0 -60px;
+}
+
+#check-all{
+    margin:-10px 0 0 -40px;
+}
+
+#buscar{
+    bottom: 43px;
+    left: 14%;
+    position: relative;
+    width: 35%;
+}
+
+#filtro{
+    bottom: 105px;
+    left: 50%;
+    position: relative;
+    width: 20%; 
+}
+
+
+#inserir{
+
+    bottom: 105px;
+    left: 51%;
+    position: relative;
+    width: 25%; 
+    border-radius: 40px;
+}
+
+#importar{
+    width: 10px;
+    bottom: 105px;
+    left: 52%;
+    position: relative;
+    width: 25%; 
+    border-radius: 40px;
+}
+
+option{
+    color: black;
+}
+
 .alunos{
     position: relative;
     bottom: 75px;

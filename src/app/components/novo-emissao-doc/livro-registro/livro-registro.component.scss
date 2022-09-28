@@ -179,6 +179,11 @@ label{
     opacity: 0.9;
 }
 
+
+#check-all{
+    margin:-10px 0 0 -40px;
+}
+
 @keyframes progress5 {
     from {
       width: 30%;
@@ -268,31 +273,70 @@ span{
     border: 1px solid #ccc;
 }
 
-
-
-.title-registro{
-    bottom: 180px;
-    right: 150px;
-    position:relative;
-}
-
-.line-registro{
-    bottom: 205px;
-    right: 50px;
-    position:relative;
-    height: 2px;
-    width: 134%;
-    background-color: black;
-    opacity: 0.1;
-} 
+ 
 
 form{
-    margin: -100px 0 0 -140px ;
+    margin: -190px 0 0 -140px ;
 }
 
 form label{
    font-size: 14px;
 }
+
+
+
+#input-all{
+    margin:1px 0 0 -60px;
+}
+
+#check-all{
+    margin:-10px 0 0 -40px;
+}
+
+#buscar{
+    bottom: 43px;
+    left: 14%;
+    position: relative;
+    width: 35%;
+}
+
+#filtro{
+    bottom: 105px;
+    left: 50%;
+    position: relative;
+    width: 20%; 
+}
+
+
+#inserir{
+
+    bottom: 105px;
+    left: 51%;
+    position: relative;
+    width: 25%; 
+    border-radius: 40px;
+}
+
+#importar{
+    width: 10px;
+    bottom: 105px;
+    left: 52%;
+    position: relative;
+    width: 25%; 
+    border-radius: 40px;
+}
+
+option{
+    color: black;
+}
+
+
+.navegation{
+    margin:-14% 0 5% 97%;
+    width: 30%;
+    padding: 30px;
+ }
+
 
 .alunos{
     position: relative;
@@ -350,7 +394,7 @@ form label{
 
 .labelCpf{
     bottom: 170px;
-    left: -95px;
+    left: -80px;
     margin-left: 16%;
     position: relative;
     color: black;
@@ -359,14 +403,14 @@ form label{
 .cpf{
     font-size: 12px;
     bottom: 170px;
-    left: -95px;
+    left: -80px;
     position: relative;
     color: #0c9abe;
 }
 
 .labelGrau{
     bottom: 170px;
-    left: -85px;
+    left: -60px;
     position: relative;
     color: black;
 }
@@ -374,23 +418,23 @@ form label{
 .grau{
     font-size: 12px;
     bottom: 170px;
-    left: -90px;
+    left: -65px;
     position: relative;
     color: #0c9abe;
 }
 
 .labelPros{
     bottom: 170px;
-    left: -80px;
+    left: -105px;
     position: relative;
     color: black;
 }
 
 .pros{
-    font-size: 11px;
+    font-size: 12px;
     bottom: 170px;
-    right:  5%;
-    left: -80px;
+    left: -105px;
+    max-width: 100%;
     position: relative;
     color: #0c9abe;
 }
@@ -398,7 +442,7 @@ form label{
 
 .labelReg{
     bottom: 170px;
-    left:  15%;
+    left:  14.5%;
     position: relative;
     color: black;
 }
@@ -406,7 +450,7 @@ form label{
 .registro{
     font-size: 12px;
     bottom: 170px;
-    left:  15%;
+    left:  14.5%;
     position: relative;
     color: #0c9abe;
 }

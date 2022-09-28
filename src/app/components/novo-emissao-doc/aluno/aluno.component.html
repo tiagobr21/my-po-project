@@ -40,7 +40,7 @@
          <form [formGroup]="userForm"  class="row g-3">
 
             <div class="form-check">
-               <input (change)="bulk($event)" class="form-check-input" id="input-all" type="checkbox" value="">
+               <input [(ngModel)]="allCheckes" [value]="-1" (change)="onCheckboxChange($event)"class="form-check-input" id="input-all" type="checkbox" value="">
                <label class="form-check-label" for="flexCheckDefault"  id="check-all">
                   Selecionar Tudo    
                </label>
@@ -73,10 +73,10 @@
             </div>
        
             <div class="page1" *ngIf="page1Select == true">
-               <div  *ngFor="let dados of page1 | alunos:alunosFiltro"   class="alunos">
+               <div  *ngFor="let dados of page1"   class="alunos">
 
                   <div class="form-check">
-                     <input [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)"  class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
+                     <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)"  class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
                   </div>
 
                   <div class="user"></div>
@@ -97,7 +97,7 @@
             </div>
 
             <div class="page2" *ngIf="page2Select == true">
-               <div  *ngFor="let dados of page2 | alunos:alunosFiltro"   class="alunos">
+               <div  *ngFor="let dados of page2 "   class="alunos">
                
                   <div class="form-check" >
                      <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
@@ -122,7 +122,7 @@
 
             
             <div class="page3" *ngIf="page3Select == true">
-               <div  *ngFor="let dados of page3 | alunos:alunosFiltro"   class="alunos">
+               <div  *ngFor="let dados of page3 "   class="alunos">
 
                   <div class="form-check" >
                      <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
@@ -171,7 +171,7 @@
             </div>
             
             <div class="page5" *ngIf="page5Select == true">
-               <div  *ngFor="let dados of page5 | alunos:alunosFiltro"   class="alunos">
+               <div  *ngFor="let dados of page5"   class="alunos">
 
                   <div class="form-check" >
                      <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
@@ -195,9 +195,9 @@
             </div>
       
             <div class="col-12">
-               <button id="proximo" (click)="ngSubmit()"  class="btn btn-primary">Próximo</button>
+               <button id="proximo" (click)="ngSubmit()" [disabled]="!userForm.valid"  class="btn btn-primary">Próximo</button>
             </div> 
-            <!-- [disabled]="!userForm.valid" -->
+      
             <div class="col-12">
                <a id="refresh"  (click)="refresh()" class="btn btn-danger">Fazer Novamente</a>
             </div> 

@@ -41,6 +41,7 @@ export class AssinaturaComponent implements OnInit {
     margin:string ='0'
     test:any;
     response:string ='';
+    allCheckes:any
     
     constructor(private service:BackconnectService,private fb:FormBuilder) {
       this.userForm = this.fb.group({
