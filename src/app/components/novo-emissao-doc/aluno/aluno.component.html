@@ -40,12 +40,12 @@
          <form [formGroup]="userForm"  class="row g-3">
 
             <div class="form-check">
-               <input [(ngModel)]="allCheckes" [value]="-1" (change)="onCheckboxChange($event)"class="form-check-input" id="input-all" type="checkbox" value="">
+               <input [(ngModel)]="allCheckes" [checked]="checks"  [value]="-1" (change)="onCheckboxChange($event)" class="form-check-input" id="input-all" type="checkbox" value="">
                <label class="form-check-label" for="flexCheckDefault"  id="check-all">
                   Selecionar Tudo    
                </label>
             </div>
-            
+              
             <div class="mb-3">
                <input  [(ngModel)]="alunosFiltro"  type="text" class="form-control" id="buscar" placeholder="Buscar">
              </div>
@@ -71,7 +71,8 @@
                  
                 </div>
             </div>
-       
+           
+
             <div class="page1" *ngIf="page1Select == true">
                <div  *ngFor="let dados of page1"   class="alunos">
 
@@ -195,7 +196,7 @@
             </div>
       
             <div class="col-12">
-               <button id="proximo" (click)="ngSubmit()" [disabled]="!userForm.valid"  class="btn btn-primary">Próximo</button>
+               <button id="proximo" (click)="ngSubmit()" [disabled]="!userForm.valid "  class="btn btn-primary">Próximo</button>
             </div> 
       
             <div class="col-12">

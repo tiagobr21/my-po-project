@@ -6,8 +6,8 @@
        <div class="etapa2"></div>
        <div class="etapa3"></div>
        <div class="etapa4"></div>
-       <div class="etapa5"></div>
-       <div class="etapa6"></div>
+       <div class="etapa5" ></div>
+       <div class="etapa6" (click)="ngSubmit()"></div>
        <div class="etapa7"></div>
        <div class="etapa8"></div>
        <div class="etapa9"></div>
@@ -59,21 +59,23 @@
 
           <button id="inserir" class="btn btn-primary btn-sm">+ Inserir aluno</button>
           <button id="importar" class="btn btn-primary btn-sm"> Importar alunos</button>
-           
-          <div class="navegation">
+   
+   <!-- Navegação  -->
+
+   <!--        <div class="navegation">
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
               
                <button (click)="page1Ativo()" type="button" class="btn btn-primary">1</button>
                <button (click)="page2Ativo()" type="button" class="btn btn-primary">2</button>
                <button (click)="page3Ativo()" type="button" class="btn btn-primary">3</button>
-                <!--   <button (click)="page4Ativo()" type="button" class="btn btn-primary">4</button>
-               <button (click)="page5Ativo()" type="button" class="btn btn-primary">5</button> -->   
+                  <button (click)="page4Ativo()" type="button" class="btn btn-primary">4</button>
+               <button (click)="page5Ativo()" type="button" class="btn btn-primary">5</button>   
               
              </div>
-         </div>
+         </div> -->
          
-         <div class="page1" *ngIf="page1Select == true">
-            <div  *ngFor="let dados of page1 "  class="alunos">
+        
+            <div  *ngFor="let dados of alunosSelecionado "  class="alunos">
 
                <div class="form-check" >
                   <input [checked]="checks" [value]="dados.Dadosdiplomadiplomadoid" (change)="onCheckboxChange($event)" class="form-check-input"  id="check-aluno"  type="checkbox"  value="">
@@ -93,8 +95,8 @@
                <label class="labelGrau">Data da Colação de Grau:</label>
                <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dados.Dadosregistrolivroregistrodatacolacaograu}}</p></span>
                
-               <label class="labelPros">Processo:</label>
-               <span class="pros">{{dados.Dadosregistrolivroregistroprocessododiploma}}</span>   
+            <!--    <label class="labelPros">Processo:</label>
+               <span class="pros">{{dados.Dadosregistrolivroregistroprocessododiploma}}</span>    -->
 
                <label class="labelReg">Registro Interno:</label>
                <span class="registro"> {{dados.Dadosregistrolivroregistrolivroregistro}}</span>
@@ -111,9 +113,11 @@
                <span class="sequencia">6.467</span>
 
             </div>
-          </div>
+       
           
-          <div class="page2" *ngIf="page2Select == true">
+         <!-- Elementos da Navegação -->
+
+         <!--  <div class="page2" *ngIf="page2Select == true">
             <div  *ngFor="let dados of page2 "   class="alunos">
             
                <div class="form-check" >
@@ -276,11 +280,11 @@
 
             </div>
          </div>
-
+ -->
          
          
          <div class="col-12">
-            <button id="proximo" (click)="ngSubmit()" [disabled]="!userForm.valid || checks == false"  class="btn btn-primary">Próximo</button>
+            <button id="proximo" (click)="ngSubmit()"  class="btn btn-primary">Próximo</button>
          </div> 
 
          <div class="col-12">

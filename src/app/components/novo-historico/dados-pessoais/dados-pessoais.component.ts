@@ -72,8 +72,12 @@ export class DadosPessoaisComponent implements OnInit {
      
       return i;
     });
-    // console.log(this.Diplomados);
+     console.log(this.Diplomados);
   }
+
+
+
+  
   
   ngSubmit(){
   

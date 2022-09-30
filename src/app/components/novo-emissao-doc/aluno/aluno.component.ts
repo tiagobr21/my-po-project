@@ -39,6 +39,7 @@ export class AlunoComponent implements OnInit {
   checkbox:any[]=[]
   allCheckes:any
 
+
   
 
   constructor(private service:BackconnectService,private fb:FormBuilder) {
@@ -53,57 +54,43 @@ export class AlunoComponent implements OnInit {
     const id = e.target.value;
     const isChecked = e.target.checked;
 
-    this.Diplomados =  this.Diplomados.map((i:any)=>{
- 
+   this.Diplomados =  this.Diplomados.map((i:any)=>{
       if(i.Dadosdiplomadiplomadoid === id){
-        i.Checked = isChecked
-        this.allCheckes = false;
-
-        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid));
-        return i;
     
-      }else if(id == -1){
-        i.Checked = this.allCheckes;
-        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid));
-       
-        if(e.target.checked){
-          this.checks = true;
+        if(i.Checked == false){
+          i.Checked = isChecked
+          this.allCheckes = false;
+          checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid)) 
         }else{
-          this.checks = false;
-          
           let contador = 0; 
 
           checkArray.controls.forEach((item:any)=>{
-        
+          
+            if (item.value == e.target.value){
               checkArray.removeAt(contador);
-              contador++;
-              console.log(checkArray.value)
               return;
+            }
 
+            contador++;
           });
-        } 
+        }
 
-        return i;
-
-      } else{
-        let contador = 0; 
-
-        checkArray.controls.forEach((item:any)=>{
-        
-          if (item.value == e.target.value){
-            console.log(item.value)
-            checkArray.removeAt(contador);
-            return;
-          }
-
-
-          contador++;
-        });
+         return i;
       }
-    
+
+
+     if(id == -1){
+        i.Checked = this.allCheckes;
+        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid)) ;
+        this.checks = true;
+        return i;
+      }
+
+  
+      console.log(checkArray.value)
       return i;
     });
-    
+   
   }
 
 
@@ -112,7 +99,7 @@ export class AlunoComponent implements OnInit {
     this.enable4 = this.enable4 == false ? true : false;
     this.buttonClick4.emit(this.enable4)
     this.alunosSelecionados.emit(this.userForm.value)
-    console.log(this.userForm.value)
+
 
   }
 
@@ -131,7 +118,8 @@ export class AlunoComponent implements OnInit {
       this.Diplomados.map( (diplomado:any) => {
         diplomado.Checked = false;
       }) 
-    
+  
+
        for(let i=0;i<this.Diplomados.length;i++){ 
          if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.curso){
    
@@ -202,3 +190,71 @@ export class AlunoComponent implements OnInit {
     location.reload();
   }
 }
+
+
+  /* 
+      if(id == -1){
+        i.Checked = this.allCheckes;
+        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid)) 
+        
+        if(e.target.checked){
+          this.checks = true;
+        }else{
+          this.checks = false;
+          
+          let contador = 0; 
+
+          checkArray.controls.forEach((item:any)=>{
+        
+              checkArray.removeAt(contador);
+              contador++;
+              console.log(checkArray.value)
+              return;
+
+          });
+        } 
+
+        return i;
+      }
+      */
+
+/* else{
+        let contador = 0; 
+
+        checkArray.controls.forEach((item:any)=>{
+        
+          if (item.value == e.target.value){
+            console.log(item.value)
+            checkArray.removeAt(contador);
+            return;
+          }
+
+
+          contador++;
+        });
+      }
+      
+      if(id == -1){
+        i.Checked = this.allCheckes;
+        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid)) ;
+     
+        if(e.target.checked){
+          this.checks = true;
+        }else{
+          this.checks = false;
+          
+          let contador = 0; 
+
+          checkArray.controls.forEach((item:any)=>{
+        
+              checkArray.removeAt(contador);
+              contador++;
+              console.log(checkArray.value)
+              return;
+
+          });
+        } 
+        return i;
+      } */
+
+      

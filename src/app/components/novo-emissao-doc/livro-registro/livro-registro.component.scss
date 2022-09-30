@@ -133,6 +133,7 @@ label{
     margin-top: -1px;
     left: 52.5%;
     position:absolute;
+    cursor: pointer;
 }
 
 .etapa6:hover{
@@ -273,8 +274,6 @@ span{
     border: 1px solid #ccc;
 }
 
- 
-
 form{
     margin: -190px 0 0 -140px ;
 }
@@ -282,8 +281,6 @@ form{
 form label{
    font-size: 14px;
 }
-
-
 
 #input-all{
     margin:1px 0 0 -60px;
@@ -424,17 +421,15 @@ option{
 }
 
 .labelPros{
-    bottom: 170px;
-    left: -105px;
+    bottom: 115px;
+    left: -72%;
     position: relative;
     color: black;
 }
 
 .pros{
     font-size: 12px;
-    bottom: 170px;
-    left: -105px;
-    max-width: 100%;
+    bottom: 142px;
     position: relative;
     color: #0c9abe;
 }
@@ -442,7 +437,7 @@ option{
 
 .labelReg{
     bottom: 170px;
-    left:  14.5%;
+    left:  15%;
     position: relative;
     color: black;
 }
@@ -450,7 +445,7 @@ option{
 .registro{
     font-size: 12px;
     bottom: 170px;
-    left:  14.5%;
+    left:  15%;
     position: relative;
     color: #0c9abe;
 }
@@ -472,7 +467,7 @@ option{
 .livro{
     font-size: 12px;
     bottom: 170px;
-    left:  23%;
+    left:  22.7%;
     position: relative;
     color: #0c9abe;
 }
@@ -488,7 +483,7 @@ option{
 .folha{
     font-size: 12px;
     bottom: 170px;
-    left:  29%;
+    left:  28.7%;
     position: relative;
     color: #0c9abe;
 }
@@ -505,7 +500,7 @@ option{
 .sequencia{
     font-size: 12px;
     bottom: 170px;
-    left:  36%;
+    left:  35.5%;
     position: relative;
     color: #0c9abe;
 }

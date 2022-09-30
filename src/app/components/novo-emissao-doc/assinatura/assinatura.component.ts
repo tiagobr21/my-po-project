@@ -42,6 +42,7 @@ export class AssinaturaComponent implements OnInit {
     test:any;
     response:string ='';
     allCheckes:any
+    value:any
     
     constructor(private service:BackconnectService,private fb:FormBuilder) {
       this.userForm = this.fb.group({
@@ -50,39 +51,58 @@ export class AssinaturaComponent implements OnInit {
         status_2: ["VALIDADO",[Validators.required]],
       })
     }
-  
-  
 
 
     onCheckboxChange(e:any){
       const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
-    
-        if(e.target.checked){
-          checkArray.push(new FormControl(e.target.value))
-        }else{
-          var i=0; 
-    
-          checkArray.controls.forEach((item:any)=>{
-            if (item.value == e.target.value){
-              checkArray.removeAt(i);
-              return;
-            }
-            i++;
-          });
-        }
-      }
-    
-      bulk(e:any){
-    
-        if(e.target.checked){
-          this.checks = true;
-        }else{
-          this.checks = false;
-        }
-      }
-   
+      this.value = e.target.value;
+      const id = e.target.value;
+      const isChecked = e.target.checked;
   
-    ngOnChanges() {
+
+   this.alunosSelecionado =  this.alunosSelecionado.map((i:any)=>{
+
+    if(i.Dadosdiplomadiplomadoid === id){
+    
+      if(i.Checked == false){
+        i.Checked = isChecked
+        this.allCheckes = false;
+        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid)) 
+      }else{
+        let contador = 0; 
+
+        checkArray.controls.forEach((item:any)=>{
+        
+          if (item.value == e.target.value){
+            checkArray.removeAt(contador);
+            return;
+          }
+
+          contador++;
+        });
+      }
+        console.log(checkArray.value);
+       return i;
+    }
+
+
+   if(id == -1){
+      i.Checked = this.allCheckes;
+      console.log(i.Checked)
+      checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid));
+      console.log(checkArray.value)
+      this.checks = true;
+    
+      return i;
+    }
+
+
+    return i;
+  });
+   
+  }
+    
+  ngOnChanges() {
      
    
       this.service.listarDiplomados().subscribe((res):any=>{
@@ -98,7 +118,14 @@ export class AssinaturaComponent implements OnInit {
             this.cursoSelecionado = this.Diplomados[i];
             
             this.alunosSelecionado.push(this.Diplomados[i]);
-           
+              
+             
+          this.alunosSelecionado.map( (diplomado:any) => {
+            diplomado.Checked = false;
+
+          }) 
+
+   
            
              }
           } 
@@ -111,11 +138,10 @@ export class AssinaturaComponent implements OnInit {
    
     ngSubmit(){
       this.gerado = true;
-      console.log(this.userForm.value);
-      this.response =  this.userForm.value['checkArray'];
-
+      console.log(this.userForm.value)
       this.opacity2 ='1';
-
+      
+    
     
        
     }
