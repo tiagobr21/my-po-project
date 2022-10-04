@@ -55,17 +55,21 @@
              <div class="user"></div>
              
              <h3 class="nome-aluno">{{dados.Dadosdiplomadiplomadonome}}</h3>
-             
+      
              <label class="labelId">ID:</label>
+          
              <span class="Id">{{dados.Dadosdiplomadiplomadoid}}</span>
 
              <label class="labelCpf">CPF:</label>
              <span class="cpf">{{dados.Dadosdiplomadiplomadocpf}}</span>
        
-             
+                   
+             <button (click)="dadosIndividuais(dados.Dadosdiplomadiplomadoid)"  type="button" class="btn btn-info" id="view"> Visualizar dados </button>
+       
              <label class="labelGrau">Data da Colação de Grau:</label>
              <span class="grau"><p id="date" class="po-icon po-icon-calendar">{{dados.Dadosregistrolivroregistrodatacolacaograu}} </p></span>
 
+        
           </div>
      
 <!-- 

@@ -114,9 +114,9 @@
 
             <button type="button" id="assinar" class="btn btn-primary">Assinar</button>
               
-            <button *ngIf="gerado == true && dados.Checked == true" (click)=" viewXml(dados.Dadosdiplomadiplomadoid)"  type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
+            <button *ngIf="gerado == true && dados.Checked == true" (click)=" viewXml(dados.Dadosdiplomadiplomadoid)" type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
             <button *ngIf="gerado == true && dados.Checked == true" type="button" (click)="viewPdf(dados.Dadosdiplomadiplomadoid)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>    
-            <button *ngIf="gerado == true && value == '-1'" (click)=" viewXml(dados.Dadosdiplomadiplomadoid)"  type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
+            <button *ngIf="gerado == true && value == '-1'" (click)=" viewXml(dados.Dadosdiplomadiplomadoid)" type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
             <button *ngIf="gerado == true && value == '-1'" type="button" (click)="viewPdf(dados.Dadosdiplomadiplomadoid)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>    
            
             
@@ -130,7 +130,7 @@
          
             
          <div class="col-12">
-            <button id="gerar" *ngIf="!gerado" [disabled]="!userForm.valid"  type="submit"  (click)="ngSubmit()"  value="Gerar Diploma"  class="btn btn-primary">Gerar</button> 
+            <button id="gerar" *ngIf="!gerado"  type="submit"  (click)="ngSubmit()"  value="Gerar Diploma"  class="btn btn-primary">Gerar</button> 
          </div> 
             <div class="col-12">
             <a id="gerar" *ngIf="gerado"  [ngStyle]="{'opacity':opacity2}"  class="btn btn-primary">Assinar</a>

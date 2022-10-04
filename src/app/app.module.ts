@@ -39,6 +39,8 @@ import { HistoricoPipe } from './components/filters/historico.pipe';
 import { DadosPessoaisComponent } from './components/novo-historico/dados-pessoais/dados-pessoais.component';
 import { AlunosPipe } from './components/filters/alunos.pipe';
 import { DadosAlunosPipe } from './components/filters/dadosAlunos.pipe';
+import { DadosIndividuaisComponent } from './components/novo-historico/dados-individuais/dados-individuais.component';
+import { NovoHistoricoComponent } from './components/novo-historico/novo-historico.component';
 
 
 
@@ -73,7 +75,9 @@ import { DadosAlunosPipe } from './components/filters/dadosAlunos.pipe';
     HistoricoPipe,
     DadosPessoaisComponent,
     AlunosPipe,
-    DadosAlunosPipe
+    DadosAlunosPipe,
+    DadosIndividuaisComponent,
+    NovoHistoricoComponent
 
  
 

@@ -2,7 +2,10 @@
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
 import { FormBuilder,FormGroup,FormControl,FormArray,ValidatorFn, Validators } from '@angular/forms';
-import { retry } from 'rxjs';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DadosIndividuaisComponent } from '../dados-individuais/dados-individuais.component';
+import { empty } from 'rxjs';
+
 
 
 @Component({
@@ -22,6 +25,9 @@ export class DadosPessoaisComponent implements OnInit {
   @Output() buttonClick4 = new EventEmitter();
   enable4:boolean = false; 
   @Output() alunosSelecionados = new EventEmitter();
+
+  @Output() view = new EventEmitter();
+
   
   checks:boolean = false;
   Diplomados:any;
@@ -42,9 +48,10 @@ export class DadosPessoaisComponent implements OnInit {
   page5Select:boolean=false;
   checkbox:any[]=[];
   allCheckes:boolean = true;
+  historicoSelecionado:any[]= [];
   
 
-  constructor(private service:BackconnectService,private fb:FormBuilder) {
+  constructor(private service:BackconnectService,private fb:FormBuilder,private dialog:MatDialog) {
      this.userForm = this.fb.group({
        checkArray: this.fb.array([],[Validators.required])
    
@@ -106,60 +113,30 @@ export class DadosPessoaisComponent implements OnInit {
   ngOnChanges() {
    
   }
-}
- /*  
-onCheckboxChange(e:any){
-  const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
 
-    if(e.target.checked){
-      checkArray.push(new FormControl(e.target.value))
+  dadosIndividuais(id:any){
 
-    }else{
-      var i=0; 
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "100%";
+    this.dialog.open(DadosIndividuaisComponent,dialogConfig)
+    
+    for(let i=0;i<this.Diplomados.length;i++){ 
+      if(this.Diplomados[i].Dadosdiplomadiplomadoid == id){
+    
+        this.historicoSelecionado.push(this.Diplomados[i]);
+     
+        
+      }
+    }
 
-      checkArray.controls.forEach((item:any)=>{
       
-        if (item.value == e.target.value){
-          console.log(item.value)
-          checkArray.removeAt(i);
-          return;
-        }
-        i++;
-      });
-   }
-   console.log(checkArray.value)
+      this.view.emit(this.historicoSelecionado);
+      this.historicoSelecionado.shift();
+    
+   
+    
   }
 
-  bulk(e:any){
-    this.checks = true;
-    const allCheckArray: FormArray = this.userForm.get('checkArray') as FormArray;
-    
-    if(e.target.checked){
-      
-      allCheckArray.push(new FormControl(e.target.value))
 
-      allCheckArray.controls.forEach((item:any,i:any)=>{
-    
-          console.log(item.value)
-          return item.value
-
-
-      });
-    }else{
-      this.checks = false;
-      var i=0; 
-      
-      allCheckArray.controls.forEach((item:any)=>{
-      
-        if (item.value == e.target.value){
-          console.log(item.value)
-    
-          allCheckArray.removeAt(i);
-          return;
-        }
-        i++;
-      });
-    }
-    
-
-  }*/
+}
+ 

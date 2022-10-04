@@ -58,6 +58,8 @@ export class AssinaturaComponent implements OnInit {
       this.value = e.target.value;
       const id = e.target.value;
       const isChecked = e.target.checked;
+      this.checked = e.target.checked;
+  
   
 
    this.alunosSelecionado =  this.alunosSelecionado.map((i:any)=>{
@@ -160,6 +162,7 @@ export class AssinaturaComponent implements OnInit {
     }
   
     viewPdf(id:any):any{
+      console.log(id)
       if(this.gerado == true){
         let base64String = this.pdf;
         this.downloadPdf(base64String,"sample");

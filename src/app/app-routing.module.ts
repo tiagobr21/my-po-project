@@ -10,7 +10,7 @@ import { HistoricoComponent } from './components/historico/historico.component';
 import { SelecionarCursoComponent } from './components/novo-emissao-doc/selecionar-curso/selecionar-curso.component';
 import { AreaPublicaComponent } from './components/area-publica/area-publica.component';
 import { NovoComponent } from './components/novo-emissao-doc/novo.component';
-import { DadosPessoaisComponent } from './components/novo-historico/dados-pessoais/dados-pessoais.component';
+import { NovoHistoricoComponent } from './components/novo-historico/novo-historico.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'dashboard', pathMatch:'full'},
@@ -24,7 +24,8 @@ const routes: Routes = [
   {path:'selecionar-curso',component:SelecionarCursoComponent},
   {path:'area-publica',component:AreaPublicaComponent},
   {path:'novo',component:NovoComponent},
-  {path:'dados-pessoais',component:DadosPessoaisComponent}
+  {path:'novo-historico',component:NovoHistoricoComponent}
+
 
 ];
 
