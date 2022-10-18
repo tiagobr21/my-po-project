@@ -3,16 +3,16 @@ import { BackconnectService } from 'src/app/service/backconnect.service';
 import { FormGroup, FormControl,Validators, FormControlName } from '@angular/forms';
 
 
-
-
 @Component({
-  selector: 'app-mantenedora',
-  templateUrl: './mantenedora.component.html',
-  styleUrls: ['./mantenedora.component.scss']
+  selector: 'app-listarhistorico',
+  templateUrl: './listarhistorico.component.html',
+  styleUrls: ['./listarhistorico.component.scss']
 })
-export class MantenedoraComponent implements OnInit {
+export class ListarhistoricoComponent implements OnInit {
 
- @Input() showPage:any;
+ 
+
+  @Input() showPage:any;
 
  @Output() back = new EventEmitter();
 backPage:boolean = false;
@@ -100,7 +100,4 @@ backPage:boolean = false;
 }
 
 
-
 }
-  
-  

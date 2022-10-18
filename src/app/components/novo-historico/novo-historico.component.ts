@@ -7,16 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NovoHistoricoComponent implements OnInit {
 
-  info:any
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  view(info:any){
-    this.info = info;
 
-    console.log(this.info);
-  }
 }

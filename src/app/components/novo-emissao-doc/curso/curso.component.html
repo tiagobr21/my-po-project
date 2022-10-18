@@ -32,8 +32,8 @@
 
     </section>
 
-    <div class="info-1"><h3>Mantenedora:<span> {{cursoSelecionado.Dadosregistroiesregistradoranome}}</span></h3></div>  
-    <div class="info-2"><h3>Instituição:<span> {{cursoSelecionado.Dadosregistroiesregistradoranome}}</span></h3></div>  
+    <div class="info-1"><h3>Mantenedora:<span> {{cursoSelecionado.DadosRegistroIesRegistradoraNome}}</span></h3></div>  
+    <div class="info-2"><h3>Instituição:<span> {{cursoSelecionado.DadosRegistroIesRegistradoraNome}}</span></h3></div>  
 
     
     <section class="dados">
@@ -46,48 +46,48 @@
 
                 <div class="col-md-4">
                     <label for="inputZip" id="labelCurso"class="form-label">Nome do Curso: *</label>
-                    <input formControlName="nome-curso" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursonomecurso}}" type="text" class="form-control" id="inputCurso" required>
+                    <input formControlName="nome-curso" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoNomeCurso}}" type="text" class="form-control" id="inputCurso" required>
                 </div>
                 
                 <div class="col-md-4">
                   <label for="inputState" id="labelCod" class="form-label">Código do Curso MEC: *</label>
-                  <input formControlName="codigo-mec" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursocodigocursoemec}}" type="text" class="form-control" id="inputCod" required>
+                  <input formControlName="codigo-mec" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoCodigoCursoEmec}}" type="text" class="form-control" id="inputCod" required>
                 </div>
 
                 <div class="col-md-4">
                   <label for="inputZip" id="labelHab" class="form-label">Nome Habilitação: *</label>
-                  <input formControlName="nome-habilitacao" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursonomehabilitacao}}" type="text" class="form-control" id="inputHab" required>
+                  <input formControlName="nome-habilitacao" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoNomeHabilitacao}}" type="text" class="form-control" id="inputHab" required>
                 </div>
 
                 <div class="col-md-4">
                     <label for="inputZip" id="labelTit"class="form-label">Título Conferido:*</label>
-                    <input formControlName="titulo-conferido" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursotituloconferidotitulo}}" type="text" class="form-control" id="inputTit" required>
+                    <input formControlName="titulo-conferido" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoTituloConferidoTitulo}}" type="text" class="form-control" id="inputTit" required>
                 </div>
 
                 <div class="col-md-4">
                   <label for="inputState" id="labelGrau" class="form-label">Grau Conferido: *</label>
-                  <input formControlName="grau-conferido" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursograuconferido}}" type="text" class="form-control" id="inputGrau" required>
+                  <input formControlName="grau-conferido" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoGrauConferido}}" type="text" class="form-control" id="inputGrau" required>
                 </div>
 
                 <div class="col-md-4">
                   <label for="inputZip" id="labelDoc" class="form-label">N° do Documento de Autorização : *</label>
-                  <input  type="text" class="form-control" id="inputDoc" required>
+                  <input  type="text" class="form-control" formControlName="autorizacao" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoAutorizacaoNumero}}" id="inputDoc" required>
                 </div>
 
 
                 <div class="col-md-4">
                   <label for="inputZip" id="labelMod"class="form-label">Modalidade:*</label>
-                  <input formControlName="modalidade" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursomodalidade}}" type="text" class="form-control" id="inputMod" required>
+                  <input formControlName="modalidade" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoModalidade}}" type="text" class="form-control" id="inputMod" required>
                 </div>
 
                 <div class="col-md-4">
                   <label for="inputState" id="labelRec" class="form-label">N° do Documento de Reconhecimento: *</label>
-                  <input type="text" class="form-control" id="inputRec" required>
+                  <input type="text" formControlName="reconhecimento" class="form-control" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoRenovacaoReconhecimentoNumero}}" id="inputRec" required>
                 </div>
 
                 <div class="col-md-4">
                   <label for="inputZip" id="labelData" class="form-label">Data da Colação de Grau : *</label>
-                  <input formControlName="colacao" ngModel="{{cursoSelecionado.Dadosregistrolivroregistrodatacolacaograu}}" type="text" class="form-control" id="inputData" required>
+                  <input formControlName="colacao" ngModel="{{cursoSelecionado.DadosRegistroLivroRegistroDataColacaoGrau}}" type="text" class="form-control" id="inputData" required>
                 </div>
   
                     

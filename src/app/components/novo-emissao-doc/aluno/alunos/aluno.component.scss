@@ -363,7 +363,7 @@ option{
     position: relative;
     padding: 40px;
     width: 8%;
-    background-image: url("../../../../assets/user.jpg");
+    background-image: url("../../../../../assets/user.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     border-radius: 50px;
@@ -460,5 +460,17 @@ option{
     top: 170%;
     left:48%;
     position:relative;
+ }
+ 
+ h3{
+    cursor: pointer;
+ }
+  
+ #view{
+    top:10%;
+    left: 78.5%;
+    width: 20%;
+    max-width: 50%;
+    position: absolute;
  }
   

@@ -52,13 +52,13 @@ export class LivroRegistroComponent implements OnInit {
   
 
    this.alunosSelecionado =  this.alunosSelecionado.map((i:any)=>{
-    console.log(i.Dadosdiplomadiplomadoid)
-    if(i.Dadosdiplomadiplomadoid === id){
+    console.log(i.DadosDiplomaDiplomadoId)
+    if(i.DadosDiplomaDiplomadoId === id){
     
       if(i.Checked == false){
         i.Checked = isChecked
         this.allCheckes = false;
-        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid)) 
+        checkArray.push(new FormControl(i.DadosDiplomaDiplomadoId)) 
       }else{
         let contador = 0; 
 
@@ -73,19 +73,19 @@ export class LivroRegistroComponent implements OnInit {
         });
       }
 
+
+      console.log(checkArray.value)
        return i;
     }
 
 
    if(id == -1){
       i.Checked = this.allCheckes;
-      checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid)) ;
+      checkArray.push(new FormControl(i.DadosDiplomaDiplomadoId)) ;
       this.checks = true;
       return i;
     }
 
-
-    console.log(checkArray.value)
     return i;
   });
    
@@ -103,14 +103,18 @@ export class LivroRegistroComponent implements OnInit {
 
     this.service.listarDiplomados().subscribe((res):any=>{
       this.Diplomados = res;
-      
+   
+     
+
       this.alunos =  this.alunos['checkArray'];
+
+     
 
       this.alunos.forEach((element:any) => {
    
         for(let i=0;i<this.Diplomados.length;i++){ 
             
-          if(this.Diplomados[i].Dadosdiplomadiplomadoid == element){
+          if(this.Diplomados[i].DadosDiplomaDiplomadoId == element){
           
           this.cursoSelecionado = this.Diplomados[i];
           

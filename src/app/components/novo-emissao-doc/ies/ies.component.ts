@@ -37,17 +37,16 @@ export class IesComponent implements OnInit {
   }
 
   ngOnChanges() {
-    
+
     this.service.listarDiplomados().subscribe((res):any=>{
      this.Diplomados = res;
-
-
+   
   
        for(let i=0;i<this.Diplomados.length;i++){ 
-         if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.curso){
+         if(this.Diplomados[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
     
             this.cursoSelecionado = this.Diplomados[i];
-         
+            
          } 
        }
    });

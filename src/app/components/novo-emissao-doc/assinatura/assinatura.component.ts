@@ -64,12 +64,12 @@ export class AssinaturaComponent implements OnInit {
 
    this.alunosSelecionado =  this.alunosSelecionado.map((i:any)=>{
 
-    if(i.Dadosdiplomadiplomadoid === id){
+    if(i.DadosDiplomaDiplomadoId === id){
     
       if(i.Checked == false){
         i.Checked = isChecked
         this.allCheckes = false;
-        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid)) 
+        checkArray.push(new FormControl(i.DadosDiplomaDiplomadoId)) 
       }else{
         let contador = 0; 
 
@@ -91,7 +91,7 @@ export class AssinaturaComponent implements OnInit {
    if(id == -1){
       i.Checked = this.allCheckes;
       console.log(i.Checked)
-      checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid));
+      checkArray.push(new FormControl(i.DadosDiplomaDiplomadoId));
       console.log(checkArray.value)
       this.checks = true;
     
@@ -115,7 +115,7 @@ export class AssinaturaComponent implements OnInit {
      
           for(let i=0;i<this.Diplomados.length;i++){ 
               
-            if(this.Diplomados[i].Dadosdiplomadiplomadoid == element){
+            if(this.Diplomados[i].DadosDiplomaDiplomadoId == element){
             
             this.cursoSelecionado = this.Diplomados[i];
             

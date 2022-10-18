@@ -2,6 +2,9 @@
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
 import { FormBuilder,FormGroup,FormControl,FormArray,ValidatorFn, Validators } from '@angular/forms';
+import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import { DadosAlunoComponent } from '../dados-aluno/dados-aluno.component';
+import { ShareDatasComponent } from '../share-datas.component';
 
 @Component({
   selector: 'app-aluno',
@@ -18,6 +21,8 @@ export class AlunoComponent implements OnInit {
   @Output() buttonClick4 = new EventEmitter();
   enable4:boolean = false; 
   @Output() alunosSelecionados = new EventEmitter();
+  @Output() view = new EventEmitter();
+
   
   checks:boolean = false
   Diplomados:any;
@@ -38,11 +43,13 @@ export class AlunoComponent implements OnInit {
   page5Select:boolean=false
   checkbox:any[]=[]
   allCheckes:any
-
+  dados:any[]=[];
+  test:any['API'] = ['1']
+  id:any
 
   
 
-  constructor(private service:BackconnectService,private fb:FormBuilder) {
+  constructor(private service:BackconnectService,private fb:FormBuilder,private dialog:MatDialog) {
      this.userForm = this.fb.group({
        checkArray: this.fb.array([],[Validators.required]),
    
@@ -53,14 +60,18 @@ export class AlunoComponent implements OnInit {
     const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
     const id = e.target.value;
     const isChecked = e.target.checked;
+     
+    console.log(id);
+    console.log(isChecked);
+    
 
    this.Diplomados =  this.Diplomados.map((i:any)=>{
-      if(i.Dadosdiplomadiplomadoid === id){
-    
+      if(i.DadosDiplomaDiplomadoId === id){
+        console.log(i.DadosDiplomaDiplomadoId);
         if(i.Checked == false){
           i.Checked = isChecked
           this.allCheckes = false;
-          checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid)) 
+          checkArray.push(new FormControl(i.DadosDiplomaDiplomadoId)) 
         }else{
           let contador = 0; 
 
@@ -74,20 +85,19 @@ export class AlunoComponent implements OnInit {
             contador++;
           });
         }
-
+         console.log(checkArray.value)
          return i;
       }
 
 
      if(id == -1){
         i.Checked = this.allCheckes;
-        checkArray.push(new FormControl(i.Dadosdiplomadiplomadoid)) ;
+        checkArray.push(new FormControl(i.DadosDiplomaDiplomadoId)) ;
         this.checks = true;
         return i;
       }
 
   
-      console.log(checkArray.value)
       return i;
     });
    
@@ -99,18 +109,29 @@ export class AlunoComponent implements OnInit {
     this.enable4 = this.enable4 == false ? true : false;
     this.buttonClick4.emit(this.enable4)
     this.alunosSelecionados.emit(this.userForm.value)
-
+    console.log(this.userForm.value)
 
   }
 
   ngOnInit(): void {
-        scrollTo(10, 0);
+      scrollTo(10, 0);
     
   }
 
+
+
+  dadosIndividuais(id:any){
+    this.id =id
+   
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "100%";
+    this.dialog.open(ShareDatasComponent,dialogConfig)
+  
+     
+  }
   
   ngOnChanges() {
-
   
     this.service.listarDiplomados().subscribe((res):any=>{
       this.Diplomados = res;
@@ -121,7 +142,7 @@ export class AlunoComponent implements OnInit {
   
 
        for(let i=0;i<this.Diplomados.length;i++){ 
-         if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.curso){
+         if(this.Diplomados[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
    
            this.cursoSelecionado = this.Diplomados[i];
            
@@ -148,7 +169,13 @@ export class AlunoComponent implements OnInit {
   
 
      });
+
+     
+   
+
   }
+
+  
   
   page1Ativo(){
     this.page1Select = true

@@ -1,0 +1,340 @@
+.title{
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+.lote{
+    top: 50px;
+    right: 3%;
+    position: absolute;
+    font-size: 30px;
+}
+
+.line{
+    top: 65px;
+    left: 21%;
+    position:absolute;
+    height: 2px;
+    width: 70%;
+    background-color: #ccc;
+    opacity: 0.2;
+    
+}
+
+.time-line{
+    border-radius: 2.5px;
+    margin-top: 20px;
+    width: 100%;
+    height:  60px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+  
+
+}
+
+label{
+    color: black;
+    margin:-10px 0 0 10px;
+    font-size: 12px;
+    font-weight:400;
+    max-width: 100%;
+}
+
+.one{
+    margin:25px 0 0 0.5%;
+}
+
+.two{
+    margin-left:10%;
+
+}
+
+.three{
+    margin-left:9%;
+}
+
+.four{
+    margin-left:16%;
+}
+.five{
+    margin-left:9%;
+}
+.six{
+    margin-left:5%;
+}
+
+.etapa1,.etapa2,.etapa3,.etapa4,.etapa5,.etapa6,.etapa7,.etapa8,.etapa9,.etapa10{
+    width: 25px;
+    padding: 2px;
+    margin-top: -10px;
+    margin-left: 10px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 50px;   
+    position: fixed;  
+    z-index: 1;
+    
+}
+
+.etapa1{
+    background-color: red;
+    margin-top: -1px;
+    position:absolute;
+}
+
+.etapa2{
+   margin-top: -1px;
+    left: 21.5%;
+    position:absolute;
+    cursor: pointer;
+}
+
+.etapa2:hover{
+    
+    border: 2px solid green;
+ }
+
+.etapa3{
+    margin-top: -1px;
+    left: 38.5%;
+    position:absolute;
+}
+
+.etapa4{
+    margin-top: -1px;
+    left: 58.5%;
+    position:absolute;
+}
+
+.etapa5{
+    margin-top: -1px;
+    left: 74.5%;
+    position:absolute;
+}
+
+.etapa6{
+    margin-top: -1px;
+    left: 92%;
+    position:absolute;
+}
+
+
+.progress-line{
+    margin: 10px 0 0 10px;
+    position:absolute;
+    height: 2px;
+    width:89%;
+    background-color: #ccc;
+    opacity: 0.5;
+}
+
+.progress{
+    margin: 10px 0 0 10px;
+    position:absolute;
+    height: 2px;
+    width:0%;
+    background-color: #007bff;
+    opacity: 0.9;
+}
+
+.info-1{
+    position: relative;
+    left: 11%;
+    border-radius: 2.5px;
+    height:  45px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    
+}
+
+.info-2{
+    position: relative;
+    left: 2%;
+    border-radius: 2.5px;
+    width: 95%;
+    height:  45px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+    margin-top: -10px;
+}
+
+.info-3{
+    position: relative;
+    left: 2%;
+    border-radius: 2.5px;
+    width: 50%;
+    height:  45px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.info-3-5{
+    position: relative;
+    bottom: 55px;
+    left: 50%;
+    border-radius: 2.5px;
+    width: 47%;
+    height:  45px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+
+
+span{
+    font-size: 16px;
+    color: black;
+    font-weight: 400;
+}
+
+
+
+.dados{
+    border-radius: 2.5px;
+    margin: 30px 0 0 20px;
+    width: 96%;
+    max-width: 100%;
+    height:  60%;
+    padding: 150px;
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+}
+
+form{
+     margin: -130px 50px 0  -120px ;
+     max-width: 170%;
+}
+
+ form label{
+    font-size: 14px;
+}
+
+#labelCnpj{
+    margin-left:60% ;
+}
+
+input{
+    margin-left: 10px;
+    
+}
+
+#inputNome{
+    width: 118%;
+}
+
+#inputRazao{
+    width: 145%;
+}
+
+#inputCnpj{
+   margin-left: 60%; 
+   width: 78%;
+}
+
+
+.title-endereco,.time-mantenedora{
+    margin:40px 0 -20px 0;
+}
+
+
+#inputCep{
+    width: 60%;
+}
+
+#inputLaga{
+    margin-left: -120px;    
+    width: 130%;
+}
+
+#labelLaga{
+    margin-left: -120px;
+}
+
+#inputNum{
+    width: 180%;
+}
+
+#inputCom{
+    width: 192%;
+}
+
+#inputBai{
+    width: 125%;
+   left: 120%;
+   position: relative;
+}
+
+ #inputEst{
+    width: 125%;
+    left: 160%;
+    position: relative;
+ }
+
+ #inputCid{
+    left: 220%;
+    width: 180%;
+   position: relative;
+ }
+
+ #labelBai{
+    margin-left: 130%;
+ }
+
+ #labelEst{
+    margin-left: 168%;
+ }
+
+ #labelCid{
+  
+    margin-left: 230%;
+ }
+
+ #inputCurso{
+    color: black;
+    border: 0;
+    background-color:whitesmoke ;
+    font-size: 14px;
+    font-weight: 400;
+    width: 60%;
+ }
+
+ .mensagem{
+    position:absolute;
+    margin-top: -25%;
+ }
+
+
+ #proximo{
+    width: 10%;
+    top: 150%;
+    left:53%;
+    position:relative;
+ }
+
+ #refresh{
+    width: 15%;
+    top: 170%;
+    left:50.5%;
+    position:relative;
+ }
+
+ .loading{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.20);
+    height: 85%;
+    width: 89.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 60%;
+    left: 5%;
+
+ }

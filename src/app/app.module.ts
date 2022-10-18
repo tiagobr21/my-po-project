@@ -25,7 +25,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MantenedoraComponent } from './components/novo-emissao-doc/mantenedora/mantenedora.component';
 import { IesComponent } from './components/novo-emissao-doc/ies/ies.component';
 import { CursoComponent } from './components/novo-emissao-doc/curso/curso.component';
-import { AlunoComponent } from './components/novo-emissao-doc/aluno/aluno.component';
+import { AlunoComponent } from './components/novo-emissao-doc/aluno/alunos/aluno.component';
 import { LivroRegistroComponent } from './components/novo-emissao-doc/livro-registro/livro-registro.component';
 import { AssinaturaComponent } from './components/novo-emissao-doc/assinatura/assinatura.component';
 import { SelecionarCursoComponent } from './components/novo-emissao-doc/selecionar-curso/selecionar-curso.component';
@@ -36,11 +36,13 @@ import { NovoComponent } from './components/novo-emissao-doc/novo.component';
 import { EmissaoPipe } from './components/filters/emissao.pipe';
 import { UsuariosPipe } from './components/filters/usuarios.pipe';
 import { HistoricoPipe } from './components/filters/historico.pipe';
-import { DadosPessoaisComponent } from './components/novo-historico/dados-pessoais/dados-pessoais.component';
 import { AlunosPipe } from './components/filters/alunos.pipe';
 import { DadosAlunosPipe } from './components/filters/dadosAlunos.pipe';
-import { DadosIndividuaisComponent } from './components/novo-historico/dados-individuais/dados-individuais.component';
 import { NovoHistoricoComponent } from './components/novo-historico/novo-historico.component';
+import { ConsultarAlunosComponent } from './compenents/consultar-alunos/consultar-alunos.component';
+import { DadosAlunoComponent } from './components/novo-emissao-doc/aluno/dados-aluno/dados-aluno.component';
+import { ShareDatasComponent } from './components/novo-emissao-doc/aluno/share-datas.component';
+import { ListarhistoricoComponent } from './components/novo-historico/listarhistorico/listarhistorico.component';
 
 
 
@@ -73,17 +75,16 @@ import { NovoHistoricoComponent } from './components/novo-historico/novo-histori
     EmissaoPipe,
     UsuariosPipe,
     HistoricoPipe,
-    DadosPessoaisComponent,
     AlunosPipe,
     DadosAlunosPipe,
-    DadosIndividuaisComponent,
-    NovoHistoricoComponent
-
- 
-
+    NovoHistoricoComponent,
+    ConsultarAlunosComponent,
+    DadosAlunoComponent,
+    ShareDatasComponent,
+    ListarhistoricoComponent
   ],
-
   
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -98,9 +99,6 @@ import { NovoHistoricoComponent } from './components/novo-historico/novo-histori
     AppMaterialModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
-    
-  
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

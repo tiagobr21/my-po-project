@@ -31,7 +31,8 @@ export class SelecionarCursoComponent implements OnInit{
      
     this.service.listarCursos().subscribe((res)=>{
       this.listarCursos = res; 
-      this.listarCursos = this.listarCursos['Resultado'];
+      
+
     }); 
 
     scrollTo(10, 0);

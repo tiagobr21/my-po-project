@@ -25,11 +25,15 @@ export class CursoComponent implements OnInit {
     
     this.service.listarDiplomados().subscribe((res):any=>{
      this.Diplomados = res;
-
      
+
        for(let i=0;i<this.Diplomados.length;i++){ 
-         if(this.Diplomados[i].Dadosdiplomadadoscursonomecurso == this.curso){
+         if(this.Diplomados[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
+     
+    
            this.cursoSelecionado = this.Diplomados[i];
+
+        
            if(i<10){
             break
            }
@@ -47,7 +51,9 @@ export class CursoComponent implements OnInit {
     'nome-habilitacao': new FormControl('',Validators.required),
     'titulo-conferido': new FormControl('',Validators.required),
     'grau-conferido': new FormControl('',Validators.required),
+    'autorizacao': new FormControl('',Validators.required),
     'modalidade': new FormControl('',Validators.required),
+    'reconhecimento': new FormControl('',Validators.required),
     'colacao': new FormControl('',Validators.required),
     'cep-curso': new FormControl('',Validators.required),
     'logradouro-curso': new FormControl('',Validators.required),
