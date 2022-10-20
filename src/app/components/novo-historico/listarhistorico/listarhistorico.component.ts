@@ -24,7 +24,8 @@ backPage:boolean = false;
   loading:boolean =false;
   cursoEscolhido:any
   cursoSelecionado:any
-  Diplomados:any
+  Historico:any
+  dataHabilitacao:any
 
   ids:any
 
@@ -37,25 +38,38 @@ backPage:boolean = false;
 
  
   cursos(curso:any):any{
+
        this.cursoEscolhido = curso
+     
        
-       this.service.listarDiplomados().subscribe((res):any=>{
+       this.service.listarHistorico().subscribe((res):any=>{
         
+           this.Historico = res;
+
+       
    
+  
+            if(this.Historico.DadosDiplomaDadosCursoNomeCurso == this.cursoEscolhido){
+       
+              this.cursoSelecionado = this.Historico;
 
-        this.Diplomados = res;
-        
+              // 
 
-          
-          for(let i=0;i<this.Diplomados.length;i++){ 
-        
-            if(this.Diplomados[i].DadosDiplomaDadosCursoNomeCurso == this.cursoEscolhido){
-          
-              this.cursoSelecionado = this.Diplomados[i];
-            
-              
+              function dataFormatada(d:any) {
+                let nomeMeses = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+                let data = new Date(d);
+                let dia = data.getDate();
+                let mes = data.getMonth();
+                let meses = nomeMeses[mes];
+                var ano = data.getFullYear();
+                return [dia+'/'+meses+'/'+ano].join(' ');
             }
-          }
+
+            
+            this.dataHabilitacao = dataFormatada(this.cursoSelecionado.DadosDiplomaDadosCursoDataHabilitacao);
+
+            }
+           
       });  
       
 
@@ -64,17 +78,23 @@ backPage:boolean = false;
 
 
   userForm = new FormGroup({
-    'curso':new FormControl(null,Validators.required),
-    'nome-mantenedora':new FormControl(null,Validators.required),
-    'razao-mantenedora':new FormControl(null,Validators.required),
-    'cnpj-mantenedora':new FormControl(null,Validators.required),
-    'cep-mantenedora':new FormControl(null,Validators.required),
-    'logradouro-mantenedora':new FormControl(null,Validators.required),
-    'numero-mantenedora':new FormControl(null,Validators.required),
-    'complemento-mantenedora':new FormControl(null,Validators.prototype),
-    'bairro-mantenedora':new FormControl(null,Validators.required),
-    'uf-mantenedora':new FormControl(null,Validators.required),
-    'municipio-mantenedora':new FormControl(null,Validators.required),
+    'nome-curso':new FormControl(null,Validators.required),
+    'nome-habilitacao':new FormControl(null,Validators.required),
+    'emec':new FormControl(null,Validators.required),
+    'data-habilitacao':new FormControl(null,Validators.required),
+    'nome':new FormControl(null,Validators.required),
+    'cpf':new FormControl(null,Validators.required),
+    'nascimento':new FormControl(null,Validators.required),
+    'nacionalidade':new FormControl(null,Validators.required),
+    'sexo':new FormControl(null,Validators.required),
+    'uf':new FormControl(null,Validators.required),
+    'municipio':new FormControl(null,Validators.required),
+    'codigo':new FormControl(null,Validators.required),
+    'estrangeiro':new FormControl(null,Validators.required),
+    'id':new FormControl(null,Validators.required),
+    'rg':new FormControl(null,Validators.required),
+    'uf-rg':new FormControl(null,Validators.required),
+    'orgao':new FormControl(null,Validators.required)
   });
 
   refresh(){
@@ -82,7 +102,7 @@ backPage:boolean = false;
   }
 
   onSubmit(){
-      this.cursoEscolhido = this.userForm.value.curso;
+      this.cursoEscolhido = this.userForm.value['nome-curso'];
       this.cursoAtual.emit(this.cursoEscolhido);
 
 
@@ -91,8 +111,6 @@ backPage:boolean = false;
 
       this.backPage = this.backPage == false ? true : false
       this.back.emit(this.backPage );
-      
-      // showPage vem primeiro  undefined e depois true 
 
       this.show.emit(this.showPage = false);
       

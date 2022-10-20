@@ -1,0 +1,99 @@
+
+
+    <section  *ngIf="enable2 == true " class="curso">
+ 
+        <section class="time-line">
+    
+           <div class="etapa1"></div>
+           <div class="etapa2"></div>
+           <div class="etapa3"></div>
+           <div (click)="ngSubmit()" class="etapa4"></div>
+           <div class="etapa5"></div>
+           <div class="etapa6"></div>
+       
+           
+           <div class="progress-line"></div>
+           <div class="progress"></div>
+     
+           <label class="one">Dados</label>
+           <label  class="two">Atividades Complementares</label>
+           <label  class="three">Estágios</label>
+           <label  class="four">Situação Enade</label>
+           <label  class="five">Situação Discentes</label>
+           <label class="six">Diplomado Historico</label>
+    
+    
+        </section>
+    
+        <section class="dados">
+    
+            <div *ngFor="let dados of Estagio;let i = index">
+              <form [formGroup]="userForm" class="row g-3">
+            
+                      <div class="title-diploma"><h2>Estágio {{i+1}}</h2></div>
+                      <div class="line-diploma"></div>
+               
+                      <div class="col-md-6">
+                        <label for="inputEmail4" id="labelNome" class="form-label">Descrição:*</label>
+                        <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularEstagioDescricao}}" type="text" class="form-control" id="inputNome" required>
+                        </div>
+                        <div class="col-md-6">
+                        <label for="inputPassword4" id="labelCod" class="form-label">Carga Horária:*</label>
+                        <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularEstagioCargaHorariaHoraRelogio}}" type="text" class="form-control" id="inputCod" required>
+                      </div>
+             
+            
+                      <div class="col-md-6">
+                        <label for="inputCity" id="labelCep" class="form-label">Data Fim: *</label>
+                        <input  value="{{dataFim[i]}}" type="text" class="form-control" id="inputCep" required>
+                      </div>
+      
+                        <div class="col-md-4">
+                          <label for="inputState" id="labelLaga" class="form-label">Data Inicio: *</label>
+                          <input value="{{dataInicio[i]}}" type="text" class="form-control" id="inputLaga" required>
+                        </div>
+                        <div  class="col-md-2">
+                          
+                        </div>
+                         
+                        <div class="col-md-2">
+                            <label for="inputZip" id="labelTipo" class="form-label">Nome(docente):*</label>
+                            <input  class="form-control" type="text" id="inputTipo" value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularEstagioDocentesOrientadores.DocenteNome}}">
+                        </div>
+                        
+                      <div class="col-md-2">
+                            <label for="inputZip" id="labelNumero" class="form-label">Titulação(docente):*</label>
+                            <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularEstagioDocentesOrientadores.DocenteTitulacao}}" type="text" id="inputNumero" class="form-control"  required>
+                      </div>
+            
+                        <div class="col-md-2">
+                            <label for="inputZip" id="labelData" class="form-label">Lattes:*</label>
+                            <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularEstagioDocentesOrientadores.DocenteLattes}}" type="text" id="inputData" class="form-control"  required>
+                        </div>
+            
+                        <div class="col-md-2">
+                            <label for="inputZip" id="labelPub" class="form-label">CPF(docente):*</label>
+                            <input   value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularEstagioDocentesOrientadores.DocenteCPF}}" type="text" id="inputPub" class="form-control"  required>
+                        </div>
+                         
+                        <div class="col-md-6">
+                            <label for="inputEmail4" id="labelSeç" class="form-label">Nome Fantasia:*</label>
+                            <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularEstagioConcedenteEstagioNomeFantasia}}" type="text" class="form-control" id="inputSeç" required>
+                        </div>
+              
+                        <div class="col-md-6">
+                          <label for="inputPassword4" id="labelPag" class="form-label">CNPJ:*</label>
+                          <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularEstagioConcedenteEstagioCNPJ}}" type="text" class="form-control" id="inputPag" required>
+                      </div> 
+
+                      <div class="col-md-6">
+                        <label for="inputPassword4" id="labelOut" class="form-label">Razão Social:*</label>
+                        <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularEstagioConcedenteEstagioRazaoSocial}}" type="text" class="form-control" id="inputOut" required>
+                    </div> 
+              </form>
+              <br>   <br>   <br>         <br>   <br>   <br>  <br>
+          </div>  
+        </section>
+     
+    
+       </section>

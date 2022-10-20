@@ -43,6 +43,9 @@ import { ConsultarAlunosComponent } from './compenents/consultar-alunos/consulta
 import { DadosAlunoComponent } from './components/novo-emissao-doc/aluno/dados-aluno/dados-aluno.component';
 import { ShareDatasComponent } from './components/novo-emissao-doc/aluno/share-datas.component';
 import { ListarhistoricoComponent } from './components/novo-historico/listarhistorico/listarhistorico.component';
+import { AtivcomplementaresComponent } from './components/novo-historico/ativcomplementares/ativcomplementares.component';
+import { EstagioComponent } from './components/novo-historico/estagio/estagio.component';
+import { SituacaoenadeComponent } from './components/novo-historico/situacaoenade/situacaoenade.component';
 
 
 
@@ -81,7 +84,10 @@ import { ListarhistoricoComponent } from './components/novo-historico/listarhist
     ConsultarAlunosComponent,
     DadosAlunoComponent,
     ShareDatasComponent,
-    ListarhistoricoComponent
+    ListarhistoricoComponent,
+    AtivcomplementaresComponent,
+    EstagioComponent,
+    SituacaoenadeComponent
   ],
   
 

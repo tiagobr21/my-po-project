@@ -13,7 +13,7 @@ import { NovoComponent } from './components/novo-emissao-doc/novo.component';
 import { ShareDatasComponent } from './components/novo-emissao-doc/aluno/share-datas.component';
 import { DadosAlunoComponent } from './components/novo-emissao-doc/aluno/dados-aluno/dados-aluno.component';
 import { ListarhistoricoComponent } from './components/novo-historico/listarhistorico/listarhistorico.component';
-
+import { NovoHistoricoComponent } from './components/novo-historico/novo-historico.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'dashboard', pathMatch:'full'},
@@ -29,7 +29,8 @@ const routes: Routes = [
   {path:'novo',component:NovoComponent},
   {path:'listarhistorico',component:ListarhistoricoComponent},
   {path:'share',component:ShareDatasComponent},
-  {path:'dados-aluno',component:DadosAlunoComponent}
+  {path:'dados-aluno',component:DadosAlunoComponent},
+  {path:'novo-historico',component:NovoHistoricoComponent},
 
 
 ];

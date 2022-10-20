@@ -1,0 +1,91 @@
+
+
+ <section  *ngIf=" enable == true || showPage2 == true " class="ies">
+    <section class="time-line">
+
+       <div class="etapa1"></div>
+       <div class="etapa2"></div>
+       <div (click)="onSubmit()" class="etapa3"></div>
+       <div class="etapa4"></div>
+       <div class="etapa5"></div>
+       <div class="etapa6"></div>
+  
+       
+       <div class="progress-line"></div>
+       <div class="progress"></div>
+ 
+       <label class="one">Dados</label>
+       <label  class="two">Atividades Complementares</label>
+       <label  class="three">Estágios</label>
+       <label  class="four">Situação Enade</label>
+       <label  class="five">Situação Discentes</label>
+       <label class="six">Diplomado Historico</label>
+
+    </section>
+      
+    <section  class="dados">
+
+
+
+    <div *ngFor="let dados of AtivCom;let i = index">
+        <form [formGroup]="userForm" class="row g-3">
+      
+                <div class="title-diploma"><h2>Atividade Complementar {{i+1}}</h2></div>
+                <div class="line-diploma"></div>
+         
+                <div class="col-md-6">
+                  <label for="inputEmail4" id="labelNome" class="form-label">Descrição:*</label>
+                  <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDescricao}}" type="text" class="form-control" id="inputNome" required>
+                  </div>
+                  <div class="col-md-6">
+                  <label for="inputPassword4" id="labelCod" class="form-label">Carga Horária:*</label>
+                  <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarCargaHorariaHoraRelogio}}" type="text" class="form-control" id="inputCod" required>
+                </div>
+       
+      
+                  <div class="col-md-6">
+                    <label for="inputCity" id="labelCep" class="form-label">Data Fim: *</label>
+                    <input  value="{{dataFim[i]}}" type="text" class="form-control" id="inputCep" required>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label for="inputState" id="labelLaga" class="form-label">Data Inicio: *</label>
+                    <input value="{{dataInicio[i]}}" type="text" class="form-control" id="inputLaga" required>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="inputZip" id="labelNum" class="form-label">Data Registro: *</label>
+                    <input  value="{{dataRegistro[i]}}" type="text" class="form-control" id="inputNum" required>
+                  </div>
+                   
+                  <div class="col-md-2">
+                      <label for="inputZip" id="labelTipo" class="form-label">Cpf(docente):*</label>
+                      <input  class="form-control" type="text" id="inputTipo" value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDocentesResponsaveisPelaValidacao.DocenteCPF}}">
+                  </div>
+                  
+                <div class="col-md-2">
+                      <label for="inputZip" id="labelNumero" class="form-label">Lattes:*</label>
+                      <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDocentesResponsaveisPelaValidacao.DocenteLattes}}" type="text" id="inputNumero" class="form-control"  required>
+                  </div>
+      
+                  <div class="col-md-2">
+                      <label for="inputZip" id="labelData" class="form-label">Nome(docente):*</label>
+                      <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDocentesResponsaveisPelaValidacao.DocenteNome}}" type="text" id="inputData" class="form-control"  required>
+                  </div>
+      
+                  <div class="col-md-2">
+                      <label for="inputZip" id="labelPub" class="form-label">Título(docente):*</label>
+                      <input   value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDocentesResponsaveisPelaValidacao.DocenteTitulacao}}" type="text" id="inputPub" class="form-control"  required>
+                  </div>
+                   
+                  <div class="col-md-6">
+                      <label for="inputEmail4" id="labelSeç" class="form-label">Tipo:*</label>
+                      <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarTipoAtividadeComplementar}}" type="text" class="form-control" id="inputSeç" required>
+                  </div>
+        
+               
+        </form>
+        <br>   <br>   <br>         <br>   <br>   <br>  <br>
+    </div>  
+    </section>
+</section>
+  
