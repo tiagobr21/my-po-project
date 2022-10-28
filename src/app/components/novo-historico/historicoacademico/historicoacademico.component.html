@@ -1,0 +1,88 @@
+
+  <section class="mantenedora" *ngIf="enable5 == true">
+ 
+    <section class="time-line">
+
+       <div class="etapa1"></div>
+       <div class="etapa2"></div>
+       <div class="etapa3"></div>
+       <div class="etapa4"></div>
+       <div class="etapa5"></div>
+       <div class="etapa6"></div>
+       
+       <div class="progress-line"></div>
+       <div class="progress"></div>
+ 
+       <label class="one">Dados</label>
+       <label  class="two">Atividades Complementares</label>
+       <label  class="three">Estágios</label>
+       <label  class="four">Situação Enade</label>
+       <label  class="five">Situação Discentes</label>
+       <label class="six">Historico Acadêmico</label>
+
+ 
+    </section>
+
+  
+    <section  class="dados">
+      
+    <div *ngFor="let dados of historicoAcademico; let i = index">
+        <form  [formGroup]="userForm"  class="row g-3">
+            
+          <div><h2>Curso {{i+1}}</h2></div>
+          <div class="line-curso"></div>
+
+            <div id="nomecurso" class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="form-label">Disciplima: *</label>
+                  <input type="text" value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDisciplina}}"  class="form-control">
+                </div>
+                <div class="col">
+                    <label for="inputEmail4"  id="nomehabil" class="form-label">Carga Horária: *</label>
+                  <input type="text"  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaCargaHorariaHoraAula}}" id="nomehabil" class="form-control" >
+                </div>
+                
+              </div>
+
+              <div id="codemec" class="row">
+                <div class="col">
+                    <label for="inputEmail4" class="form-label">Nota: *</label>
+                  <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaNota}}" type="text"class="form-control">
+                </div>
+                <div class="col">
+                    <label for="inputEmail4" id="datahabil" class="form-label">Período *</label>
+                  <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaPeriodo}}" type="text"  id="datahabil" class="form-control" >
+                </div>
+              </div>
+           
+                <div class="col-md-6">
+                  <label for="inputCity" id="labelCep" class="form-label">Nome(docente): *</label>
+                  <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes.DocenteNome}}" type="text" class="form-control" id="inputCep" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="inputState" id="labelLaga" class="form-label">Titulação(docente): *</label>
+                  <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes.DocenteTitulacao}}" type="text" class="form-control" id="inputLaga" required>
+                </div>
+                <div class="col-md-2">
+                  <label for="inputZip" id="labelNum" class="form-label">Lattes: *</label>
+                  <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes.DocenteLattes}}" type="text" class="form-control" id="inputNum" required>
+                </div>
+
+                     
+              <div class="col-md-6">
+                <label for="inputEmail4" id="labelNome" class="form-label">CPF(docente):*</label>
+                <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes.DocenteCPF}}" type="email" class="form-control" id="inputNome" required>
+                </div>
+                <div class="col-md-6">
+                <label for="inputPassword4" id="labelCod" class="form-label">Situação:*</label>
+                <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaSituacao}}" type="text" class="form-control" id="inputCod" required>
+              </div>
+              
+       </form>
+       <br>   <br>   <br>   <br>  <br>   <br>   <br>   <br>   <br>  <br>
+    </div>
+      
+    <button type="button" class="btn btn-success">Enviar</button>
+    </section>
+   
+   </section>

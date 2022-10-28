@@ -1,7 +1,8 @@
 import { Component, Input, OnInit ,Output,EventEmitter} from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
 import { FormGroup, FormControl,Validators, FormControlName } from '@angular/forms';
-
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MsgerrorComponent } from '../../errorsmensage/msgerror/msgerror.component';
 
 @Component({
   selector: 'app-listarhistorico',
@@ -12,7 +13,7 @@ export class ListarhistoricoComponent implements OnInit {
 
  
 
-  @Input() showPage:any;
+@Input() showPage:any;
 
  @Output() back = new EventEmitter();
 backPage:boolean = false;
@@ -21,15 +22,17 @@ backPage:boolean = false;
  enable:boolean = false;
  @Output() show = new EventEmitter();
   
+ 
   loading:boolean =false;
   cursoEscolhido:any
   cursoSelecionado:any
   Historico:any
   dataHabilitacao:any
+  submitRequere:boolean = true;
 
   ids:any
 
-  constructor(private service:BackconnectService) { }
+  constructor(private service:BackconnectService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
  
@@ -39,15 +42,16 @@ backPage:boolean = false;
  
   cursos(curso:any):any{
 
-       this.cursoEscolhido = curso
-     
+       this.cursoEscolhido = curso;
+       this.cursoSelecionado = curso;
+
+
        
        this.service.listarHistorico().subscribe((res):any=>{
         
            this.Historico = res;
-
-       
-   
+             
+           console.log( this.Historico)
   
             if(this.Historico.DadosDiplomaDadosCursoNomeCurso == this.cursoEscolhido){
        
@@ -68,8 +72,15 @@ backPage:boolean = false;
             
             this.dataHabilitacao = dataFormatada(this.cursoSelecionado.DadosDiplomaDadosCursoDataHabilitacao);
 
+            }else{
+              this.submitRequere = false;
+              const dialogConfig = this.dialog.open(MsgerrorComponent,{
+                width:'100%'
+              })
+              setTimeout(()=>{
+                window.location.reload();
+             }, 3000);
             }
-           
       });  
       
 
@@ -103,8 +114,9 @@ backPage:boolean = false;
 
   onSubmit(){
       this.cursoEscolhido = this.userForm.value['nome-curso'];
-      this.cursoAtual.emit(this.cursoEscolhido);
-
+      this.cursoAtual.emit(this.cursoSelecionado);
+      
+      console.log(this.userForm.value);
 
       this.enable = this.enable == false ? true : false;
       this.buttonClick.emit(this.enable);
@@ -116,6 +128,8 @@ backPage:boolean = false;
       
 
 }
+
+
 
 
 }

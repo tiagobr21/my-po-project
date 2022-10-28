@@ -103,8 +103,7 @@ label{
 .etapa4{
     margin-top: -1px;
     left: 56.5%;
-    background-color: red;
-    animation: opacity 5s;
+    background-color: #007bff;
     position:absolute;
 }
 
@@ -112,19 +111,23 @@ label{
 .etapa5{
     margin-top: -1px;
     left: 73.5%;
+    background-color: red;
+    animation: opacity 5s;
     position:absolute;
 }
 
-.etapa5:hover{
-    cursor: pointer;
-    border: 2px solid green;
- }
+
 
 .etapa6{
     margin-top: -1px;
     left: 92%;
     position:absolute;
 }
+
+.etapa6:hover{
+    cursor: pointer;
+    border: 2px solid green;
+ }
 
 
 .progress-line{
@@ -140,21 +143,21 @@ label{
     margin: 10px 0 0 10px;
     position:absolute;
     height: 2px;
-    width:54%;
-    animation: progress3 3s;
+    width:70%;
+    animation: progress4 3s;
     background-color: #007bff;
     opacity: 0.9;
 }
 
 
-@keyframes progress3{
+@keyframes progress4{
     from {
-      width: 35%;
+      width: 54%;
       opacity: 0;
     }
   
     to {
-      width: 54%;
+      width: 70%;
       opacity: 1;
     }
   }
@@ -291,29 +294,10 @@ input{
     margin-left: 46%; 
  }
 
- #labelCep{
-    margin-left: 15px;
-    margin-top: 15px;
-}
-
-#inputCep{
-    margin-left: 15px;
-
-}
-
-#labelLaga{
-    margin-top: 15px;
-    margin-left: 175px;
-}
-
-#inputLaga{
-    margin-left: 175px; 
-}
-
-.line-curso{
-    margin:-3% 0 0 19%;
+ .line-curso{
+    margin:-3% 0 0 15%;
     height: 2px;
-    width: 105%;
+    width: 120%;
     background-color: #ccc;
     opacity: 0.3;
 }

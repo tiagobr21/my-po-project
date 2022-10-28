@@ -1,0 +1,48 @@
+<section  *ngIf="enable4 == true " class="curso">
+    <section class="time-line">
+    
+        <div class="etapa1"></div>
+        <div class="etapa2"></div>
+        <div class="etapa3"></div>
+        <div  class="etapa4"></div>
+        <div  class="etapa5"></div>
+        <div (click)="ngSubmit()" class="etapa6"></div>
+    
+        
+        <div class="progress-line"></div>
+        <div class="progress"></div>
+  
+        <label class="one">Dados</label>
+        <label  class="two">Atividades Complementares</label>
+        <label  class="three">Estágios</label>
+        <label  class="four">Situação Enade</label>
+        <label  class="five">Situação Discentes</label>
+        <label class="six">Historico Acadêmico</label>
+ 
+ 
+     </section>
+   
+
+     <section class="dados">
+        <div *ngFor="let sitacao of sitacaoDiscente; let i = index">
+            <form  [formGroup]="userForm" (ngSubmit)="ngSubmit()"  class="row g-3">
+                
+                <div><h2>{{i+1}}° Periodo</h2></div>
+                <div class="line-curso"></div>
+
+                <div class="col-md-6">
+                    <label for="inputEmail4" id="labelNome" class="form-label">Condição:*</label>
+                    <input value="{{sitacao.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularSituacaoDiscentePeriodoLetivo}}" type="text" class="form-control" id="inputNome" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" id="labelCod" class="form-label">Edição:*</label>
+                    <input value="{{sitacao.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularSituacaoDiscenteSituacaoDiscente}}" type="text" class="form-control" id="inputCod" required>
+                </div>
+            
+            </form>
+            <br>   <br>   <br>  <br>  <br>   <br>   <br>  <br> <br>  
+        </div>
+     </section>
+  
+ 
+</section>

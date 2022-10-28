@@ -103,8 +103,7 @@ label{
 .etapa4{
     margin-top: -1px;
     left: 56.5%;
-    background-color: red;
-    animation: opacity 5s;
+    background-color: #007bff;
     position:absolute;
 }
 
@@ -112,17 +111,17 @@ label{
 .etapa5{
     margin-top: -1px;
     left: 73.5%;
+    background-color: #007bff;
     position:absolute;
 }
 
-.etapa5:hover{
-    cursor: pointer;
-    border: 2px solid green;
- }
+
 
 .etapa6{
     margin-top: -1px;
     left: 92%;
+    animation: opacity 5s;
+    background-color: red;
     position:absolute;
 }
 
@@ -140,21 +139,21 @@ label{
     margin: 10px 0 0 10px;
     position:absolute;
     height: 2px;
-    width:54%;
-    animation: progress3 3s;
+    width:88%;
+    animation: progress5 3s;
     background-color: #007bff;
     opacity: 0.9;
 }
 
 
-@keyframes progress3{
+@keyframes progress5{
     from {
-      width: 35%;
+      width: 70%;
       opacity: 0;
     }
   
     to {
-      width: 54%;
+      width: 88%;
       opacity: 1;
     }
   }
@@ -168,7 +167,6 @@ label{
       opacity: 1;
     }
   }
-
 
 .info-1{
     position: relative;
@@ -277,18 +275,25 @@ input{
 
 #labelNome{
     margin-left: 15px;
+    margin-top: 15px;
 }
 
 #inputNome{
+    width: 95%;
     margin-left: 15px;
+
 }
 
 #labelCod{
-    margin-left:46%;
+    margin-left:46% ;
+    margin-top: 15px;
+   
 }
 
 #inputCod{
     margin-left: 46%; 
+    width: 95%;
+ 
  }
 
  #labelCep{
@@ -297,23 +302,144 @@ input{
 }
 
 #inputCep{
+    width: 60%;
     margin-left: 15px;
 
 }
 
 #labelLaga{
     margin-top: 15px;
-    margin-left: 175px;
+    margin-left: -90px;
 }
 
 #inputLaga{
-    margin-left: 175px; 
+    
+    margin-left: -90px;    
+    width: 130%;
 }
 
-.line-curso{
-    margin:-3% 0 0 19%;
-    height: 2px;
+
+#labelNum{
+    margin-top: 10px;
+    margin-left: 55px;
+}
+
+#inputNum{
+    width: 180%;
+    margin-left: 55px;
+}
+
+ #labelTipo{
+     margin-left: 15px;
+    margin-top: 10px;
+}
+
+#inputTipo{
+
+ margin-left: 15px;
+}
+
+ #labelNumero{
+    margin-left: 80%;
+    margin-top: 10px;
+ }
+ 
+
+ #inputNumero{
+    width: 160%;
+    left: 70%;
+    position: relative;
+ }
+ 
+
+ #labelData{
+    margin-left: 188%;
+    margin-top: 10px;
+ }
+
+ #inputData{
+    width: 160%;
+    left: 180%;
+    position: relative;
+ }
+
+
+  #labelPub{
+    margin-top: 10px;
+    margin-left: 270%;
+ } 
+
+ #inputPub{
+   
+    margin-left: 270%;
+    width: 180%;
+ }
+
+ #labelSeç{
+    margin-left: 15px;
+ }
+
+ 
+ #inputSeç{
+    margin-left: 15px;
     width: 105%;
+ }
+
+ #labelPag{
+    margin-left: 24%;
+ }
+
+ #inputPag{
+    margin-left: 24%; 
+    width: 115%;
+}
+
+ .title-recred{
+    margin: 40px 0 -30px 0;
+ }
+
+
+.line-curso{
+    margin:-3.5% 0 0 11%;
+    height: 2px;
+    width: 108%;
+    max-width: 200%;
     background-color: #ccc;
     opacity: 0.3;
+    
 }
+
+
+
+ .mensagem{
+    position:absolute;
+    margin-top: -25%;
+ }
+
+
+ #proximo{
+    width: 10%;
+    top: 150%;
+    left:53%;
+    position:relative;
+ }
+
+ #refresh{
+    width: 15%;
+    top: 170%;
+    left:50.5%;
+    position:relative;
+ }
+
+ .loading{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.20);
+    height: 85%;
+    width: 89.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 60%;
+    left: 5%;
+
+ }

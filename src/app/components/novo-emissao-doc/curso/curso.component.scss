@@ -264,6 +264,31 @@ span{
     opacity: 0.1;
 }
 
+.title-endereco{
+    
+    margin-bottom: -20px;
+}
+
+.line-credenc{
+    top: -40px;
+    left: 170px;
+    position:relative;
+    height: 2px;
+    width: 90%;
+    background-color: black;
+    opacity: 0.1;
+}
+
+
+.line-recred{
+    top: -40px;
+    left: 180px;
+    position:relative;
+    height: 2px;
+    width: 95%;
+    background-color: black;
+    opacity: 0.1;
+}
 
 
 form{
@@ -315,7 +340,7 @@ form label{
  }
  
  #labelDoc{
-    margin-top: 10px;
+    margin-top: 35px;
      margin-left: 140px;
  }
  
@@ -324,14 +349,43 @@ form label{
      position: relative;
  }
  
+ #inputCodMun{
+    margin-left: -160px;
+}
+
+#labelCodMun{
+    margin-left: -160px;
+    margin-top: 30px;
+}
 
 
+#inputCodMun2{
+    margin-left: -160px;
+}
+
+#labelCodMun2{
+    margin-left: -160px;
+    margin-top: 80px;
+}
 
  #labelMod{
     margin-top: 30px;
-    margin-left: -1px;
+    margin-left: 130%;
  }
 
+ #inputMod{
+    margin-left: 130%;
+ }
+
+ #labelMun{
+    margin-left: 200%;
+    margin-top: 10%;
+ }
+
+ #inputMun{
+    
+    margin-left: 200%;
+ }
 
  #labelRec{
     margin-top: 10px;
@@ -344,7 +398,7 @@ form label{
  }
  
  #labelData{
-    margin-top: 10px;
+
      margin-left: 140px;
  }
  
@@ -353,6 +407,102 @@ form label{
      position: relative;
  }
 
+
+ #labelProc{
+    margin-top: 60px;
+ }
+
+
+
+ #labelTipo{
+    margin-left: 3px;
+}
+
+ #labelNumero{
+    margin-left: 70%;
+ }
+
+ #labelData{
+    margin-left: 182%;
+ }
+
+  #labelPub{
+    top:0;
+    left: 245%;
+    position: relative;
+ } 
+
+
+
+ 
+#inputTipo{
+    width: 160%;
+ 
+}
+
+#inputTipo2{
+    width: 160%;
+ 
+}
+
+option{
+    color: black;
+}
+
+#inputNumero{
+   width: 160%;
+   left: 70%;
+   position: relative;
+}
+
+ #inputData{
+    width: 160%;
+    left: 180%;
+    position: relative;
+ }
+
+ #inputPub{
+   
+    left: 250%;
+    width: 160%;
+   position: relative;
+ }
+ 
+
+ #labelCom{
+    margin-left: 3px;
+}
+
+ #labelBai{
+    margin-left: 120%;
+ }
+
+ #labelEst{
+    margin-left: 160%;
+ }
+
+ #labelCid{
+  
+    margin-left: 220%;
+ }
+
+ #inputSeç{
+    width: 106%;
+ }
+
+ #inputPag{
+ 
+    margin-left: 90px;
+    width: 106%;
+ }
+
+ #labelSeç{
+    margin:10px 0 0 -0.5px;
+ }
+ 
+ #labelPag{
+    margin: 10px 0 0  90px;
+ }
 
  .title-endereco{
     margin-top: 40px;
@@ -368,6 +518,7 @@ form label{
     background-color: black;
     opacity: 0.1;
 }
+
 
 
 #inputCamp{
@@ -429,7 +580,6 @@ form label{
  }
 
 
- 
 #inputCep{
     width: 60%;
 }
@@ -456,9 +606,39 @@ form label{
     margin-left: 2px;
 }
 
+#labelVei{
+    margin-left: 50%;
 
+}
 
+#inputVei{
+    margin-left: 50%;
+}
 
+#labelDia{
+    margin-left: 70%;
+    max-width: 100%;
+}
+
+#inputDia{
+    margin-left: 70%;
+}
+
+#labelNumpro{
+    position: relative;
+    margin-top: 70px;
+    margin-right: 100px;
+    float: left;
+}
+
+#inputNumpro{
+    position: relative;
+    float: left;
+}
+
+.title-credenc,.title-recred{
+    margin-top: 40px;
+}
 
  #voltar{
     width: 10%;

@@ -32,115 +32,311 @@
 
     </section>
 
-    <div class="info-1"><h3>Mantenedora:<span> {{cursoSelecionado.DadosRegistroIesRegistradoraNome}}</span></h3></div>  
-    <div class="info-2"><h3>Instituição:<span> {{cursoSelecionado.DadosRegistroIesRegistradoraNome}}</span></h3></div>  
+    <div class="info-1"><h3>Mantenedora:<span> {{cursoSelecionado[0].DadosRegistroIesRegistradoraNome}}</span></h3></div>  
+    <div class="info-2"><h3>Instituição:<span> {{cursoSelecionado[0].DadosRegistroIesRegistradoraNome}}</span></h3></div>  
 
     
     <section class="dados">
+
+     
 
         <div class="title-dados"><h2>Dados do Curso</h2></div>
         <div class="line-dados"></div>
         
 
-        <form  [formGroup]="userForm" class="row g-3">
+        <form [formGroup]="userForm" class="row g-3">
+
+     
 
                 <div class="col-md-4">
                     <label for="inputZip" id="labelCurso"class="form-label">Nome do Curso: *</label>
-                    <input formControlName="nome-curso" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoNomeCurso}}" type="text" class="form-control" id="inputCurso" required>
+                    <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoNomeCurso}}" type="text" class="form-control" id="inputCurso" required>
                 </div>
                 
                 <div class="col-md-4">
-                  <label for="inputState" id="labelCod" class="form-label">Código do Curso MEC: *</label>
-                  <input formControlName="codigo-mec" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoCodigoCursoEmec}}" type="text" class="form-control" id="inputCod" required>
+                  <label for="inputState" id="labelCod" class="form-label">Código Emec: *</label>
+                  <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoCodigoCursoEmec}}" type="text" class="form-control" id="inputCod" required>
                 </div>
 
                 <div class="col-md-4">
                   <label for="inputZip" id="labelHab" class="form-label">Nome Habilitação: *</label>
-                  <input formControlName="nome-habilitacao" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoNomeHabilitacao}}" type="text" class="form-control" id="inputHab" required>
+                  <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoNomeHabilitacao}}" type="text" class="form-control" id="inputHab" required>
                 </div>
 
                 <div class="col-md-4">
                     <label for="inputZip" id="labelTit"class="form-label">Título Conferido:*</label>
-                    <input formControlName="titulo-conferido" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoTituloConferidoTitulo}}" type="text" class="form-control" id="inputTit" required>
+                    <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoTituloConferidoOutroTitulo}}" type="text" class="form-control" id="inputTit" required>
                 </div>
 
                 <div class="col-md-4">
                   <label for="inputState" id="labelGrau" class="form-label">Grau Conferido: *</label>
-                  <input formControlName="grau-conferido" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoGrauConferido}}" type="text" class="form-control" id="inputGrau" required>
+                  <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoGrauConferido}}" type="text" class="form-control" id="inputGrau" required>
                 </div>
 
                 <div class="col-md-4">
-                  <label for="inputZip" id="labelDoc" class="form-label">N° do Documento de Autorização : *</label>
-                  <input  type="text" class="form-control" formControlName="autorizacao" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoAutorizacaoNumero}}" id="inputDoc" required>
+                  <label for="inputZip" id="labelDoc" class="form-label">Data da Habilitação:*</label>
+                  <input  type="date" class="form-control" value="{{cursoSelecionado[2].DadosDiplomaDadosCursoDataHabilitacao}}" id="inputDoc" required>
                 </div>
-
 
                 <div class="col-md-4">
                   <label for="inputZip" id="labelMod"class="form-label">Modalidade:*</label>
-                  <input formControlName="modalidade" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoModalidade}}" type="text" class="form-control" id="inputMod" required>
+                  <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoModalidade}}" type="text" class="form-control" id="inputMod" required>
                 </div>
-
+ 
+                <div class="title-endereco"><h4>Endereço</h4></div>
+                
+                
                 <div class="col-md-4">
-                  <label for="inputState" id="labelRec" class="form-label">N° do Documento de Reconhecimento: *</label>
-                  <input type="text" formControlName="reconhecimento" class="form-control" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoRenovacaoReconhecimentoNumero}}" id="inputRec" required>
-                </div>
+                  <label for="inputZip" id="labelCurso"class="form-label">Cep: *</label>
+                  <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoEnderecoCep}}" type="text" class="form-control" id="inputCurso" required>
+              </div>
+              
+              <div class="col-md-4">
+                <label for="inputState" id="labelCod" class="form-label">Logradouro: *</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoEnderecoLogradouro}}" type="text" class="form-control" id="inputCod" required>
+              </div>
 
-                <div class="col-md-4">
-                  <label for="inputZip" id="labelData" class="form-label">Data da Colação de Grau : *</label>
-                  <input formControlName="colacao" ngModel="{{cursoSelecionado.DadosRegistroLivroRegistroDataColacaoGrau}}" type="text" class="form-control" id="inputData" required>
-                </div>
-  
-                    
+              <div class="col-md-4">
+                <label for="inputZip" id="labelHab" class="form-label">Numero: *</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoEnderecoNumero}}" type="text" class="form-control" id="inputHab" required>
+              </div>
+
+              <div class="col-md-4">
+                  <label for="inputZip" id="labelTit"class="form-label">Complemento*</label>
+                  <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoEnderecoComplemento}}" type="text" class="form-control" id="inputTit" required>
+              </div>
+
+              <div class="col-md-4">
+                <label for="inputState" id="labelGrau" class="form-label">Bairro: *</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoEnderecoBairro}}" type="text" class="form-control" id="inputGrau" required>
+              </div>
+
+              <div class="col-md-4">
+                <label for="inputZip" id="labelDoc" class="form-label">Estado:*</label>
+                <input  type="text" class="form-control" value="{{cursoSelecionado[2].DadosDiplomaDadosCursoEnderecoUf}}" id="inputDoc" required>
+              </div>
+
+              <div class="col-md-4">
+                <label for="inputMod" id="labelMun"class="form-label">Município:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoEnderecoNomeMunicipio}}" type="text" class="form-control" id="inputMun" required>
+              </div>
+
+              <div class="col-md-4">
+                <label for="inputZip" id="labelCodMun"class="form-label">Código Município:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoEnderecoCodigoMunicipio}}" type="text" class="form-control" id="inputCodMun" required>
+              </div>
+                
+                
               <div class="title-endereco"><h2>Endereço da oferta do Curso</h2></div>
               <div class="line-endereco"></div> 
 
                     
               <div class="col-md-6">
                 <label for="inputEmail4" id="labelCamp" class="form-label">Campus/Unidade :*</label>
-                <input type="email" class="form-control" id="inputCamp" required>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloNome}}" type="email" class="form-control" id="inputCamp" required>
             </div>
 
             <div class="col-md-6">
-                <label for="inputPassword4" id="labelRef" class="form-label">Referência:*</label>
-                <input type="password" class="form-control" id="inputRef" required>
+                <label for="inputPassword4" id="labelRef" class="form-label">Codigo Emec:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloCodigoEmec}}" type="text" class="form-control" id="inputRef" required>
             </div>
 
-            
+            <div class="col-md-2">
+              <label for="inputZip" id="labelCom" class="form-label">Numero:*</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloSemCodigoEmecNumeroProcesso}}" type="text" class="form-control" id="inputCom" required>
+           </div>
+
+           <div class="col-md-2">
+              <label for="inputZip" id="labelBai" class="form-label">Tipo:*</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloSemCodigoEmecTipoProcesso}}" type="text" class="form-control" id="inputBai" required>
+           </div>
+
+           <div class="col-md-2">
+              <label for="inputZip" id="labelEst" class="form-label">Cadastro:*</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloSemCodigoEmecDataCadastro}}" type="text" class="form-control" id="inputEst" required>
+           </div>
+
+           <div class="col-md-2">
+              <label for="inputZip" id="labelCid" class="form-label">Protocolo:*</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloSemCodigoEmecDataProtocolo}}" type="text" class="form-control" id="inputCid" required>
+           </div>
+
             <div class="col-md-6">
               <label for="inputCity" id="labelCep" class="form-label">Cep: *</label>
-              <input formControlName="cep-curso" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursoenderecocep}}"  type="text" class="form-control" id="inputCep" required>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloEnderecoCep}}"  type="text" class="form-control" id="inputCep" required>
               </div>
 
               <div class="col-md-4">
               <label for="inputState" id="labelLaga" class="form-label">Lagadouro: *</label>
-              <input formControlName="logradouro-curso" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursoenderecologradouro}}" type="text" class="form-control" id="inputLaga" required>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloEnderecoLogradouro}}" type="text" class="form-control" id="inputLaga" required>
               </div>
 
               <div class="col-md-2">
               <label for="inputZip" id="labelNum" class="form-label">Número: *</label>
-              <input formControlName="numero-curso" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursoendereconumero}}" type="text" class="form-control" id="inputNum" required>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloEnderecoNumero}}" type="text" class="form-control" id="inputNum" required>
               </div>
               
               <div class="col-md-2">
                 <label for="inputZip" id="labelCom" class="form-label">Complemento:*</label>
-                <input type="text" class="form-control" id="inputCom" required>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloEnderecoComplemento}}" type="text" class="form-control" id="inputCom" required>
              </div>
 
              <div class="col-md-2">
                 <label for="inputZip" id="labelBai" class="form-label">Bairro:*</label>
-                <input formControlName="bairro-curso" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursoenderecobairro}}" type="text" class="form-control" id="inputBai" required>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloEnderecoBairro}}" type="text" class="form-control" id="inputBai" required>
              </div>
 
              <div class="col-md-2">
                 <label for="inputZip" id="labelEst" class="form-label">Estado:*</label>
-                <input formControlName="estado-curso" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursoenderecouf}}" type="text" class="form-control" id="inputEst" required>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloEnderecoUf}}" type="text" class="form-control" id="inputEst" required>
              </div>
 
              <div class="col-md-2">
-                <label for="inputZip" id="labelCid" class="form-label">Cidade:*</label>
-                <input formControlName="cidade-curso" ngModel="{{cursoSelecionado.Dadosdiplomadadoscursoendereconomemunicipio}}" type="text" class="form-control" id="inputCid" required>
+                <label for="inputZip" id="labelCid" class="form-label">Município:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloEnderecoNomeMunicipio}}" type="text" class="form-control" id="inputCid" required>
              </div>
+             
+             <div class="col-md-2">
+              <label for="inputZip" id="labelCodMun2" class="form-label">Código Município:*</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoPoloEnderecoCodigoMunicipio}}" type="text" class="form-control" id="inputCodMun2" required>
+           </div>
+
+
+           <div class="title-credenc"><h2>Autorização</h2></div>
+           <div class="line-credenc"></div>
+
+
+            <div class="col-md-2">
+                <label for="inputZip" id="labelTipo" class="form-label">Tipo:*</label>
+                   <input  value="{{cursoSelecionado[2].DadosDiplomaDadosCursoAutorizacaoTipo}}" type="text" id="inputTipo" class="form-control"  required>
+            </div>
  
+            <div class="col-md-2">
+                <label for="inputZip" id="labelNumero" class="form-label">Numero:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoAutorizacaoNumero}}" type="text" id="inputNumero" class="form-control"  required>
+            </div>
+            
+
+            <div class="col-md-2">
+                <label for="inputZip" id="labelData" class="form-label">Data:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoAutorizacaoData}}" type="date" id="inputData" class="form-control"   required>
+            </div>
+           
+            <div class="col-md-2">
+                <label for="inputZip" id="labelPub" class="form-label">Data Publicação:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoAutorizacaoDataPublicacao}}" type="date" id="inputPub" class="form-control"  required>
+            </div>
+
+            
+            
+            <div class="col-md-6">
+                <label for="inputEmail4" id="labelSeç" class="form-label">Seção da Publicação:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoAutorizacaoSecaoPublicacao}}" type="text" class="form-control" id="inputSeç" required>
+            </div> 
+
+            <div class="col-md-6">
+                <label for="inputPassword4" id="labelPag" class="form-label">Página da Publicação:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoAutorizacaoPaginaPublicacao}}" type="text" class="form-control" id="inputPag" required>
+            </div>
+       
+            <div class="col-md-4">
+                <label for="inputZip" id="labelVei" class="form-label">Veículo:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoAutorizacaoVeiculoPublicacao}}" type="text" class="form-control" id="inputVei" required>
+             </div>
+             <div class="col-md-4">
+                <label for="inputZip" id="labelDia" class="form-label">N° Diário:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoAutorizacaoNumero}}" type="text" class="form-control" id="inputDia" required>
+             </div>
+
+
+             
+             <div class="title-recred"><h2>Reconhecimento</h2></div>
+             <div class="line-recred"></div>
+
+             
+            <div class="col-md-2">
+                <label for="inputZip" id="labelTipo" class="form-label">Tipo:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoReconhecimentoTipo}}"  class="form-control"  required>
+            </div>
+            
+           <div class="col-md-2">
+                <label for="inputZip" id="labelNumero" class="form-label">Numero:*</label>
+                <input  value="{{cursoSelecionado[2].DadosDiplomaDadosCursoReconhecimentoNumero}}" type="text" id="inputNumero" class="form-control"  required>
+            </div>
+
+            <div class="col-md-2">
+                <label for="inputZip" id="labelData" class="form-label">Data:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoReconhecimentoData}}" type="date" id="inputData" class="form-control"  required>
+            </div>
+
+            <div class="col-md-2">
+                <label for="inputZip" id="labelPub" class="form-label">Data Publicação:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoReconhecimentoDataPublicacao}}" type="date" id="inputPub" class="form-control"  required>
+            </div>
+             
+            <div class="col-md-6">
+                <label for="inputEmail4" id="labelSeç" class="form-label">Seção da Publicação:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoReconhecimentoSecaoPublicacao}}" type="text" class="form-control" id="inputSeç" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="inputPassword4" id="labelPag" class="form-label">Página da Publicação:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoReconhecimentoPaginaPublicacao}}" type="text" class="form-control" id="inputPag" required>
+            </div> 
+
+            <div class="col-md-4">
+                <label for="inputZip" id="labelVei" class="form-label">Veículo:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoReconhecimentoVeiculoPublicacao}}" type="text" class="form-control" id="inputVei" required>
+             </div>
+             <div class="col-md-4">
+                <label for="inputZip" id="labelDia" class="form-label">N° Diário:*</label>
+                <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoReconhecimentoNumero}}" type="text" class="form-control" id="inputDia" required>
+             </div>
+          
+           
+         
+          <div class="title-credenc"><h2>Renovação de Reconhecimento</h2></div>
+          <div class="line-credenc"></div>
+
+          <div class="col-md-2">
+              <label for="inputZip" id="labelTipo" class="form-label">Tipo:*</label>
+                 <input  value="{{cursoSelecionado[2].DadosDiplomaDadosCursoRenovacaoReconhecimentoTipo}}" type="text" id="inputTipo" class="form-control"  required>
+          </div>
+
+          <div class="col-md-2">
+              <label for="inputZip" id="labelNumero" class="form-label">Numero:*</label>
+              <input  value="{{cursoSelecionado[2].DadosDiplomaDadosCursoRenovacaoReconhecimentoNumero}}" type="text" id="inputNumero" class="form-control"  required>
+          </div>
+
+          <div class="col-md-2">
+              <label for="inputZip" id="labelData" class="form-label">Data:*</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoRenovacaoReconhecimentoData}}" type="date" id="inputData" class="form-control"   required>
+          </div>
+         
+          <div class="col-md-2">
+              <label for="inputZip" id="labelPub" class="form-label">Data Publicação</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoRenovacaoReconhecimentoDataPublicacao}}" type="date" id="inputPub" class="form-control"  required>
+          </div>
+          
+          <div class="col-md-6">
+              <label for="inputEmail4" id="labelSeç" class="form-label">Veículo:*</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoRenovacaoReconhecimentoVeiculoPublicacao}}" type="text" class="form-control" id="inputSeç" required>
+          </div> 
+
+          <div class="col-md-6">
+              <label for="inputPassword4" id="labelPag" class="form-label">Seção da Publicação*</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoRenovacaoReconhecimentoSecaoPublicacao}}" type="text" class="form-control" id="inputPag" required>
+          </div>
+           
+          <div class="col-md-6">
+              <label for="inputEmail4" id="labelSeç" class="form-label">Pagina Publicação:*</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoRenovacaoReconhecimentoPaginaPublicacao}}" type="text" class="form-control" id="inputSeç" required>
+          </div>
+
+          <div class="col-md-6">
+              <label for="inputPassword4" id="labelPag" class="form-label">N° Diário:*</label>
+              <input value="{{cursoSelecionado[2].DadosDiplomaDadosCursoRenovacaoReconhecimentoNumero}}" type="text" class="form-control" id="inputPag" required>
+          </div> 
     
              <div class="col-12">
                 <a id="proximo" (click)="ngSubmit()"  type="submit"  class="btn btn-primary">Próximo</a>

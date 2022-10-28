@@ -15,8 +15,8 @@ export class CursoComponent implements OnInit {
   @Output() buttonClick3 = new EventEmitter();
   enable3:boolean = false; 
 
-  Diplomados:any;
-  cursoSelecionado:any
+  Diplomado:any;
+  cursoSelecionado:any[]=[]
 
   constructor(private service:BackconnectService) { }
   
@@ -24,25 +24,23 @@ export class CursoComponent implements OnInit {
   ngOnChanges() {
     
     this.service.listarDiplomados().subscribe((res):any=>{
-     this.Diplomados = res;
+     this.Diplomado = res;
      
+     this.Diplomado[2].DadosDiplomaDadosCursoAutorizacaoTipo
 
-       for(let i=0;i<this.Diplomados.length;i++){ 
-         if(this.Diplomados[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
+       for(let i=0;i<this.Diplomado.length;i++){ 
+         if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
      
     
-           this.cursoSelecionado = this.Diplomados[i];
-
-        
-           if(i<10){
-            break
-           }
+           this.cursoSelecionado.push(this.Diplomado[i]);
+   
+         
          }
          
        }
    });
 
-    
+
   }
 
   userForm = new FormGroup({
@@ -71,6 +69,7 @@ export class CursoComponent implements OnInit {
 
   ngOnInit(): void {
     scrollTo(10, 0);
+
   }
 
 

@@ -1,6 +1,6 @@
 
 
- <section  *ngIf=" enable == true || showPage2 == true " class="ies">
+ <section  *ngIf=" enable == true && curso || showPage2 == true && curso " class="ies">
     <section class="time-line">
 
        <div class="etapa1"></div>
@@ -19,7 +19,7 @@
        <label  class="three">Estágios</label>
        <label  class="four">Situação Enade</label>
        <label  class="five">Situação Discentes</label>
-       <label class="six">Diplomado Historico</label>
+       <label class="six">Historico Acadêmico</label>
 
     </section>
       
@@ -33,11 +33,12 @@
                 <div class="title-diploma"><h2>Atividade Complementar {{i+1}}</h2></div>
                 <div class="line-diploma"></div>
          
-                <div class="col-md-6">
+                <div  class="col-md-6">
                   <label for="inputEmail4" id="labelNome" class="form-label">Descrição:*</label>
-                  <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDescricao}}" type="text" class="form-control" id="inputNome" required>
+                  <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDescricao}}" type="text" class="form-control" id="inputNome" required>
                   </div>
-                  <div class="col-md-6">
+               
+                 <div class="col-md-6">
                   <label for="inputPassword4" id="labelCod" class="form-label">Carga Horária:*</label>
                   <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarCargaHorariaHoraRelogio}}" type="text" class="form-control" id="inputCod" required>
                 </div>
@@ -80,7 +81,7 @@
                   <div class="col-md-6">
                       <label for="inputEmail4" id="labelSeç" class="form-label">Tipo:*</label>
                       <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarTipoAtividadeComplementar}}" type="text" class="form-control" id="inputSeç" required>
-                  </div>
+                  </div> 
         
                
         </form>

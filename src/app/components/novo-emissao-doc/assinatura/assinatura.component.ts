@@ -22,12 +22,13 @@ export class AssinaturaComponent implements OnInit {
     checks:any
     alunosSelecionado:any[]=[];
     cursoSelecionado:any;
-    Diplomados:any;
+    Diplomado:any;
     gerar:boolean = false;
     checked:boolean = false;
     opacity='0.5';
     opacity2='0.5';
     gerarDiploma:boolean = false;
+    gerarDiplomado:any;
     next:boolean = false;
     pdf:any;
     gerado:boolean =false;
@@ -43,6 +44,7 @@ export class AssinaturaComponent implements OnInit {
     response:string ='';
     allCheckes:any
     value:any
+    rvdd:any;
     
     constructor(private service:BackconnectService,private fb:FormBuilder) {
       this.userForm = this.fb.group({
@@ -103,23 +105,28 @@ export class AssinaturaComponent implements OnInit {
   });
    
   }
+
+  gerarDiplomas(){
+    
+  }
     
   ngOnChanges() {
-     
-   
+
       this.service.listarDiplomados().subscribe((res):any=>{
-        this.Diplomados = res;
+        
+        this.Diplomado = res;
+
         this. alunos_assinar =  this.alunos_assinar['checkArray'];
  
-        this. alunos_assinar.forEach((element:any) => {
+        this.alunos_assinar.forEach((element:any) => {
      
-          for(let i=0;i<this.Diplomados.length;i++){ 
+          for(let i=0;i<this.Diplomado.length;i++){ 
               
-            if(this.Diplomados[i].DadosDiplomaDiplomadoId == element){
+            if(this.Diplomado[i].DadosDiplomaDiplomadoId == element){
             
-            this.cursoSelecionado = this.Diplomados[i];
+            this.cursoSelecionado = this.Diplomado[i];
             
-            this.alunosSelecionado.push(this.Diplomados[i]);
+            this.alunosSelecionado.push(this.Diplomado[i]);
               
              
           this.alunosSelecionado.map( (diplomado:any) => {
@@ -149,7 +156,14 @@ export class AssinaturaComponent implements OnInit {
     }
   
     ngOnInit(): void{
-  
+
+      this.service.gerarDiplomados().subscribe((res)=>{ 
+        console.log(res);
+        this.gerarDiplomado = res;
+    
+         this.rvdd = this.gerarDiplomado['data'].rvdd
+         this.diplomaXml = this.gerarDiplomado['data'].diploma
+       },error=>{console.log(error)})    
     }
     
   
@@ -164,18 +178,16 @@ export class AssinaturaComponent implements OnInit {
     viewPdf(id:any):any{
       console.log(id)
       if(this.gerado == true){
-        let base64String = this.pdf;
+        let base64String = this.rvdd;
         this.downloadPdf(base64String,"sample");
       }else{
         return 0;
       }
-       
-      
     }
     
     downloadXml(filename:any, text:any) {
       const element = document.createElement('a');
-      element.setAttribute('href', ' data:application/xml;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('href','data:application/xml;charset=utf-8,' + encodeURIComponent(text));
       element.setAttribute('download', filename);
       document.body.appendChild(element);
       document.body.removeChild(element);
@@ -186,7 +198,7 @@ export class AssinaturaComponent implements OnInit {
     viewXml(id:any):any{
       if(this.gerado == true){
       let text =  this.diplomaXml;
-      let filename;
+      let filename = 'Xml';
       this.downloadXml(filename,text); 
       }else{
         return 0;

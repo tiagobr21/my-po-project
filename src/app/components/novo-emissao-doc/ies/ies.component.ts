@@ -24,8 +24,8 @@ export class IesComponent implements OnInit {
   @Output() back = new EventEmitter();
   
   loading:boolean = false
-  Diplomados:any;
-  cursoSelecionado:any
+  Diplomado:any;
+  cursoSelecionado:any[]=[]
    
   constructor(private service:BackconnectService) { 
   
@@ -39,13 +39,14 @@ export class IesComponent implements OnInit {
   ngOnChanges() {
 
     this.service.listarDiplomados().subscribe((res):any=>{
-     this.Diplomados = res;
    
-  
-       for(let i=0;i<this.Diplomados.length;i++){ 
-         if(this.Diplomados[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
+       this.Diplomado = res
+
+
+       for(let i=0;i<this.Diplomado.length;i++){ 
+         if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
     
-            this.cursoSelecionado = this.Diplomados[i];
+            this.cursoSelecionado.push(this.Diplomado[i]);
             
          } 
        }

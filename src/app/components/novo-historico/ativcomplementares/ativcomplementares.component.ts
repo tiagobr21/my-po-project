@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter,ViewChild ,ElementRef} from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
-import { FormGroup, FormControl,Validators } from '@angular/forms';
+import { FormGroup, FormControl,Validators,FormBuilder, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-ativcomplementares',
@@ -8,7 +8,8 @@ import { FormGroup, FormControl,Validators } from '@angular/forms';
   styleUrls: ['./ativcomplementares.component.scss']
 })
 export class AtivcomplementaresComponent implements OnInit {
-
+  
+  @ViewChild("descricao") descricao!: ElementRef;
   @Input() enable:any;
   @Input() curso:any;
   @Input() backPage:any;
@@ -27,18 +28,49 @@ export class AtivcomplementaresComponent implements OnInit {
   dataFim:any[]=[];
   dataInicio:any[]=[];
   dataRegistro:any[]=[];
-  quantidade:number = 0
-   
-  constructor(private service:BackconnectService) { 
-  
+  quantidade:number = 0;
+  descricoes:any[]=[];
+  cargahoraria:any[]=[];
+  datafim:any[]=[];
+  datainicio:any[]=[];
+  dataregistro:any[]=[];
+  docentecpf:any[]=[];
+  docentelattes:any[]=[];
+  docentenome:any[]=[];
+  docentetitulo:any[]=[];
+  tipo:any[]=[];
+
+
+  constructor(private service:BackconnectService,private fb:FormBuilder) { 
+ 
   }
+
 
   
   ngOnInit(): void {
-    this.service.listarAtivCom().subscribe((res):any=>{
-      this.AtivCom = res;
 
+    if(this.cursoSelecionado == this.curso){
+    this.service.listarAtivCom().subscribe((res):any=>{
+  
+      this.AtivCom = res;
+      
+
+      for (let i=0; i < this.AtivCom.length; i++) { 
+        this.descricoes.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDescricao)
+        this.cargahoraria.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarCargaHorariaHoraRelogio)
+        this.datafim.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarCargaHorariaHoraRelogio)
+        this.datainicio.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarCargaHorariaHoraRelogio)
+        this.dataregistro.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarCargaHorariaHoraRelogio)
+        this.docentecpf.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDocentesResponsaveisPelaValidacao.DocenteCPF)
+        this.docentelattes.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDocentesResponsaveisPelaValidacao.DocenteLattes)
+        this.docentenome.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDocentesResponsaveisPelaValidacao.DocenteNome)
+        this.docentetitulo.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDocentesResponsaveisPelaValidacao.DocenteTitulacao)
+        this.tipo.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarTipoAtividadeComplementar)
+
+      }
+  
         
+
        this.quantidade = this.AtivCom.length
        
        
@@ -57,13 +89,24 @@ export class AtivcomplementaresComponent implements OnInit {
              this.dataInicio.push(dataFormatada(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDataInicio))
              this.dataRegistro.push(dataFormatada(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDataRegistro))
            }
-         
+   
     });
- 
+  }
   }
 
- 
 
+
+  ngOnChanges() {
+  
+/*     this.service.listarDataRequestHis().subscribe((res)=>{
+       this.cursoSelecionado = res;
+       this.cursoSelecionado =  this.cursoSelecionado['dados_historico'][0].DadosDiplomaDadosCursoNomeCurso
+    
+    })
+     */
+
+
+}
   
   refresh(){
     location.reload()
@@ -71,27 +114,47 @@ export class AtivcomplementaresComponent implements OnInit {
 
   onSubmit(){ 
     this.enable = false
-
     this.enable2 = this.enable2 == false ? true : false;
     this.buttonClick2.emit(this.enable2);
-
+    
 
   }
+ 
 
   userForm = new FormGroup({
-    'descricao':new FormControl(null,Validators.required),
-    'cargahoraria':new FormControl(null,Validators.required),
-    'datafim':new FormControl(null,Validators.required),
-    'datainicio':new FormControl(null,Validators.required),
-    'dataregistro':new FormControl(null,Validators.required),
-    'docentecpf':new FormControl(null,Validators.prototype),
-    'docentelattes':new FormControl(null,Validators.prototype),
-    'docentenome':new FormControl(null,Validators.required),
-    'docentetitulo':new FormControl(null,Validators.required),
-    'tipo':new FormControl(null,Validators.required)
+    
+    'descricao':new FormArray ([
+     new FormControl(this.descricoes,Validators.required)]),
 
-   
+    'cargahoraria':new FormArray([
+      new FormControl( this.cargahoraria,Validators.required)]),
+
+    'datafim':new FormArray([
+     new FormControl (this.datafim,Validators.required)
+    ]),
+    'datainicio':new FormArray([
+      new FormControl (this.datainicio,Validators.required)
+     ]),
+    'dataregistro':new FormArray([
+      new FormControl (this.dataregistro,Validators.required)
+     ]),
+    'docentecpf':new FormArray([
+      new FormControl (this.docentecpf,Validators.required)
+     ]),
+    'docentelattes':new FormArray([
+      new FormControl (this.docentelattes,Validators.required)
+     ]),
+    'docentenome':new FormArray([
+      new FormControl (this.docentenome,Validators.required)
+     ]),
+    'docentetitulo':new FormArray([
+      new FormControl (this.docentetitulo,Validators.required)
+     ]),
+    'tipo':new FormArray([
+      new FormControl (this.tipo,Validators.required)
+     ]),
   });
+
 
   backPages(){
     this.enable = false

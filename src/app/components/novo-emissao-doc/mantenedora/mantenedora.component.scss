@@ -332,6 +332,16 @@ input{
     margin-left: 230%;
  }
 
+ #inputCodMun{
+    margin-left: -160px;
+}
+
+#labelCodMun{
+    margin-left: -160px;
+    margin-top: 80px;
+}
+
+
  #inputCurso{
     color: black;
     border: 0;
@@ -373,3 +383,10 @@ input{
     left: 5%;
 
  }
+
+ @media screen and (max-width: 1200px) {
+    .ten {
+       margin-left: -1px;
+       margin-left: 50px; 
+    }
+  }

@@ -1,3 +1,6 @@
 <app-listarhistorico (backPages)="back($event)"  (buttonClick)="handleButtonClick($event)" (cursoAtual)="cursoSelecionado($event)" (show)="show($event)" [showPage]="showPage"></app-listarhistorico>
 <app-ativcomplementares (buttonClick2)="handleButtonClick2($event)" [enable]="enable" (cursoAtual)="cursoSelecionado($event)"  (backPages)="back($event)"  (buttonClick)="handleButtonClick($event)"  [curso]="curso"  [backPage]="backPage" (show)="show($event)"></app-ativcomplementares>
 <app-estagio  (buttonClick3)="handleButtonClick3($event)"  [curso]="curso"  [enable2]="enable2" ></app-estagio>
+<app-situacaoenade (alunosSelecionados)="alunosSelecionados($event)" (buttonClick4)="handleButtonClick4($event)" [curso]="curso" [enable3]="enable3"></app-situacaoenade>
+<app-situacaodiscente (alunosAssinatura)="alunosAssinar($event)" (buttonClick5)="handleButtonClick5($event)" [alunos]="alunos" [curso]="curso" [enable4]="enable4"></app-situacaodiscente>
+<app-historicoacademico [alunos_assinar]="alunos_assinar" [curso]="curso" [enable5]="enable5" ></app-historicoacademico>

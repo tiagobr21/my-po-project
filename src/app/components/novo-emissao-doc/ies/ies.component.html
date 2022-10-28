@@ -32,26 +32,34 @@
 
    
 
-    <div class="info-1"><h3>Mantenedora:<span> {{cursoSelecionado.DadosRegistroIesRegistradoraNome}}</span></h3></div> 
+    <div class="info-1"><h3>Mantenedora:<span> {{cursoSelecionado[0].DadosDiplomaIesEmissoraNome}}</span></h3></div> 
     
 
       
     <section  class="dados">
 
+      <div *ngFor="let dados of cursoSelecionado | slice:0:1 ; index as i">
+
         <div class="title-ies"><h2>Dados da IES</h2></div>
         <div class="line-ies"></div>
 
-
+ 
         <form [formGroup]="userForm" class="row g-3">
         
-        <div class="col-md-6">
-            <label for="inputEmail4" id="labelNome" class="form-label">Nome da Instituição:*</label>
-            <input formControlName="nome-instituicao" ngModel="{{cursoSelecionado.DadosDiplomaIesEmissoraNome}}" type="email" class="form-control" id="inputNome" required>
+           <div class="col-md-6">
+                <label for="inputEmail4" id="labelNome" class="form-label">Nome da Instituição:*</label>
+                 <input formControlName="nome-instituicao" ngModel="{{dados.DadosDiplomaIesEmissoraNome}}" type="email" class="form-control" id="inputNome" required>
             </div>
             <div class="col-md-6">
-            <label for="inputPassword4" id="labelCod" class="form-label">Código MEC:*</label>
-            <input formControlName="codigoMec" ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraCodigoMec}}" type="text" class="form-control" id="inputCod" required>
+                <label for="inputPassword4" id="labelCod" class="form-label">Código MEC:*</label>
+                <input formControlName="codigoMec" ngModel="{{dados.DadosRegistroIesRegistradoraCodigoMec}}" type="text" class="form-control" id="inputCod" required>
             </div>
+            
+            <div class="col-md-6">
+                <label for="inputPassword4" id="labelCnpj" class="form-label">CNPJ:*</label>
+                <input  value="{{dados.DadosDiplomaIesEmissoraCnpj}}" type="text" class="form-control" id="inputCnpj" required>
+            </div>
+       
             
             <div class="title-endereco"><h4>Endereço</h4></div>
             <div class="line-endereco"></div>
@@ -59,15 +67,15 @@
 
             <div class="col-md-6">
             <label for="inputCity" id="labelCep" class="form-label">Cep: *</label>
-            <input formControlName="cep-ies" ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraEnderecoCep}}" type="text" class="form-control" id="inputCep" required>
+            <input formControlName="cep-ies" ngModel="{{dados.DadosDiplomaIesEmissoraEnderecoCep}}" type="text" class="form-control" id="inputCep" required>
             </div>
             <div class="col-md-4">
             <label for="inputState" id="labelLaga" class="form-label">Logradouro: *</label>
-            <input formControlName="logradouro-ies" ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraEnderecoLogradouro}}" type="text" class="form-control" id="inputLaga" required>
+            <input formControlName="logradouro-ies" ngModel="{{dados.DadosDiplomaIesEmissoraEnderecoLogradouro}}" type="text" class="form-control" id="inputLaga" required>
             </div>
             <div class="col-md-2">
             <label for="inputZip" id="labelNum" class="form-label">Número: *</label>
-            <input formControlName="numero-ies" ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraEnderecoNumero}}" type="text" class="form-control" id="inputNum" required>
+            <input formControlName="numero-ies" ngModel="{{dados.DadosDiplomaIesEmissoraEnderecoNumero}}" type="text" class="form-control" id="inputNum" required>
             </div>
 
             <div class="col-md-2">
@@ -76,96 +84,156 @@
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelBai" class="form-label">Bairro:*</label>
-               <input formControlName="bairro-ies"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraEnderecoBairro}}" type="text" class="form-control" id="inputBai" required>
+               <input formControlName="bairro-ies"  ngModel="{{dados.DadosDiplomaIesEmissoraEnderecoBairro}}" type="text" class="form-control" id="inputBai" required>
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelEst" class="form-label">Estado:*</label>
-               <input formControlName="estado-ies"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraEnderecoUf}}" type="text" class="form-control" id="inputEst" required>
+               <input formControlName="estado-ies"  ngModel="{{dados.DadosDiplomaIesEmissoraEnderecoUf}}" type="text" class="form-control" id="inputEst" required>
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelCid" class="form-label">Cidade:*</label>
-               <input formControlName="cidade-ies"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraEnderecoNomeMunicipio}}" type="text" class="form-control" id="inputCid" required>
+               <input formControlName="cidade-ies"  ngModel="{{dados.DadosDiplomaIesEmissoraEnderecoNomeMunicipio}}" type="text" class="form-control" id="inputCid" required>
             </div>
- 
+
+            <div class="col-md-2">
+                <label for="inputZip" id="labelCodMun" class="form-label">Código Município:*</label>
+                <input value="{{dados.DadosDiplomaIesEmissoraEnderecoCodigoMunicipio}}" type="text" class="form-control" id="inputCodMun" required>
+             </div>
 
           <div class="title-credenc"><h2>Credenciamento</h2></div>
             <div class="line-credenc"></div>
 
             <div class="col-md-2">
                 <label for="inputZip" id="labelTipo" class="form-label">Tipo:*</label>
-                   <input  formControlName="cred-tipo"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraCredenciamentoTipo}}" type="text" id="inputTipo" class="form-control"  required>
+                   <input  formControlName="cred-tipo"  ngModel="{{dados.DadosDiplomaIesEmissoraCredenciamentoTipo}}" type="text" id="inputTipo" class="form-control"  required>
             </div>
  
             <div class="col-md-2">
                 <label for="inputZip" id="labelNumero" class="form-label">Numero:*</label>
-                <input  formControlName="cred-numero"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraCredenciamentoNumero}}" type="text" id="inputNumero" class="form-control"  required>
+                <input  formControlName="cred-numero"  ngModel="{{dados.DadosDiplomaIesEmissoraCredenciamentoNumero}}" type="text" id="inputNumero" class="form-control"  required>
             </div>
 
             <div class="col-md-2">
                 <label for="inputZip" id="labelData" class="form-label">Data:*</label>
-                <input formControlName="cred-data"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraCredenciamentoData}}" type="text" id="inputData" class="form-control"   required>
+                <input formControlName="cred-data"  ngModel="{{dados.DadosDiplomaIesEmissoraCredenciamentoData}}" type="date" id="inputData" class="form-control"   required>
             </div>
            
             <div class="col-md-2">
                 <label for="inputZip" id="labelPub" class="form-label">Data Publicação:*</label>
-                <input formControlName="cred-data-publicacao"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraCredenciamentoDataPublicacao}}" type="date" id="inputPub" class="form-control"  required>
+                <input formControlName="cred-data-publicacao"  ngModel="{{dados.DadosDiplomaIesEmissoraCredenciamentoDataPublicacao}}" type="date" id="inputPub" class="form-control"  required>
             </div>
             
             <div class="col-md-6">
                 <label for="inputEmail4" id="labelSeç" class="form-label">Seção da Publicação:*</label>
-                <input formControlName="cred-secao"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraCredenciamentoSecaoPublicacao}}" type="text" class="form-control" id="inputSeç" required>
+                <input formControlName="cred-secao"  ngModel="{{dados.DadosDiplomaIesEmissoraCredenciamentoSecaoPublicacao}}" type="text" class="form-control" id="inputSeç" required>
             </div> 
 
             <div class="col-md-6">
                 <label for="inputPassword4" id="labelPag" class="form-label">Página da Publicação:*</label>
-                <input formControlName="cred-pagina"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraCredenciamentoPaginaPublicacao}}" type="text" class="form-control" id="inputPag" required>
+                <input formControlName="cred-pagina"  ngModel="{{dados.DadosDiplomaIesEmissoraCredenciamentoPaginaPublicacao}}" type="text" class="form-control" id="inputPag" required>
             </div>
-
+            
+            <div class="col-md-4">
+                <label for="inputZip" id="labelVei" class="form-label">Veículo:*</label>
+                <input value="{{dados.DadosDiplomaIesEmissoraCredenciamentoVeiculoPublicacao}}" type="text" class="form-control" id="inputVei" required>
+             </div>
+             <div class="col-md-4">
+                <label for="inputZip" id="labelDia" class="form-label">N° Diário:*</label>
+                <input value="{{dados.DadosDiplomaIesEmissoraCredenciamentoNumero}}" type="text" class="form-control" id="inputDia" required>
+             </div>
+        
+              
              <div class="title-recred"><h2>Recredenciamento</h2></div>
              <div class="line-recred"></div>
 
              
             <div class="col-md-2">
                 <label for="inputZip" id="labelTipo" class="form-label">Tipo:*</label>
-                <select class="form-select" id="inputTipo2">
-                  <option formControlName="tipo-re" selected>{{cursoSelecionado.DadosRegistroIesRegistradoraRecredenciamentoTipo}}</option>     
-                </select>
+                <input formControlName="tipo-re"  ngModel="{{dados.DadosDiplomaIesEmissoraRecredenciamentoTipo}}"  class="form-control"  required>
             </div>
             
-       <div class="col-md-2">
+           <div class="col-md-2">
                 <label for="inputZip" id="labelNumero" class="form-label">Numero:*</label>
-                <input  formControlName="tipo-re" ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraRecredenciamentoNumero}}" type="text" id="inputNumero" class="form-control"  required>
+                <input  formControlName="recred-numero" ngModel="{{dados.DadosDiplomaIesEmissoraRecredenciamentoNumero}}" type="text" id="inputNumero" class="form-control"  required>
             </div>
 
             <div class="col-md-2">
                 <label for="inputZip" id="labelData" class="form-label">Data:*</label>
-                <input formControlName="recred-data"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraRecredenciamentoData}}" type="text" id="inputData" class="form-control"  required>
+                <input formControlName="recred-data"  ngModel="{{dados.DadosDiplomaIesEmissoraRecredenciamentoData}}" type="date" id="inputData" class="form-control"  required>
             </div>
 
             <div class="col-md-2">
                 <label for="inputZip" id="labelPub" class="form-label">Data Publicação:*</label>
-                <input formControlName="recred-data-publicacao"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraRecredenciamentoDataPublicacao}}" type="date" id="inputPub" class="form-control"  required>
+                <input formControlName="recred-data-publicacao"  ngModel="{{dados.DadosDiplomaIesEmissoraRecredenciamentoDataPublicacao}}" type="date" id="inputPub" class="form-control"  required>
             </div>
              
             <div class="col-md-6">
                 <label for="inputEmail4" id="labelSeç" class="form-label">Seção da Publicação:*</label>
-                <input formControlName="recred-secao"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraRecredenciamentoSecaoPublicacao}}" type="text" class="form-control" id="inputSeç" required>
+                <input formControlName="recred-secao"  ngModel="{{dados.DadosDiplomaIesEmissoraRecredenciamentoSecaoPublicacao}}" type="text" class="form-control" id="inputSeç" required>
             </div>
 
             <div class="col-md-6">
                 <label for="inputPassword4" id="labelPag" class="form-label">Página da Publicação:*</label>
-                <input formControlName="recred-pagina"  ngModel="{{cursoSelecionado.DadosRegistroIesRegistradoraRecredenciamentoPaginaPublicacao}}" type="text" class="form-control" id="inputPag" required>
+                <input formControlName="recred-pagina"  ngModel="{{dados.DadosDiplomaIesEmissoraRecredenciamentoPaginaPublicacao}}" type="text" class="form-control" id="inputPag" required>
             </div> 
+
+            <div class="col-md-4">
+                <label for="inputZip" id="labelVei" class="form-label">Veículo:*</label>
+                <input value="{{dados.DadosDiplomaIesEmissoraRecredenciamentoVeiculoPublicacao}}" type="text" class="form-control" id="inputVei" required>
+             </div>
+             <div class="col-md-4">
+                <label for="inputZip" id="labelDia" class="form-label">N° Diário:*</label>
+                <input value="{{dados.DadosDiplomaIesEmissoraRecredenciamentoNumero}}" type="text" class="form-control" id="inputDia" required>
+             </div>
+
             
-            <div class="col-12">
-                <a id="proximo" (click)="onSubmit()" class="btn btn-primary">Próximo</a>
-            </div> 
-            
-            <div class="col-12">
-                <a id="refresh"  (click)="refresh()" class="btn btn-danger">Fazer Novamente</a>
-             </div> 
+          <div class="title-credenc"><h2>Renovação de Recredenciamento</h2></div>
+          <div class="line-credenc"></div>
+
+          <div class="col-md-2">
+              <label for="inputZip" id="labelTipo" class="form-label">Tipo:*</label>
+                 <input  value="{{dados.DadosDiplomaIesEmissoraRenovacaoDeRecredenciamentoTipo}}" type="text" id="inputTipo" class="form-control"  required>
+          </div>
+
+          <div class="col-md-2">
+              <label for="inputZip" id="labelNumero" class="form-label">Numero:*</label>
+              <input  value="{{dados.DadosDiplomaIesEmissoraRenovacaoDeRecredenciamentoNumero}}" type="text" id="inputNumero" class="form-control"  required>
+          </div>
+
+          <div class="col-md-2">
+              <label for="inputZip" id="labelData" class="form-label">Data:*</label>
+              <input value="{{dados.DadosDiplomaIesEmissoraRenovacaoDeRecredenciamentoData}}" type="date" id="inputData" class="form-control"   required>
+          </div>
+         
+          <div class="col-md-2">
+              <label for="inputZip" id="labelPub" class="form-label">Data Publicação</label>
+              <input value="{{dados.DadosDiplomaIesEmissoraRenovacaoDeRecredenciamentoDataPublicacao}}" type="date" id="inputPub" class="form-control"  required>
+          </div>
+          
+          <div class="col-md-6">
+              <label for="inputEmail4" id="labelSeç" class="form-label">Veículo:*</label>
+              <input value="{{dados.DadosDiplomaIesEmissoraRenovacaoDeRecredenciamentoVeiculoPublicacao}}" type="text" class="form-control" id="inputSeç" required>
+          </div> 
+
+          <div class="col-md-6">
+              <label for="inputPassword4" id="labelPag" class="form-label">Seção da Publicação*</label>
+              <input value="{{dados.DadosDiplomaIesEmissoraRenovacaoDeRecredenciamentoSecaoPublicacao}}" type="text" class="form-control" id="inputPag" required>
+          </div>
+           
+          <div class="col-md-6">
+              <label for="inputEmail4" id="labelSeç" class="form-label">Pagina Publicação:*</label>
+              <input value="{{dados.DadosDiplomaIesEmissoraRecredenciamentoSecaoPublicacao}}" type="text" class="form-control" id="inputSeç" required>
+          </div>
+
+          <div class="col-md-6">
+              <label for="inputPassword4" id="labelPag" class="form-label">N° Diário:*</label>
+              <input value="{{dados.DadosDiplomaIesEmissoraRenovacaoDeRecredenciamentoNumero}}" type="text" class="form-control" id="inputPag" required>
+          </div> 
+
+          
+        
         </form>
-    
+        </div>
     </section>
 </section>
   

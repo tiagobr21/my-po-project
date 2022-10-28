@@ -33,7 +33,7 @@
     <div class="info-1"><h3>Mantenedora:<span> {{cursoSelecionado.DadosRegistroIesRegistradoraNome}} </span></h3></div>  
     <div class="info-2"><h3>Instituição:<span> {{cursoSelecionado.DadosRegistroIesRegistradoraNome}} </span></h3></div>
     <div class="info-3"><h3>Curso:<span>{{cursoSelecionado.DadosDiplomaDadosCursoNomeCurso}}</span></h3></div>
-    <div class="info-3-5"><h3>Data do Inicio do processo  do diploma: <span> {{cursoSelecionado.DadosDiplomavdataConclusao}} </span></h3></div>
+    <div class="info-3-5"><h3>Data do Inicio do processo  do diploma: <span> {{cursoSelecionado.DadosDiplomadataConclusao}} </span></h3></div>
     <section class="dados">
 
       <form  class="row g-3">
@@ -73,8 +73,8 @@
              </div>
          </div> -->
          
-        
-            <div  *ngFor="let dados of alunosSelecionado "  class="alunos">
+      
+            <div *ngFor="let dados of alunosSelecionado" class="alunos">
 
                <div class="form-check" >
                   <input [checked]="checks" [value]="dados.DadosDiplomaDiplomadoId" (change)="onCheckboxChange($event)" class="form-check-input"  id="check-aluno"  type="checkbox"  value="">

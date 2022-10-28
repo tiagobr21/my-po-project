@@ -344,7 +344,20 @@ form label{
     opacity: 0.1;
 }
 
+#labelCep{
+    margin-left: 1px;
+}
+
 #inputCep{
+    width: 60%;
+}
+
+#labelCnpj{
+    margin-left: 86%;
+}
+
+#inputCnpj{
+    margin-left: 85%;
     width: 60%;
 }
 
@@ -361,9 +374,31 @@ form label{
     width: 180%;
 }
 
+#inputCodMun{
+    margin-left: -160px;
+}
 
-#labelCep{
-    margin-left: 1px;
+#labelCodMun{
+    margin-left: -160px;
+    margin-top: 80px;
+}
+
+#labelVei{
+    margin-left: 50%;
+
+}
+
+#inputVei{
+    margin-left: 50%;
+}
+
+#labelDia{
+    margin-left: 70%;
+    max-width: 100%;
+}
+
+#inputDia{
+    margin-left: 70%;
 }
 
 #labelNum{

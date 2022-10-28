@@ -1,8 +1,8 @@
 import { Component, Input, OnInit ,Output,EventEmitter} from '@angular/core';
 import { BackconnectService } from 'src/app/service/backconnect.service';
 import { FormGroup, FormControl,Validators, FormControlName } from '@angular/forms';
-
-
+import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
+import { MsgerrorComponent } from '../../errorsmensage/msgerror/msgerror.component';
 
 
 @Component({
@@ -23,15 +23,16 @@ backPage:boolean = false;
   
   loading:boolean =false;
   cursoEscolhido:any
-  cursoSelecionado:any
-  Diplomados:any
-
+  cursoSelecionado:any[]=[];
+  Diplomado:any
+  submitRequere:boolean = true
   ids:any
 
-  constructor(private service:BackconnectService) { }
+  constructor(private service:BackconnectService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
- 
+
+     
   }
 
 
@@ -40,24 +41,30 @@ backPage:boolean = false;
        this.cursoEscolhido = curso
        
        this.service.listarDiplomados().subscribe((res):any=>{
-        
-   
-
-        this.Diplomados = res;
+      
+        this.Diplomado = res;
         
 
-          
-          for(let i=0;i<this.Diplomados.length;i++){ 
+          for(let i=0;i<this.Diplomado.length;i++){ 
         
-            if(this.Diplomados[i].DadosDiplomaDadosCursoNomeCurso == this.cursoEscolhido){
+            if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.cursoEscolhido){
           
-              this.cursoSelecionado = this.Diplomados[i];
-            
+              this.cursoSelecionado.push(this.Diplomado[i]);
               
+     
+              
+            }else{
+              this.submitRequere = false;
+              const dialogConfig = this.dialog.open(MsgerrorComponent,{
+                width:'100%'
+              })
+              setTimeout(()=>{
+                window.location.reload();
+             }, 5000);
             }
           }
       });  
-      
+ 
 
     
   }

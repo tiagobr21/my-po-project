@@ -25,7 +25,7 @@ export class AlunoComponent implements OnInit {
 
   
   checks:boolean = false
-  Diplomados:any;
+  Diplomado:any;
   cursoSelecionado:any;
   dadosAlunos:any[]=[];
   teste:any;
@@ -65,7 +65,7 @@ export class AlunoComponent implements OnInit {
     console.log(isChecked);
     
 
-   this.Diplomados =  this.Diplomados.map((i:any)=>{
+   this.Diplomado =  this.Diplomado.map((i:any)=>{
       if(i.DadosDiplomaDiplomadoId === id){
         console.log(i.DadosDiplomaDiplomadoId);
         if(i.Checked == false){
@@ -134,19 +134,20 @@ export class AlunoComponent implements OnInit {
   ngOnChanges() {
   
     this.service.listarDiplomados().subscribe((res):any=>{
-      this.Diplomados = res;
+      this.Diplomado = res;
 
-      this.Diplomados.map( (diplomado:any) => {
+      this.Diplomado.map( (diplomado:any) => {
         diplomado.Checked = false;
       }) 
-  
+     
+      console.log(this.Diplomado)
 
-       for(let i=0;i<this.Diplomados.length;i++){ 
-         if(this.Diplomados[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
+       for(let i=0;i<this.Diplomado.length;i++){ 
+         if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
    
-           this.cursoSelecionado = this.Diplomados[i];
+           this.cursoSelecionado = this.Diplomado[i];
            
-           this.dadosAlunos.push(this.Diplomados[i]);
+           this.dadosAlunos.push(this.Diplomado[i]);
           
            
            // Exibição da Página

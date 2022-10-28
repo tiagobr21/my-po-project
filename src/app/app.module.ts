@@ -46,6 +46,10 @@ import { ListarhistoricoComponent } from './components/novo-historico/listarhist
 import { AtivcomplementaresComponent } from './components/novo-historico/ativcomplementares/ativcomplementares.component';
 import { EstagioComponent } from './components/novo-historico/estagio/estagio.component';
 import { SituacaoenadeComponent } from './components/novo-historico/situacaoenade/situacaoenade.component';
+import { SituacaodiscenteComponent } from './components/novo-historico/situacaodiscente/situacaodiscente.component';
+import { HistoricoacademicoComponent } from './components/novo-historico/historicoacademico/historicoacademico.component';
+import { MsgerrorComponent } from './components/errorsmensage/msgerror/msgerror.component';
+import { ServererrorComponent } from './components/errorsmensage/servererror/servererror.component';
 
 
 
@@ -87,7 +91,11 @@ import { SituacaoenadeComponent } from './components/novo-historico/situacaoenad
     ListarhistoricoComponent,
     AtivcomplementaresComponent,
     EstagioComponent,
-    SituacaoenadeComponent
+    SituacaoenadeComponent,
+    SituacaodiscenteComponent,
+    HistoricoacademicoComponent,
+    MsgerrorComponent,
+    ServererrorComponent
   ],
   
 

@@ -18,7 +18,7 @@ export class LivroRegistroComponent implements OnInit {
   enable5:boolean = false; 
   @Output() alunosAssinatura = new EventEmitter();
 
-  Diplomados:any;
+  Diplomado:any;
   alunosSelecionado:any[]=[];
   cursoSelecionado:any;
   allCheckes:any;
@@ -49,12 +49,13 @@ export class LivroRegistroComponent implements OnInit {
     const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
     const id = e.target.value;
     const isChecked = e.target.checked;
-  
+    console.log(id);
+    console.log(isChecked);
 
    this.alunosSelecionado =  this.alunosSelecionado.map((i:any)=>{
-    console.log(i.DadosDiplomaDiplomadoId)
+
     if(i.DadosDiplomaDiplomadoId === id){
-    
+      console.log(i.DadosDiplomaDiplomadoId);
       if(i.Checked == false){
         i.Checked = isChecked
         this.allCheckes = false;
@@ -102,7 +103,7 @@ export class LivroRegistroComponent implements OnInit {
  
 
     this.service.listarDiplomados().subscribe((res):any=>{
-      this.Diplomados = res;
+      this.Diplomado = res;
    
      
 
@@ -112,14 +113,14 @@ export class LivroRegistroComponent implements OnInit {
 
       this.alunos.forEach((element:any) => {
    
-        for(let i=0;i<this.Diplomados.length;i++){ 
+        for(let i=0;i<this.Diplomado.length;i++){ 
             
-          if(this.Diplomados[i].DadosDiplomaDiplomadoId == element){
+          if(this.Diplomado[i].DadosDiplomaDiplomadoId == element){
           
-          this.cursoSelecionado = this.Diplomados[i];
+          this.cursoSelecionado = this.Diplomado[i];
           
-          this.alunosSelecionado.push(this.Diplomados[i]);
-         
+          this.alunosSelecionado.push(this.Diplomado[i]);
+         console.log( this.alunosSelecionado)
          
           this.alunosSelecionado.map( (diplomado:any) => {
             diplomado.Checked = false;

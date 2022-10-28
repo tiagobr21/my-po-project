@@ -38,14 +38,14 @@
     <app-selecionar-curso (cursoEscolhidos)="cursos($event)"></app-selecionar-curso>
   
     
-    <div class="loading" *ngIf="Diplomados == null">
+    <div class="loading" *ngIf="Diplomado == null">
       <h1 class="mensagem">Aguardando Curso</h1>  
-      <mat-spinner *ngIf="Diplomados == null"></mat-spinner>
+      <mat-spinner *ngIf="Diplomado == null"></mat-spinner>
    </div> 
     
-    <section *ngIf="Diplomados != null" class="dados">
+    <section *ngIf="Diplomado != null" class="dados">
       
-      
+      <div *ngFor="let dados of cursoSelecionado | slice:0:1 ; index as i">
 
         <form  [formGroup]="userForm" (ngSubmit)="onSubmit()"  class="row g-3">
 
@@ -58,31 +58,31 @@
 
             <div class="col-12">
                <label for="inputAddress2" class="form-label">Nome da Mantenedora: *</label>
-               <input formControlName="nome-mantenedora" ngModel="{{cursoSelecionado.DadosDiplomaIesEmissoraNome}}"  type="text" class="form-control" id="inputNome" required >
+               <input formControlName="nome-mantenedora" ngModel="{{dados.DadosDiplomaIesEmissoraNome}}"  type="text" class="form-control" id="inputNome" required >
             </div>
             <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Razão Social: *</label>
-            <input formControlName="razao-mantenedora" ngModel="{{cursoSelecionado.DadosDiplomaIesEmissoraMantenedoraRazaoSocial}}" type="text" class="form-control" id="inputRazao" required>
+            <input formControlName="razao-mantenedora" ngModel="{{dados.DadosDiplomaIesEmissoraMantenedoraRazaoSocial}}" type="text" class="form-control" id="inputRazao" required>
             </div>
             <div class="col-md-6">
             <label for="inputPassword4" id="labelCnpj" class="form-label">CNPJ: *</label>
-            <input formControlName="cnpj-mantenedora" ngModel="{{cursoSelecionado.DadosDiplomaIesEmissoraMantenedoraCnpj}}" type="text" class="form-control" id="inputCnpj" required>
+            <input formControlName="cnpj-mantenedora" ngModel="{{dados.DadosDiplomaIesEmissoraMantenedoraCnpj}}" type="text" class="form-control" id="inputCnpj" required>
             </div>
-         
+     
             <div class="title-endereco"><h2>Endereço</h2></div>
  
 
             <div class="col-md-6">
             <label for="inputCity" class="form-label">Cep: *</label>
-            <input formControlName="cep-mantenedora" ngModel="{{cursoSelecionado.DadosDiplomaIesEmissoraMantenedoraEnderecoCep}}" type="text" class="form-control" id="inputCep" required>
+            <input formControlName="cep-mantenedora" ngModel="{{dados.DadosDiplomaIesEmissoraMantenedoraEnderecoCep}}" type="text" class="form-control" id="inputCep" required>
             </div>
             <div class="col-md-4">
             <label for="inputState" id="labelLaga" class="form-label">Logadouro: *</label>
-            <input formControlName="logradouro-mantenedora" ngModel="{{cursoSelecionado.DadosDiplomaIesEmissoraMantenedoraEnderecoLogradouro}}" type="text" class="form-control" id="inputLaga" required>
+            <input formControlName="logradouro-mantenedora" ngModel="{{dados.DadosDiplomaIesEmissoraMantenedoraEnderecoLogradouro}}" type="text" class="form-control" id="inputLaga" required>
             </div>
             <div class="col-md-2">
             <label for="inputZip" class="form-label">Número: *</label>
-            <input formControlName="numero-mantenedora" ngModel="{{cursoSelecionado.DadosDiplomaIesEmissoraMantenedoraEnderecoNumero}}" type="text" class="form-control" id="inputNum" required>
+            <input formControlName="numero-mantenedora" ngModel="{{dados.DadosDiplomaIesEmissoraMantenedoraEnderecoNumero}}" type="text" class="form-control" id="inputNum" required>
             </div>
 
             <div class="col-md-2">
@@ -91,17 +91,21 @@
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelBai" class="form-label">Bairro:*</label>
-               <input formControlName="bairro-mantenedora" ngModel="{{cursoSelecionado.DadosDiplomaIesEmissoraMantenedoraEnderecoBairro}}"  type="text" class="form-control" id="inputBai" required>
+               <input formControlName="bairro-mantenedora" ngModel="{{dados.DadosDiplomaIesEmissoraMantenedoraEnderecoBairro}}"  type="text" class="form-control" id="inputBai" required>
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelEst" class="form-label">Estado:*</label>
-               <input formControlName="uf-mantenedora" ngModel="{{cursoSelecionado.DadosDiplomaIesEmissoraMantenedoraEnderecoUf}}" type="text" class="form-control" id="inputEst" required>
+               <input formControlName="uf-mantenedora" ngModel="{{dados.DadosDiplomaIesEmissoraMantenedoraEnderecoUf}}" type="text" class="form-control" id="inputEst" required>
             </div>
             <div class="col-md-2">
                <label for="inputZip" id="labelCid" class="form-label">Cidade:*</label>
-               <input formControlName="municipio-mantenedora" ngModel="{{cursoSelecionado.DadosDiplomaIesEmissoraMantenedoraEndereconomeMunicipio}}" type="text" class="form-control" id="inputCid" required>
-            </div>
+               <input formControlName="municipio-mantenedora" ngModel="{{dados.DadosDiplomaIesEmissoraMantenedoraEnderecoNomeMunicipio}}" type="text" class="form-control" id="inputCid" required>
+            </div> 
           
+                    <div class="col-md-2">
+                <label for="inputZip" id="labelCodMun" class="form-label">Código Município:*</label>
+                <input value="{{dados.DadosDiplomaIesEmissoraEnderecoCodigoMunicipio}}" type="text" class="form-control" id="inputCodMun" required>
+             </div>
             <div class="col-12">
                <a id="proximo" type="submit" (click)="onSubmit()" class="btn btn-primary">Próximo</a>
             </div> 
@@ -110,7 +114,7 @@
                <a id="refresh"  (click)="refresh()" class="btn btn-danger">Fazer Novamente</a>
             </div> 
        </form>
-
+      </div>
     </section>
    
    </section>
