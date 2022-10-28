@@ -30,7 +30,7 @@ export class SituacaodiscenteComponent implements OnInit {
   ngOnInit(): void {
     this.service.listarSitacaoDiscente().subscribe((res):any=>{
       this.sitacaoDiscente = res;
-
+       console.log(this.sitacaoDiscente)
         
       for (let i=0; i < this.sitacaoDiscente.length; i++) { 
         this.peridoletivo.push(this.sitacaoDiscente[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarSituacaoAtualDiscentePeriodoLetivo)

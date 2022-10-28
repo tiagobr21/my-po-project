@@ -275,6 +275,18 @@ input{
 
 }
 
+
+#labelRazao{
+    margin-left: 15px;
+
+}
+
+#inputCep{
+    width: 60%;
+    margin-left: 15px;
+
+}
+
 #labelLaga{
     margin-top: 15px;
     margin-left: -90px;
@@ -285,6 +297,19 @@ input{
     margin-left: -90px;    
     width: 130%;
 }
+
+
+#labelCNPJ{
+    margin: 100px 0 0 0 ;
+    margin-left: 45px;
+}
+
+#inputCNPJ{
+    
+    margin-left: 40px;    
+    width: 130%;
+}
+
 
 
 #labelNum{
@@ -299,7 +324,7 @@ input{
 
  #labelTipo{
      margin-left: 15px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 #inputTipo{
@@ -309,7 +334,7 @@ input{
 
  #labelNumero{
     margin-left: 80%;
-    margin-top: 10px;
+    margin-top: 20px;
  }
  
 
@@ -322,7 +347,7 @@ input{
 
  #labelData{
     margin-left: 188%;
-    margin-top: 10px;
+    margin-top: -5px;
  }
 
  #inputData{
@@ -333,7 +358,7 @@ input{
 
 
   #labelPub{
-    margin-top: 10px;
+    margin-top: -5px;
     margin-left: 270%;
  } 
 
@@ -390,6 +415,29 @@ input{
     opacity: 0.3;
     
 }
+
+.line-ies{
+    margin:-3.5% 0 0 6%;
+    height: 2px;
+    max-width: 300%;
+    background-color: #ccc;
+    opacity: 0.3;
+    
+}
+
+.title-mantenedora{
+    margin-top: 30px;
+}
+
+.line-mantenedora{
+    margin:-3.5% 0 0 17%;
+    height: 2px;
+    max-width: 300%;
+    background-color: #ccc;
+    opacity: 0.3;
+    
+}
+
 
 
  .mensagem{

@@ -31,7 +31,7 @@ export class SituacaoenadeComponent implements OnInit {
   ngOnInit(): void {
     this.service.listarSitacaoEnade().subscribe((res):any=>{
       this.sitacaoEnade = res;
-    
+      
     });
   }
 

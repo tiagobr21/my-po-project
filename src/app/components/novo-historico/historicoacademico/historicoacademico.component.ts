@@ -34,7 +34,7 @@ export class HistoricoacademicoComponent implements OnInit {
   ngOnInit(): void {
     this.service.listarHistoricoAcademico().subscribe((res):any=>{
       this.historicoAcademico = res;
-  
+      console.log(this.historicoAcademico);
 
         for (let i=0; i < this.historicoAcademico.length; i++) { 
           this.disciplina.push(this.historicoAcademico[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDisciplina)

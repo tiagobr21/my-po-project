@@ -18,7 +18,7 @@ export class BackconnectService {
   urlDiplipomados = 'api/api/v1/diploma/listardiplomados/adm01';
  
   urlTurma = 'api/api/v1/diploma//far01/0021304';
-  urlGerarDiplomado = 'api/api/v1/diploma/gerardiplomado/0021304'; 
+  urlGerarDiplomado = 'api/api/v1/diploma/gerardiplomado'; 
   urlGerarDiplomados = 'api/api/v1/diploma/gerardiplomados/adm01'; 
   urlGenitores = 'api/api/v1/diploma/listargenitores/0021304';
   urlProfessores = 'api/api/v1/diploma//listarprofessores/0021304';
@@ -69,9 +69,10 @@ export class BackconnectService {
 
 }
  
-gerarDiploma():Observable<any>{
-
-  return this._http.get(`${this.urlGerarDiplomado}`)
+gerarDiploma(Ra:any):Observable<any>{
+  let Ras = Ra;
+  console.log( Ras )
+  return this._http.get(`${this.urlGerarDiplomado}/${Ras}`)
 
   /* .pipe(
    catchError((error, caught) => {

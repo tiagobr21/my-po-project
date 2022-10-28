@@ -29,6 +29,7 @@ export class AssinaturaComponent implements OnInit {
     opacity2='0.5';
     gerarDiploma:boolean = false;
     gerarDiplomado:any;
+    gerarDiplomados:any
     next:boolean = false;
     pdf:any;
     gerado:boolean =false;
@@ -45,7 +46,11 @@ export class AssinaturaComponent implements OnInit {
     allCheckes:any
     value:any
     rvdd:any;
+    Ras:any[]=[];
+    Nomes:any[]=[];
+    ids:any[]=[];
     
+
     constructor(private service:BackconnectService,private fb:FormBuilder) {
       this.userForm = this.fb.group({
         status_1: ["PENDENTE",[Validators.required]],
@@ -85,7 +90,27 @@ export class AssinaturaComponent implements OnInit {
           contador++;
         });
       }
-        console.log(checkArray.value);
+
+        console.log(checkArray.value)
+        for(let i=0;i<checkArray.value.length;i++){
+          console.log(checkArray.value[i])
+          this.ids.push(checkArray.value[i]);
+          console.log(this.ids);
+        }
+        
+        this.service.gerarDiplomados().subscribe((res)=>{ 
+          this.gerarDiplomados = res;
+          console.log( this.gerarDiplomados)
+           for(let i=0;i<this.gerarDiplomados.length;i++){
+              if(this.gerarDiplomados[i].DadosDiplomaDiplomadoId == this.ids){
+                this.Ras.push(this.gerarDiplomados[i].Ra);
+                this.Nomes.push(this.gerarDiplomados[i].DadosDiplomaDiplomadoNome);
+                console.log(this.Ras);
+                console.log(  this.Nomes)
+              }
+           }
+         })
+        
        return i;
     }
 
@@ -111,7 +136,7 @@ export class AssinaturaComponent implements OnInit {
   }
     
   ngOnChanges() {
-
+      console.log(this.ids);
       this.service.listarDiplomados().subscribe((res):any=>{
         
         this.Diplomado = res;
@@ -132,15 +157,18 @@ export class AssinaturaComponent implements OnInit {
           this.alunosSelecionado.map( (diplomado:any) => {
             diplomado.Checked = false;
 
-          }) 
-
-   
+          })
            
              }
           } 
         
         }); 
        });
+
+ 
+  
+ 
+        //  error=>{console.log(error)} - mensagem de erro  
     
 
     }
@@ -150,20 +178,22 @@ export class AssinaturaComponent implements OnInit {
       console.log(this.userForm.value)
       this.opacity2 ='1';
       
-    
-    
+       
+      this.service.gerarDiploma(this.Ras).subscribe((res)=>{ 
+        this.gerarDiplomado = res;
+          console.log( this.gerarDiplomado)
+         this.rvdd = this.gerarDiplomado['data'].rvdd;
+         console.log( this.rvdd)
+         this.diplomaXml = this.gerarDiplomado['data'].diploma
+       })
+     
+  
        
     }
   
     ngOnInit(): void{
 
-      this.service.gerarDiplomados().subscribe((res)=>{ 
-        console.log(res);
-        this.gerarDiplomado = res;
-    
-         this.rvdd = this.gerarDiplomado['data'].rvdd
-         this.diplomaXml = this.gerarDiplomado['data'].diploma
-       },error=>{console.log(error)})    
+      
     }
     
   
@@ -179,7 +209,7 @@ export class AssinaturaComponent implements OnInit {
       console.log(id)
       if(this.gerado == true){
         let base64String = this.rvdd;
-        this.downloadPdf(base64String,"sample");
+        this.downloadPdf(base64String,this.Nomes);
       }else{
         return 0;
       }
@@ -198,7 +228,7 @@ export class AssinaturaComponent implements OnInit {
     viewXml(id:any):any{
       if(this.gerado == true){
       let text =  this.diplomaXml;
-      let filename = 'Xml';
+      let filename = this.Nomes;
       this.downloadXml(filename,text); 
       }else{
         return 0;

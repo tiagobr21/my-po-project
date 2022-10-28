@@ -25,17 +25,19 @@ backPage:boolean = false;
  
   loading:boolean =false;
   cursoEscolhido:any
-  cursoSelecionado:any
+  cursoSelecionadoDip:any[]=[];
+  cursoSelecionadoHis:any;
   Historico:any
   dataHabilitacao:any
   submitRequere:boolean = true;
-
+  Diplomados:any
   ids:any
 
   constructor(private service:BackconnectService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
- 
+  
+  
   }
 
 
@@ -43,7 +45,20 @@ backPage:boolean = false;
   cursos(curso:any):any{
 
        this.cursoEscolhido = curso;
-       this.cursoSelecionado = curso;
+
+       this.service.listarDiplomados().subscribe((res):any=>{
+      
+        this.Diplomados = res;
+        for(let i=0;i<this.Diplomados.length;i++){
+          if(this.Diplomados[i].DadosDiplomaDadosCursoNomeCurso == this.cursoEscolhido){
+       
+            this.cursoSelecionadoDip.push(this.Diplomados[i]);
+           
+          }
+        }
+        console.log(this.cursoSelecionadoDip);
+  });  
+
 
 
        
@@ -51,12 +66,12 @@ backPage:boolean = false;
         
            this.Historico = res;
              
-           console.log( this.Historico)
-  
+                  
+    
             if(this.Historico.DadosDiplomaDadosCursoNomeCurso == this.cursoEscolhido){
        
-              this.cursoSelecionado = this.Historico;
-
+              this.cursoSelecionadoHis = this.Historico
+  
               // 
 
               function dataFormatada(d:any) {
@@ -70,7 +85,7 @@ backPage:boolean = false;
             }
 
             
-            this.dataHabilitacao = dataFormatada(this.cursoSelecionado.DadosDiplomaDadosCursoDataHabilitacao);
+            this.dataHabilitacao = dataFormatada(this.cursoSelecionadoHis.DadosDiplomaDadosCursoDataHabilitacao);
 
             }else{
               this.submitRequere = false;
@@ -81,9 +96,10 @@ backPage:boolean = false;
                 window.location.reload();
              }, 3000);
             }
+          
       });  
       
-
+    
     
   }
 
@@ -114,7 +130,7 @@ backPage:boolean = false;
 
   onSubmit(){
       this.cursoEscolhido = this.userForm.value['nome-curso'];
-      this.cursoAtual.emit(this.cursoSelecionado);
+      this.cursoAtual.emit(this.cursoSelecionadoHis);
       
       console.log(this.userForm.value);
 

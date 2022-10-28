@@ -53,7 +53,7 @@ export class AtivcomplementaresComponent implements OnInit {
     this.service.listarAtivCom().subscribe((res):any=>{
   
       this.AtivCom = res;
-      
+   
 
       for (let i=0; i < this.AtivCom.length; i++) { 
         this.descricoes.push(this.AtivCom[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularAtividadeComplementarDescricao)

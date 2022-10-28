@@ -139,8 +139,6 @@ export class AlunoComponent implements OnInit {
       this.Diplomado.map( (diplomado:any) => {
         diplomado.Checked = false;
       }) 
-     
-      console.log(this.Diplomado)
 
        for(let i=0;i<this.Diplomado.length;i++){ 
          if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso){

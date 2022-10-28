@@ -38,7 +38,8 @@
    
   
    <section *ngIf="Historico != null" class="dados">
-      
+   
+    <div *ngFor="let dados of cursoSelecionadoDip | slice:0:1">
       
 
         <form *ngIf="submitRequere==true" [formGroup]="userForm" (ngSubmit)="onSubmit()"  class="row g-3">
@@ -49,11 +50,11 @@
             <div id="nomecurso" class="row">
                 <div class="col">
                     <label for="inputEmail4" class="form-label">Nome do Curso*</label>
-                  <input type="text" formControlName="nome-curso"  ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoNomeCurso}}"  class="form-control">
+                  <input type="text" formControlName="nome-curso"  ngModel="{{cursoSelecionadoHis.DadosDiplomaDadosCursoNomeCurso}}"  class="form-control">
                 </div>
                 <div class="col">
                     <label for="inputEmail4"  id="nomehabil" class="form-label">Nome Habilitação*</label>
-                  <input type="text" formControlName="nome-habilitacao" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoNomeHabilitacao}}" id="nomehabil" class="form-control" >
+                  <input type="text" formControlName="nome-habilitacao" ngModel="{{cursoSelecionadoHis.DadosDiplomaDadosCursoNomeHabilitacao}}" id="nomehabil" class="form-control" >
                 </div>
                 
               </div>
@@ -61,7 +62,7 @@
               <div id="codemec" class="row">
                 <div class="col">
                     <label for="inputEmail4" class="form-label">Codigo Curso Emec*</label>
-                  <input formControlName="emec" ngModel="{{cursoSelecionado.DadosDiplomaDadosCursoCodigoCursoEmec}}" type="text"class="form-control">
+                  <input formControlName="emec" ngModel="{{cursoSelecionadoHis.DadosDiplomaDadosCursoCodigoCursoEmec}}" type="text"class="form-control">
                 </div>
                 <div class="col">
                     <label for="inputEmail4" id="datahabil" class="form-label">Data Habilitacao*</label>
@@ -74,69 +75,101 @@
 
               <div class="col-md-6">
                 <label for="inputEmail4" id="labelNome" class="form-label">Nome:*</label>
-                <input formControlName="nome" ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoNome}}" type="email" class="form-control" id="inputNome" required>
+                <input formControlName="nome" ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoNome}}" type="email" class="form-control" id="inputNome" required>
                 </div>
                 <div class="col-md-6">
                 <label for="inputPassword4" id="labelCod" class="form-label">CPF:*</label>
-                <input formControlName="cpf" ngModel="{{cursoSelecionado.DadosDiplomaDiplomaDoCpf}}" type="text" class="form-control" id="inputCod" required>
+                <input formControlName="cpf" ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomaDoCpf}}" type="text" class="form-control" id="inputCod" required>
               </div>
      
     
                 <div class="col-md-6">
                   <label for="inputCity" id="labelCep" class="form-label">Data de Nascimento: *</label>
-                  <input formControlName="nascimento" ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoDataNascimento}}" type="text" class="form-control" id="inputCep" required>
+                  <input formControlName="nascimento" ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoDataNascimento}}" type="text" class="form-control" id="inputCep" required>
                 </div>
                 <div class="col-md-4">
                   <label for="inputState" id="labelLaga" class="form-label">Nacionalidade: *</label>
-                  <input formControlName="nacionalidade" ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoNacionalidade}}" type="text" class="form-control" id="inputLaga" required>
+                  <input formControlName="nacionalidade" ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoNacionalidade}}" type="text" class="form-control" id="inputLaga" required>
                 </div>
                 <div class="col-md-2">
                   <label for="inputZip" id="labelNum" class="form-label">Sexo: *</label>
-                  <input formControlName="sexo" ngModel="{{cursoSelecionado.DadosDiplomaDiplomaDoSexo}}" type="text" class="form-control" id="inputNum" required>
+                  <input formControlName="sexo" ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomaDoSexo}}" type="text" class="form-control" id="inputNum" required>
                 </div>
                  
                 <div class="col-md-2">
                     <label for="inputZip" id="labelTipo" class="form-label">UF:*</label>
-                    <input formControlName="uf" class="form-control" type="text" id="inputTipo" ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoRgUf}}">
+                    <input formControlName="uf" class="form-control" type="text" id="inputTipo" ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoRgUf}}">
                 </div>
                 
               <div class="col-md-2">
                     <label for="inputZip" id="labelNumero" class="form-label">Município:*</label>
-                    <input  formControlName="municipio" ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoNaturalidadeNomeMunicipio}}" type="text" id="inputNumero" class="form-control"  required>
+                    <input  formControlName="municipio" ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoNaturalidadeNomeMunicipio}}" type="text" id="inputNumero" class="form-control"  required>
                 </div>
     
                 <div class="col-md-2">
-                    <label for="inputZip" id="labelData" class="form-label">Código:*</label>
-                    <input formControlName="codigo"  ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoNaturalidadeCodigoMunicipio}}" type="text" id="inputData" class="form-control"  required>
+                    <label for="inputZip" id="labelData" class="form-label">Código Município:*</label>
+                    <input formControlName="codigo"  ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoNaturalidadeCodigoMunicipio}}" type="text" id="inputData" class="form-control"  required>
                 </div>
     
                 <div class="col-md-2">
-                    <label for="inputZip" id="labelPub" class="form-label">Estrangeiro:*</label>
-                    <input formControlName="estrangeiro"  ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoNaturalidadeCodigoMunicipio}}" type="text" id="inputPub" class="form-control"  required>
+                    <label for="inputZip" id="labelPub" class="form-label">Município Estrangeiro:*</label>
+                    <input formControlName="estrangeiro"  ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoNaturalidadeNomeMunicipioEstrangeiro}}" type="text" id="inputPub" class="form-control"  required>
                 </div>
                  
                 <div class="col-md-6">
                     <label for="inputEmail4" id="labelSeç" class="form-label">ID Diploma:*</label>
-                    <input formControlName="id"  ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoRgNumero}}" type="text" class="form-control" id="inputSeç" required>
+                    <input formControlName="id"  ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoId}}" type="text" class="form-control" id="inputSeç" required>
                 </div>
     
                 <div class="col-md-6">
                     <label for="inputPassword4" id="labelPag" class="form-label">RG:*</label>
-                    <input formControlName="rg"  ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoRgNumero}}" type="text" class="form-control" id="inputPag" required>
+                    <input formControlName="rg"  ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoRgNumero}}" type="text" class="form-control" id="inputPag" required>
                 </div> 
 
                 <div class="col-md-6">
-                  <label for="inputEmail4" id="labelSeç" class="form-label">UF:*</label>
-                  <input formControlName="uf-rg"  ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoRgUf}}" type="text" class="form-control" id="inputSeç" required>
+                  <label for="inputEmail4" id="labelSeç" class="form-label">UF Emissão RG:*</label>
+                  <input formControlName="uf-rg"  ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoRgUf}}" type="text" class="form-control" id="inputSeç" required>
               </div>
   
               <div class="col-md-6">
                   <label for="inputPassword4" id="labelPag" class="form-label">Orgão Expeditor:*</label>
-                  <input formControlName="orgao"  ngModel="{{cursoSelecionado.DadosDiplomaDiplomadoRgOrgaoExpedidor}}" type="text" class="form-control" id="inputPag" required>
+                  <input formControlName="orgao"  ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoRgOrgaoExpedidor}}" type="text" class="form-control" id="inputPag" required>
               </div> 
-        
-       </form>
 
+
+
+                <div class="title-ies"><h2>IES</h2></div>
+                <div class="line-ies"></div>
+                
+                <div class="col-md-6">
+                  <label for="inputCity" id="labelCep" class="form-label">Código Mec: *</label>
+                  <input value="{{dados.DadosDiplomaIesEmissoraCodigoMec}}" type="text" class="form-control" id="inputCep" required>
+                </div>
+                 <div class="col-md-4">
+                  <label for="inputState" id="labelLaga" class="form-label">Nome: *</label>
+                  <input value="{{dados.DadosDiplomaIesEmissoraNome}}" type="text" class="form-control" id="inputLaga" required>
+                </div>
+                <div class="col-md-2">
+                  <label for="inputZip" id="labelNum" class="form-label">CNPJ: *</label>
+                  <input value="{{dados.DadosDiplomaIesEmissoraCnpj}}" type="text" class="form-control" id="inputNum" required>
+                </div>
+
+                
+                <div class="title-mantenedora"><h2>Mantenedora</h2></div>
+                <div class="line-mantenedora"></div>
+                
+                <div class="col-md-6">
+                  <label for="inputCity" id="labelRazao" class="form-label">Razão Social: *</label>
+                  <input value="{{dados.DadosDiplomaIesEmissoraMantenedoraRazaoSocial}}" type="text" class="form-control" id="inputRazao" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="inputState" id="inputCNPJ" class="form-label">CNPJ: *</label>
+                  <input value="{{dados.DadosDiplomaIesEmissoraMantenedoraCnpj}}" type="text" class="form-control" id="inputCNPJ" required>
+                </div>
+       
+             
+       </form>
+      </div>
     </section>
    
    </section>
