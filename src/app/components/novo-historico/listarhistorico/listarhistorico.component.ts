@@ -53,7 +53,7 @@ backPage:boolean = false;
             this.situacaoDiscente = res;
             this.ultimoSituacao = this.situacaoDiscente[this.situacaoDiscente.length - 1];
 
-           console.log( this.ultimoSituacao);
+      
 
             
        });

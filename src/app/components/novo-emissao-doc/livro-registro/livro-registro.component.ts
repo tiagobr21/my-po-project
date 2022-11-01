@@ -12,6 +12,7 @@ export class LivroRegistroComponent implements OnInit {
   userForm:FormGroup
     
   @Input() curso:any;
+  @Input() periodo:any;
   @Input() enable4:any;
   @Input() alunos:any;
   @Output() buttonClick5 = new EventEmitter();
@@ -31,7 +32,7 @@ export class LivroRegistroComponent implements OnInit {
   page4:any[]=[]
   page5:any[]=[]
   contador:any
-  keys:any
+  keys:any;
   page1Select:boolean=true;
   page2Select:boolean=false;
   page3Select:boolean=false;

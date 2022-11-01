@@ -605,13 +605,13 @@ option{
  
  .mensagem{
     position: absolute;
-    margin-top: -25%;
+    margin-top: -5%;
     color: white;
  }
 
  .loading{
     position: fixed;
-    background: rgba(0, 0, 0, 0.50);
+    background: rgba(0, 0, 0, 0.90);
     height: 100%;
     width: 100%;
     display: flex;
@@ -620,6 +620,10 @@ option{
     top: 0;
     left: 0;
     z-index: 2000;
+ }
+
+ .progress-bar{
+    width: 50%;
  }
 
  .webviewer{

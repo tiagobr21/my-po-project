@@ -11,6 +11,7 @@ export class IesComponent implements OnInit {
 
   @Input() enable:any;
   @Input() curso:any;
+  @Input() periodo:any;
   @Input() backPage:any;
   @Input() showPage2:any
 
@@ -33,7 +34,7 @@ export class IesComponent implements OnInit {
 
   
   ngOnInit(): void {
-    
+
   }
 
   ngOnChanges() {
@@ -41,10 +42,11 @@ export class IesComponent implements OnInit {
     this.service.listarDiplomados().subscribe((res):any=>{
    
        this.Diplomado = res
-
-
+       console.log(this.periodo)
+       
        for(let i=0;i<this.Diplomado.length;i++){ 
-         if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
+         if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso &&
+          this.Diplomado[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarSituacaoAtualDiscentePeriodoLetivo == this.periodo ){
     
             this.cursoSelecionado.push(this.Diplomado[i]);
           

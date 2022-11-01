@@ -11,6 +11,7 @@ import { BackconnectService } from 'src/app/service/backconnect.service';
 export class CursoComponent implements OnInit {
   
   @Input() curso:any;
+  @Input() periodo:any;
   @Input() enable2:any;
   @Output() buttonClick3 = new EventEmitter();
   enable3:boolean = false; 
@@ -26,10 +27,13 @@ export class CursoComponent implements OnInit {
     this.service.listarDiplomados().subscribe((res):any=>{
      this.Diplomado = res;
      
+     console.log(this.periodo);
+
      this.Diplomado[2].DadosDiplomaDadosCursoAutorizacaoTipo
 
        for(let i=0;i<this.Diplomado.length;i++){ 
-         if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
+         if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso &&
+          this.Diplomado[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarSituacaoAtualDiscentePeriodoLetivo == this.periodo){
      
     
            this.cursoSelecionado.push(this.Diplomado[i]);

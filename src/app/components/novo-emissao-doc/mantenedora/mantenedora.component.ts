@@ -17,6 +17,7 @@ export class MantenedoraComponent implements OnInit {
  @Output() back = new EventEmitter();
 backPage:boolean = false;
  @Output() cursoAtual = new EventEmitter();
+ @Output() periodoAtual = new EventEmitter();
  @Output() buttonClick = new EventEmitter();
  enable:boolean = false;
  @Output() show = new EventEmitter();
@@ -24,6 +25,7 @@ backPage:boolean = false;
   loading:boolean =false;
   cursoEscolhido:any
   cursoSelecionado:any[]=[];
+  periodoEscolhido:any;
   Diplomado:any
   submitRequere:boolean = true
   ids:any
@@ -35,11 +37,17 @@ backPage:boolean = false;
      
   }
 
+  periodos(periodo:any){
+   this.periodoEscolhido = periodo;
+
+    console.log(this.periodoEscolhido)
+  }
+
 
  
   cursos(curso:any):any{
        this.cursoEscolhido = curso
-       
+       console.log()
        this.service.listarDiplomados().subscribe((res):any=>{
       
         this.Diplomado = res;
@@ -47,13 +55,12 @@ backPage:boolean = false;
 
           for(let i=0;i<this.Diplomado.length;i++){ 
         
-            if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.cursoEscolhido){
+            if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.cursoEscolhido &&
+              this.Diplomado[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarSituacaoAtualDiscentePeriodoLetivo == this.periodoEscolhido ){
           
               this.cursoSelecionado.push(this.Diplomado[i]);
-              
-     
-              
-            }else{
+              console.log(this.cursoSelecionado)
+            }/* else{
               this.submitRequere = false;
               const dialogConfig = this.dialog.open(MsgerrorComponent,{
                 width:'100%'
@@ -61,7 +68,7 @@ backPage:boolean = false;
               setTimeout(()=>{
                 window.location.reload();
              }, 5000);
-            }
+            } */
           }
       });  
  
@@ -72,6 +79,7 @@ backPage:boolean = false;
 
   userForm = new FormGroup({
     'curso':new FormControl(null,Validators.required),
+    'periodo':new FormControl(null,Validators.required),
     'nome-mantenedora':new FormControl(null,Validators.required),
     'razao-mantenedora':new FormControl(null,Validators.required),
     'cnpj-mantenedora':new FormControl(null,Validators.required),
@@ -91,7 +99,10 @@ backPage:boolean = false;
   onSubmit(){
       this.cursoEscolhido = this.userForm.value.curso;
       this.cursoAtual.emit(this.cursoEscolhido);
-
+      
+      this.periodoEscolhido = this.userForm.value.periodo;
+      this.periodoAtual.emit(this.periodoEscolhido);
+      
 
       this.enable = this.enable == false ? true : false;
       this.buttonClick.emit(this.enable);

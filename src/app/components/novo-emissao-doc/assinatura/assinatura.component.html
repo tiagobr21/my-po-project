@@ -78,10 +78,18 @@
                </div> 
             </div>
             
-            <div *ngIf="gerado == true"> 
-               <div class="loading" *ngIf="!loading2">
-                    <h1 class="mensagem">Gerando Diplomas...</h1> 
-                  <mat-progress-bar mode="indeterminate" *ngIf="!loading2"></mat-progress-bar>
+            <div *ngIf="visualizarpdf == true"> 
+               <div class="loading" *ngIf="loading3 == false">
+                    <h1 class="mensagem">Gerando Diploma...</h1> 
+                  <mat-progress-bar id="progress-bar" mode="indeterminate" *ngIf="loading3 == false"></mat-progress-bar>
+               </div> 
+            </div>
+
+                
+            <div *ngIf="visualizarxml == true"> 
+               <div class="loading" *ngIf="loading4 == false">
+                    <h1 class="mensagem">Gerando Xml...</h1> 
+                  <mat-progress-bar id="progress-bar" mode="indeterminate" *ngIf="loading4 == false"></mat-progress-bar>
                </div> 
             </div>
 <!-- 
@@ -92,6 +100,8 @@
             </div> -->
 
          <div *ngFor="let dados of alunosSelecionado" class="alunos" >
+           
+            
 
             <div class="form-check" >
                <input class="form-check-input" [checked]="checks" [value]="dados.DadosDiplomaDiplomadoId" (change)="onCheckboxChange($event)" *ngIf="gerado == false"  id="check-aluno"  type="checkbox" >
@@ -133,18 +143,19 @@
 
             <button type="button" id="assinar" class="btn btn-primary">Assinar</button>
               
-            <button *ngIf="gerado == true && dados.Checked == true && loading2"  (click)=" viewXml(dados.DadosDiplomaDiplomadoId)" type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
-            <button *ngIf="gerado == true && dados.Checked == true && loading2" type="button" (click)="viewPdf(dados.DadosDiplomaDiplomadoId)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>    
-            <button *ngIf="gerado == true && value == '-1'" (click)=" viewXml(dados.DadosDiplomaDiplomadoId)" type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
-            <button *ngIf="gerado == true && value == '-1'" type="button" (click)="viewPdf(dados.DadosDiplomaDiplomadoId)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>    
-           
+     
+               <button *ngIf="gerado == true && dados.Checked == true"  (click)=" viewXml(dados.Ra)" type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
+               <button *ngIf="gerado == true && dados.Checked == true" type="button" (click)="viewPdf(dados.Ra)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>    
+               <button *ngIf="gerado == true && value == '-1'" (click)=" viewXml(dados.Ra)" type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
+               <button *ngIf="gerado == true && value == '-1'" type="button" (click)="viewPdf(dados.Ra)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>    
+  
             
             <input *ngIf="gerado == false || dados.Checked == false" class="alert alert-success" id="status-aguardando" formControlName="status_1">
             <input *ngIf="gerado == true && dados.Checked == true "  class="alert alert-success" id="status-valido" formControlName="status_2" >
             <input *ngIf="gerado == true && value == '-1' "  class="alert alert-success" id="status-valido" formControlName="status_2" >
             
            
-         
+   
          </div>
 
     
@@ -156,7 +167,7 @@
             <a id="gerar" *ngIf="gerado"  [ngStyle]="{'opacity':opacity2}"  class="btn btn-primary">Assinar</a>
          </div> 
          
-
+    
       </form>
    </section> 
 </section>

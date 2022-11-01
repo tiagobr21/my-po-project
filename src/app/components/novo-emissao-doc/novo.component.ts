@@ -15,6 +15,7 @@ export class NovoComponent implements OnInit {
   alunos:any;
   alunos_assinar:any;
   curso:any;
+  periodo:any
   backPage:any;
   showPage:any;
 
@@ -42,6 +43,13 @@ export class NovoComponent implements OnInit {
 
   cursoSelecionado(curso:any){
     this.curso = curso
+
+
+  }
+
+  
+  periodoSelecionado(periodo:any){
+    this.periodo = periodo;
 
 
   }

@@ -17,6 +17,7 @@ export class AlunoComponent implements OnInit {
   alunosFiltro:string = '';
     
   @Input() curso:any;
+  @Input() periodo:any;
   @Input() enable3:any;
   @Output() buttonClick4 = new EventEmitter();
   enable4:boolean = false; 
@@ -141,7 +142,8 @@ export class AlunoComponent implements OnInit {
       }) 
 
        for(let i=0;i<this.Diplomado.length;i++){ 
-         if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
+         if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso &&
+          this.Diplomado[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarSituacaoAtualDiscentePeriodoLetivo == this.periodo){
    
            this.cursoSelecionado = this.Diplomado[i];
            

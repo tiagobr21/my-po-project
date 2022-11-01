@@ -14,6 +14,7 @@ export class AssinaturaComponent implements OnInit {
     @Input() enable5:any;
     @Input() alunos_assinar:any;
     @Input() curso:any;
+    @Input() periodo:any;
   
     userForm:FormGroup;
 
@@ -53,8 +54,12 @@ export class AssinaturaComponent implements OnInit {
     loading1:boolean = false;
     loading2:boolean = false;
     loading3:boolean = false;
+    loading4:boolean = false;
     preLoading:boolean = false
-    
+    base64String:any[]=[];
+    visualizarpdf:boolean = false;
+    visualizarxml:boolean = false;
+  
 
     constructor(private service:BackconnectService,private fb:FormBuilder) {
       this.userForm = this.fb.group({
@@ -114,35 +119,40 @@ export class AssinaturaComponent implements OnInit {
       i.Checked = this.allCheckes;
       console.log(i.Checked)
       checkArray.push(new FormControl(i.DadosDiplomaDiplomadoId));
-      console.log(checkArray.value)
+      console.log(checkArray.value);
+
+      this.ids = checkArray.value;
+      console.log(this.ids);
+
+      this.service.gerarDiplomados().subscribe((res)=>{ 
+        this.gerarDiplomados = res;
+        this.loading1 =  true;
+     
+       })
       this.checks = true;
     
       return i;
     }
-
 
     return i;
   });
    
   }
 
-  gerarDiplomas(){
-    
-  }
     
   ngOnChanges() {
       console.log(this.ids);
-      this.service.listarDiplomados().subscribe((res):any=>{
+      this.service.gerarDiplomados().subscribe((res):any=>{
         
         this.Diplomado = res;
-
+        
         this. alunos_assinar =  this.alunos_assinar['checkArray'];
  
         this.alunos_assinar.forEach((element:any) => {
      
           for(let i=0;i<this.Diplomado.length;i++){ 
               
-            if(this.Diplomado[i].DadosDiplomaDiplomadoId == element){
+            if(this.Diplomado[i].DadosDiplomaDiplomadoId == element ){
             
             this.cursoSelecionado = this.Diplomado[i];
             
@@ -179,28 +189,20 @@ export class AssinaturaComponent implements OnInit {
              this.Ras.push(this.gerarDiplomados[i].Ra);
              this.Nomes.push(this.gerarDiplomados[i].DadosDiplomaDiplomadoNome);
              console.log(this.Ras);
-             console.log(  this.Nomes)
+             console.log(this.Nomes)
+             
+          
            }
         }
        }
 
-       for(let i=0;i<this.Ras.length;i++){
-        this.service.gerarDiploma(this.Ras[i]).subscribe((res)=>{ 
-
-          this.gerarDiplomado = res;
-          this.gerarDiplomados2.push(this.gerarDiplomado);
-          console.log(this.gerarDiplomados2)
- 
-      
-          this.loading2 = true;
-        })
-       }
+       this.loading2= true;
        
     }
   
     ngOnInit(): void{
 
-      
+
     }
     
   
@@ -211,16 +213,44 @@ export class AssinaturaComponent implements OnInit {
       link.href = source;
       link.click();
     }
+
   
-    viewPdf(id:any):any{
-      for(let i=0;i<this.gerarDiplomados2.length;i++){
-        if(this.gerado == true){
-          let base64String = this.gerarDiplomados2[i]['data'].rvdd;
-          this.downloadPdf(base64String,this.Nomes);
-        }else{
-          return 0;
-        }
-    }
+  
+    viewPdf(ra:any){
+
+      this.visualizarpdf = true;
+      this.loading3 = false;
+      console.log(ra);
+
+      for(let y=0;y<this.Ras.length;y++){
+      
+      if(ra == this.Ras[y]){
+
+        this.service.gerarDiploma(ra).subscribe((res)=>{ 
+
+          this.gerarDiplomado = res;
+          console.log(this.gerarDiplomado)
+          this.rvdd = this.gerarDiplomado['data'].rvdd;
+        
+        
+          console.log(this.rvdd);
+            
+          if(this.gerado == true){
+
+              this.base64String =this.rvdd
+              this.downloadPdf(this.base64String,this.Nomes[y]);
+              this.loading3 = true;
+   
+          }
+        
+        })  
+         
+
+      
+      }
+  
+      }
+    
     }
     
     downloadXml(filename:any, text:any) {
@@ -233,15 +263,41 @@ export class AssinaturaComponent implements OnInit {
 
     }
   
-    viewXml(id:any):any{
+    viewXml(ra:any):any{
+
+
+      this.visualizarxml = true;
+      this.loading4 = false;
+      console.log(ra);
+
+      for(let y=0;y<this.Ras.length;y++){
       
-      if(this.gerado == true){
-      let text =  this.diplomaXml;
-      let filename = this.Nomes;
-      this.downloadXml(filename,text); 
-      }else{
-        return 0;
+      if(ra == this.Ras[y]){
+
+        this.service.gerarDiploma(ra).subscribe((res)=>{ 
+
+          this.gerarDiplomado = res;
+          console.log(this.gerarDiplomado)
+          this.diplomaXml = this.gerarDiplomado['data'].documentacao;
+        
+          console.log(this.rvdd);
+            
+          if(this.gerado == true){
+              let text =  this.diplomaXml;
+              let filename = this.Nomes[y];
+              this.downloadXml(filename,text); 
+              this.loading4 = true;
+            }
+        
+        })  
+         
+
+      
       }
+  
+      }
+      
+    
     }
   
     fechar(){

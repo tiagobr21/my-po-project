@@ -15,15 +15,19 @@ import { FormGroup,FormControl,FormBuilder,FormArray, Validators } from '@angula
 
 
 export class SelecionarCursoComponent implements OnInit{
-
- listarCursos:any
- hide:boolean = false
+ 
+ Diplomados:any;
+ PeriodoLetivo:any[]=[];
+ listarCursos:any;
+ hide:boolean = false;
  @Output() cursoEscolhidos = new EventEmitter();
+ @Output() periodoEscolhidos = new EventEmitter();
  @Output() loading = new EventEmitter();
- curso:any
+ curso:any;
+ periodo:any;
+ opcoes:any
 
   constructor(private service:BackconnectService,private formBuilder:FormBuilder) {}
-   
   
 
   ngOnInit(): void{
@@ -34,19 +38,35 @@ export class SelecionarCursoComponent implements OnInit{
       
     }); 
 
+    this.service.listarDiplomados().subscribe((res)=>{
+      this.Diplomados = res; 
+      for(let i=0;i<this.Diplomados.length;i++){
+        this.PeriodoLetivo.push(this.Diplomados[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarSituacaoAtualDiscentePeriodoLetivo);
+
+      }
+     
+    }); 
+
+
     scrollTo(10, 0);
   }
   
   userForm = new FormGroup({
     'cursos':new FormControl('',Validators.required),
+    'periodos':new FormControl('',Validators.required),
+  
   
   });
 
 
   ngSubmit(){
-   this.curso = Object.values(this.userForm.value);
-   this.curso =  this.curso.toString();
-   this.cursoEscolhidos.emit(this.curso);
+   this.opcoes = this.userForm.value 
+   this.curso = this.opcoes.cursos;
+   this.periodo = this.opcoes.periodos;
+
+   this.cursoEscolhidos.emit(this.curso); 
+   this.periodoEscolhidos.emit(this.periodo); 
+
 
 
   }

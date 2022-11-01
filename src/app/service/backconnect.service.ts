@@ -43,7 +43,7 @@ export class BackconnectService {
 
   listarDiplomado():Observable<any>{
      return this._http.get(`${this.urlDiplipomado}`)
-     /* .pipe(
+     .pipe(
       catchError((error, caught) => {
         const dialogConfig = this.dialog.open(ServererrorComponent,{
           width:'600px'
@@ -52,13 +52,13 @@ export class BackconnectService {
           window.location.reload();
        }, 10000);
        return error
-      })) */
+      }))
   
  }
 
  listarDiplomados():Observable<any>{
   return this._http.get(`${this.urlDiplipomados}`)
-  /* .pipe(
+  .pipe(
    catchError((error, caught) => {
      const dialogConfig = this.dialog.open(ServererrorComponent,{
        width:'600px'
@@ -67,7 +67,7 @@ export class BackconnectService {
        window.location.reload();
     }, 10000);
     return error
-   })) */
+   }))
 
 }
  

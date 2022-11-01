@@ -1,9 +1,9 @@
- <app-mantenedora (backPages)="back($event)"  (buttonClick)="handleButtonClick($event)" (cursoAtual)="cursoSelecionado($event)" (show)="show($event)" [showPage]="showPage"></app-mantenedora>
-<app-ies (buttonClick2)="handleButtonClick2($event)" [enable]="enable" (cursoAtual)="cursoSelecionado($event)"  (backPages)="back($event)"  (buttonClick)="handleButtonClick($event)"  [curso]="curso"  [backPage]="backPage" (show)="show($event)"></app-ies>
-<app-curso (buttonClick3)="handleButtonClick3($event)"  [curso]="curso"  [enable2]="enable2" ></app-curso>
-<app-aluno (alunosSelecionados)="alunosSelecionados($event)" (buttonClick4)="handleButtonClick4($event)" [curso]="curso" [enable3]="enable3"></app-aluno>
-<app-livro-registro (alunosAssinatura)="alunosAssinar($event)" (buttonClick5)="handleButtonClick5($event)" [alunos]="alunos" [curso]="curso" [enable4]="enable4"></app-livro-registro> 
-<app-assinatura [alunos_assinar]="alunos_assinar" [curso]="curso" [enable5]="enable5"></app-assinatura>
+ <app-mantenedora (backPages)="back($event)"  (buttonClick)="handleButtonClick($event)" (periodoAtual)="periodoSelecionado($event)" (cursoAtual)="cursoSelecionado($event)" (show)="show($event)" [showPage]="showPage"></app-mantenedora>
+<app-ies (buttonClick2)="handleButtonClick2($event)" [enable]="enable" (cursoAtual)="cursoSelecionado($event)" (periodoAtual)="periodoSelecionado($event)"   (backPages)="back($event)"  (buttonClick)="handleButtonClick($event)" [periodo]="periodo"  [curso]="curso"  [backPage]="backPage" (show)="show($event)"></app-ies>
+<app-curso (buttonClick3)="handleButtonClick3($event)"  [periodo]="periodo"  [curso]="curso"  [enable2]="enable2" ></app-curso>
+<app-aluno (alunosSelecionados)="alunosSelecionados($event)" (buttonClick4)="handleButtonClick4($event)"  [periodo]="periodo" [curso]="curso" [enable3]="enable3"></app-aluno>
+<app-livro-registro (alunosAssinatura)="alunosAssinar($event)" (buttonClick5)="handleButtonClick5($event)"  [periodo]="periodo" [alunos]="alunos" [curso]="curso" [enable4]="enable4"></app-livro-registro> 
+<app-assinatura [alunos_assinar]="alunos_assinar" [curso]="curso"  [periodo]="periodo" [enable5]="enable5"></app-assinatura>
  
 
 

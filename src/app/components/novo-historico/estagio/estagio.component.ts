@@ -39,7 +39,7 @@ export class EstagioComponent implements OnInit {
     this.service.listarEstagio().subscribe((res):any=>{
       this.Estagio = res;
        
-      console.log(  this.Estagio);
+     
         
       for (let i=0; i < this.Estagio.length; i++) { 
         this.descricao.push(this.Estagio[i].RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularEstagioDescricao)

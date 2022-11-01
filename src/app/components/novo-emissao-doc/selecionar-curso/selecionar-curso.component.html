@@ -3,13 +3,20 @@
     <section class="dados">
         <form class="row g-3" [formGroup]="userForm" (ngSubmit)="ngSubmit()">
 
-                <div class="col-md-4">
+                <div id="curso" class="col-md-4">
                     <select formControlName="cursos" class="form-select" id="inputCurso"  aria-label="Default select example">
-                      <option selected>Selecione um curso</option>
+                      <option selected>Selecione um Curso</option>
                       <option *ngFor="let cursos of listarCursos">{{cursos.NomeCurso}}</option>
                     </select>
                 </div>
-               
+                <br>
+                <div id="periodo" class="col-md-5">
+                  <select formControlName="periodos" class="form-select" id="inputPeriodo"  aria-label="Default select example">
+                    <option selected>Selecione um Período Letivo</option>
+                    <option *ngFor="let periodo of Diplomados">{{periodo.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarSituacaoAtualDiscentePeriodoLetivo}}</option>
+                  </select>
+              </div>
+
                <div  class="col-12">
                   <a  id="proximo"  type="submit" (click)="ngSubmit()"  class="btn btn-primary">Escolher</a>
                </div> 

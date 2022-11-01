@@ -35,7 +35,7 @@
     </section>
 
    
-    <app-selecionar-curso (cursoEscolhidos)="cursos($event)"></app-selecionar-curso>
+    <app-selecionar-curso (periodoEscolhidos)="periodos($event)" (cursoEscolhidos)="cursos($event)"></app-selecionar-curso>
   
     
     <div class="loading" *ngIf="Diplomado == null">
@@ -49,9 +49,9 @@
 
         <form  [formGroup]="userForm" (ngSubmit)="onSubmit()"  class="row g-3">
 
-         <div class="info-1"><h3>Curso Selecionado:<input  formControlName="curso" ngModel="{{cursoEscolhido}}" id="inputCurso" readonly>  </h3></div> 
-
-          
+         <div class="info-1"><h3>Curso Selecionado:<input formControlName="curso" ngModel="{{cursoEscolhido}}" id="inputCurso" readonly>  </h3></div> 
+         <div  id="divPeriodo" class="info-1"><h3>Período Selecionado:<input formControlName="periodo"  id="inputPeriodo"  ngModel="{{periodoEscolhido}}" readonly>  </h3></div> 
+           
           <div class="title-mantenedora"><h2>Mantenedora</h2></div>
        
           
