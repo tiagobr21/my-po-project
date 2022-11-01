@@ -303,6 +303,7 @@ form label{
 
 #input-all{
     margin:1px 0 0 -60px;
+    cursor: pointer;
 }
 
 #check-all{
@@ -363,12 +364,14 @@ option{
     bottom: 50px;
     right:  30px;
     position: relative;
+    cursor: pointer;
   
 }
 #check-aluno2{
     bottom: 70px;
     right:  30px;
     position: relative;
+
   
 }
 
@@ -529,7 +532,7 @@ option{
     border-radius: 20px;
     font-size: 12px;
     bottom: 235px;
-    left: 14%;
+    left: 13%;
     position: relative;
     color: white;
     width: 18%;
@@ -594,10 +597,21 @@ option{
     position:relative;
  } 
  
+.background{
+    width: 100px;
+    padding: 20px;
+    height: 20px;
+}
+ 
+ .mensagem{
+    position: absolute;
+    margin-top: -25%;
+    color: white;
+ }
 
  .loading{
     position: fixed;
-    background: rgba(0, 0, 0, 0.20);
+    background: rgba(0, 0, 0, 0.50);
     height: 100%;
     width: 100%;
     display: flex;
@@ -615,7 +629,7 @@ option{
 
 .viewXml{
     position: fixed;
-    background: rgba(0, 0, 0, 0.20);
+    background: rgba(0, 0, 0, 0.95);
     height: 100%;
     width: 100%;
     display: flex;

@@ -32,6 +32,9 @@ backPage:boolean = false;
   submitRequere:boolean = true;
   Diplomados:any
   ids:any
+  dataRequest:any
+  situacaoDiscente:any
+  ultimoSituacao:any
 
   constructor(private service:BackconnectService,private dialog:MatDialog) { }
 
@@ -46,6 +49,17 @@ backPage:boolean = false;
 
        this.cursoEscolhido = curso;
 
+       this.service.listarSitacaoDiscente().subscribe((res):any=>{
+            this.situacaoDiscente = res;
+            this.ultimoSituacao = this.situacaoDiscente[this.situacaoDiscente.length - 1];
+
+           console.log( this.ultimoSituacao);
+
+            
+       });
+
+       
+
        this.service.listarDiplomados().subscribe((res):any=>{
       
         this.Diplomados = res;
@@ -58,7 +72,13 @@ backPage:boolean = false;
         }
         console.log(this.cursoSelecionadoDip);
   });  
+  
 
+  this.service.listarDataRequestHis().subscribe((res):any=>{
+      this.dataRequest = res;
+      this.dataRequest =   this.dataRequest.dados_historico[0]
+      console.log(this.dataRequest);
+  }) 
 
 
        

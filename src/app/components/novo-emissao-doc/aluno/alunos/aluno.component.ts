@@ -61,13 +61,13 @@ export class AlunoComponent implements OnInit {
     const id = e.target.value;
     const isChecked = e.target.checked;
      
-    console.log(id);
-    console.log(isChecked);
+    // console.log(id);
+    // console.log(isChecked);
     
 
    this.Diplomado =  this.Diplomado.map((i:any)=>{
       if(i.DadosDiplomaDiplomadoId === id){
-        console.log(i.DadosDiplomaDiplomadoId);
+        // console.log(i.DadosDiplomaDiplomadoId);
         if(i.Checked == false){
           i.Checked = isChecked
           this.allCheckes = false;
@@ -85,7 +85,7 @@ export class AlunoComponent implements OnInit {
             contador++;
           });
         }
-         console.log(checkArray.value)
+        //  console.log(checkArray.value)
          return i;
       }
 
@@ -109,7 +109,7 @@ export class AlunoComponent implements OnInit {
     this.enable4 = this.enable4 == false ? true : false;
     this.buttonClick4.emit(this.enable4)
     this.alunosSelecionados.emit(this.userForm.value)
-    console.log(this.userForm.value)
+    // console.log(this.userForm.value)
 
   }
 

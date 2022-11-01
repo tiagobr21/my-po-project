@@ -12,6 +12,8 @@ export class BackconnectService {
 
 
   //Diploma  
+
+  Ras:any[]=[];
   
   urlCursos = 'api/api/v1/diploma/listarcursos';
   urlDiplipomado = 'api/api/v1/diploma/listardiplomado/0021304';
@@ -70,11 +72,11 @@ export class BackconnectService {
 }
  
 gerarDiploma(Ra:any):Observable<any>{
-  let Ras = Ra;
-  console.log( Ras )
-  return this._http.get(`${this.urlGerarDiplomado}/${Ras}`)
 
-  /* .pipe(
+  this.Ras = Ra
+
+  console.log( this.Ras)
+  return this._http.get(`${this.urlGerarDiplomado}/${  this.Ras }`).pipe(
    catchError((error, caught) => {
      const dialogConfig = this.dialog.open(ServererrorComponent,{
        width:'600px'
@@ -83,7 +85,7 @@ gerarDiploma(Ra:any):Observable<any>{
        window.location.reload();
     }, 10000);
     return error
-   })) */
+   }))
 
 }
 
@@ -103,7 +105,7 @@ gerarDiplomados():Observable<any>{
 }
 
  listarDataRequestHis():Observable<any>{
-  return this._http.get(`${this.urlDataRequestHis}`)/* .pipe(
+  return this._http.get(`${this.urlDataRequestHis}`).pipe(
    catchError((error, caught) => {
     const dialogConfig = this.dialog.open(ServererrorComponent,{
       width:'600px'
@@ -112,12 +114,12 @@ gerarDiplomados():Observable<any>{
       window.location.reload();
    }, 10000);
     return error
-   })) */
+   }))
 }
 
 
  listarHistorico():Observable<any>{
-  return this._http.get(`${this.urlHistorico}`)/* .pipe(
+  return this._http.get(`${this.urlHistorico}`).pipe(
    catchError((error, caught) => {
     const dialogConfig = this.dialog.open(ServererrorComponent,{
       width:'600px'
@@ -126,12 +128,12 @@ gerarDiplomados():Observable<any>{
       window.location.reload();
    }, 10000);
     return error
-   })) */
+   }))
 }
 
 
 listarAtivCom():Observable<any>{
-  return this._http.get(`${this.urlAtivComple}`)/* .pipe(
+  return this._http.get(`${this.urlAtivComple}`).pipe(
    catchError((error, caught) => {
     const dialogConfig = this.dialog.open(ServererrorComponent,{
       width:'600px'
@@ -140,12 +142,12 @@ listarAtivCom():Observable<any>{
       window.location.reload();
    }, 10000);
     return error
-   })) */
+   }))
 }
 
 
 listarEstagio():Observable<any>{
-  return this._http.get(`${this.urlEstagio}`)/* .pipe(
+  return this._http.get(`${this.urlEstagio}`).pipe(
    catchError((error, caught) => {
     const dialogConfig = this.dialog.open(ServererrorComponent,{
       width:'600px'
@@ -154,13 +156,13 @@ listarEstagio():Observable<any>{
       window.location.reload();
    }, 10000);
     return error
-   })) */
+   }))
 }
 
 
 
 listarSitacaoEnade():Observable<any>{
-  return this._http.get(`${this.urlSituacaoEnade}`)/* .pipe(
+  return this._http.get(`${this.urlSituacaoEnade}`).pipe(
    catchError((error, caught) => {
     const dialogConfig = this.dialog.open(ServererrorComponent,{
       width:'600px'
@@ -169,11 +171,11 @@ listarSitacaoEnade():Observable<any>{
       window.location.reload();
    }, 10000);
     return error
-   })) */
+   }))
 }
 
 listarSitacaoDiscente():Observable<any>{
-  return this._http.get(`${this.urlSitacaoDiscente}`)/* .pipe(
+  return this._http.get(`${this.urlSitacaoDiscente}`).pipe(
    catchError((error, caught) => {
     const dialogConfig = this.dialog.open(ServererrorComponent,{
       width:'600px'
@@ -182,11 +184,11 @@ listarSitacaoDiscente():Observable<any>{
       window.location.reload();
    }, 10000);
     return error
-   })) */
+   }))
 }
 
 listarHistoricoAcademico():Observable<any>{
-  return this._http.get(`${this.urlHistoricoAcademico}`)/* .pipe(
+  return this._http.get(`${this.urlHistoricoAcademico}`).pipe(
    catchError((error, caught) => {
     const dialogConfig = this.dialog.open(ServererrorComponent,{
       width:'600px',
@@ -196,12 +198,12 @@ listarHistoricoAcademico():Observable<any>{
       window.location.reload();
    }, 10000);
     return error
-   })) */
+   }))
 }
 
 
  listarCursos():Observable<any>{
-    return this._http.get(`${this.urlCursos}`)/* .pipe(
+    return this._http.get(`${this.urlCursos}`).pipe(
       catchError((error, caught) => {
         const dialogConfig = this.dialog.open(ServererrorComponent,{
           width:'600px'
@@ -210,7 +212,7 @@ listarHistoricoAcademico():Observable<any>{
           window.location.reload();
        }, 10000);
        return error
-      })) */
+      }))
   
  }
  

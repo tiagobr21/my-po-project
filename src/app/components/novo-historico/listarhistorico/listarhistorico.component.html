@@ -31,20 +31,94 @@
     <app-selecionar-curso (cursoEscolhidos)="cursos($event)"></app-selecionar-curso>
   
     
-    <div class="loading" *ngIf="Historico == null">
+    <div class="loading" *ngIf="dataRequest == null">
       <h1 class="mensagem">Aguardando Curso</h1>  
-      <mat-spinner *ngIf="Historico == null"></mat-spinner>
+      <mat-spinner *ngIf="dataRequest == null"></mat-spinner>
    </div> 
    
   
-   <section *ngIf="Historico != null" class="dados">
+   <section *ngIf="dataRequest != null" class="dados">
    
     <div *ngFor="let dados of cursoSelecionadoDip | slice:0:1">
       
 
         <form *ngIf="submitRequere==true" [formGroup]="userForm" (ngSubmit)="onSubmit()"  class="row g-3">
-            
-          <div><h2>Dados do Curso</h2></div>
+          
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label for="" class="form-label">Data de emissão do histórico:*</label>
+              <input value="{{dataRequest.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarDataEmissaoHistorico}}" type="date" class="form-control">
+            </div>
+            <div class="col-sm-4">
+              <label for="" class="form-label">Tipo de carga horária integralizada: *</label>
+              <input type="text" value="Hora Aula" class="form-control">
+            </div>
+            <div class="col-sm-4">
+              <label for="" class="form-label">Carga horária do curso integralizada:*</label>
+              <input type="text" value="{{dataRequest.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarCargaHorariaCursoHoraAula}}" class="form-control">
+            </div>
+          </div>
+          
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label for="" class="form-label">Tipo de carga horária: *</label>
+              <input type="text" value="Hora Aula" class="form-control">
+            </div>
+            <div class="col-sm-4">
+              <label for="" class="form-label">Carga horária total: *</label>
+              <input value="{{dataRequest.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarCargaHorariaCursoHoraAula}}" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="title-ingresso"><h2>Informações sobre o Ingresso ao curso</h2></div>
+          <div class="line-ingresso"></div>
+          
+              
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label for="" class="form-label">Data: *</label>
+              <input type="text" value="{{dataRequest.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarIngressoCursoData}}" class="form-control">
+            </div>
+            <div class="col-sm-7">
+              <label for="" class="form-label">Forma de acesso: *</label>
+              <input value="{{dataRequest.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarIngressoCursoFormaAcesso}}" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="title-sitacao"><h2>Situação Discente Atual </h2></div>
+          <div class="line-sitacao"></div>
+
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label for="" class="form-label">Período letivo: *</label>
+              <input type="text" value="{{dataRequest.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarSituacaoAtualDiscentePeriodoLetivo}}" class="form-control">
+            </div>
+            <div class="col-sm-4">
+              <label for="" class="form-label">Situação: *</label>
+              <input value="{{dataRequest.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarSituacaoAtualDiscenteSituacaoDiscente}}" type="text" class="form-control">
+            </div>
+          </div>
+  
+            <div class="row g-3">
+              <div class="col-sm-4">
+                <label for="" class="form-label">Data conclusão do curso:*</label>
+                <input type="date" value="{{ultimoSituacao.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularSituacaoDiscenteFormadoDataConclusaoCurso}}" class="form-control">
+              </div>
+              <div class="col-sm-4">
+                <label for="" class="form-label">Data da colação de grau: *</label>
+                <input type="date" value="{{ultimoSituacao.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularSituacaoDiscenteFormadoDataColacaoGrau}}" class="form-control">
+              </div>
+              <div class="col-sm-4">
+                <label for="" class="form-label">Data expedição diploma:*</label>
+                <input type="date" value="{{ultimoSituacao.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularSituacaoDiscenteFormadoDataExpedicaoDiploma}}" class="form-control">
+              </div>
+            </div>
+     
+          
+
+          <br> <br> <br>
+
+          <div class="title-curso"><h2>Dados do Curso</h2></div>
           <div class="line-curso"></div>
 
             <div id="nomecurso" class="row">
@@ -98,7 +172,7 @@
                  
                 <div class="col-md-2">
                     <label for="inputZip" id="labelTipo" class="form-label">UF:*</label>
-                    <input formControlName="uf" class="form-control" type="text" id="inputTipo" ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoRgUf}}">
+                    <input formControlName="uf" class="form-control" type="text" id="inputTipo" ngModel="{{cursoSelecionadoHis.DadosDiplomaDiplomadoNaturalidadeUf}}">
                 </div>
                 
               <div class="col-md-2">

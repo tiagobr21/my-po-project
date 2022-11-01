@@ -110,6 +110,7 @@ export class AtivcomplementaresComponent implements OnInit {
   
   refresh(){
     location.reload()
+    
   }
 
   onSubmit(){ 

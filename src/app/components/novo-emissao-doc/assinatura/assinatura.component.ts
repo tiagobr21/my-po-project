@@ -29,6 +29,7 @@ export class AssinaturaComponent implements OnInit {
     opacity2='0.5';
     gerarDiploma:boolean = false;
     gerarDiplomado:any;
+    gerarDiplomados2:any[]=[];
     gerarDiplomados:any
     next:boolean = false;
     pdf:any;
@@ -45,10 +46,14 @@ export class AssinaturaComponent implements OnInit {
     response:string ='';
     allCheckes:any
     value:any
-    rvdd:any;
+    rvdd:any[]=[];
     Ras:any[]=[];
     Nomes:any[]=[];
     ids:any[]=[];
+    loading1:boolean = false;
+    loading2:boolean = false;
+    loading3:boolean = false;
+    preLoading:boolean = false
     
 
     constructor(private service:BackconnectService,private fb:FormBuilder) {
@@ -61,12 +66,13 @@ export class AssinaturaComponent implements OnInit {
 
 
     onCheckboxChange(e:any){
+      this.preLoading = true;
       const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
       this.value = e.target.value;
       const id = e.target.value;
       const isChecked = e.target.checked;
       this.checked = e.target.checked;
-  
+   
   
 
    this.alunosSelecionado =  this.alunosSelecionado.map((i:any)=>{
@@ -91,24 +97,13 @@ export class AssinaturaComponent implements OnInit {
         });
       }
 
-        console.log(checkArray.value)
-        for(let i=0;i<checkArray.value.length;i++){
-          console.log(checkArray.value[i])
-          this.ids.push(checkArray.value[i]);
-          console.log(this.ids);
-        }
-        
+      this.ids = checkArray.value
+     
+        console.log(this.ids)
         this.service.gerarDiplomados().subscribe((res)=>{ 
           this.gerarDiplomados = res;
-          console.log( this.gerarDiplomados)
-           for(let i=0;i<this.gerarDiplomados.length;i++){
-              if(this.gerarDiplomados[i].DadosDiplomaDiplomadoId == this.ids){
-                this.Ras.push(this.gerarDiplomados[i].Ra);
-                this.Nomes.push(this.gerarDiplomados[i].DadosDiplomaDiplomadoNome);
-                console.log(this.Ras);
-                console.log(  this.Nomes)
-              }
-           }
+          this.loading1 =  true;
+       
          })
         
        return i;
@@ -178,16 +173,28 @@ export class AssinaturaComponent implements OnInit {
       console.log(this.userForm.value)
       this.opacity2 ='1';
       
-       
-      this.service.gerarDiploma(this.Ras).subscribe((res)=>{ 
-        this.gerarDiplomado = res;
-          console.log( this.gerarDiplomado)
-         this.rvdd = this.gerarDiplomado['data'].rvdd;
-         console.log( this.rvdd)
-         this.diplomaXml = this.gerarDiplomado['data'].diploma
-       })
-     
-  
+      for(let y=0;y<this.ids.length;y++){
+        for(let i=0;i<this.gerarDiplomados.length;i++){
+           if(this.gerarDiplomados[i].DadosDiplomaDiplomadoId == this.ids[y]){
+             this.Ras.push(this.gerarDiplomados[i].Ra);
+             this.Nomes.push(this.gerarDiplomados[i].DadosDiplomaDiplomadoNome);
+             console.log(this.Ras);
+             console.log(  this.Nomes)
+           }
+        }
+       }
+
+       for(let i=0;i<this.Ras.length;i++){
+        this.service.gerarDiploma(this.Ras[i]).subscribe((res)=>{ 
+
+          this.gerarDiplomado = res;
+          this.gerarDiplomados2.push(this.gerarDiplomado);
+          console.log(this.gerarDiplomados2)
+ 
+      
+          this.loading2 = true;
+        })
+       }
        
     }
   
@@ -206,13 +213,14 @@ export class AssinaturaComponent implements OnInit {
     }
   
     viewPdf(id:any):any{
-      console.log(id)
-      if(this.gerado == true){
-        let base64String = this.rvdd;
-        this.downloadPdf(base64String,this.Nomes);
-      }else{
-        return 0;
-      }
+      for(let i=0;i<this.gerarDiplomados2.length;i++){
+        if(this.gerado == true){
+          let base64String = this.gerarDiplomados2[i]['data'].rvdd;
+          this.downloadPdf(base64String,this.Nomes);
+        }else{
+          return 0;
+        }
+    }
     }
     
     downloadXml(filename:any, text:any) {
@@ -226,6 +234,7 @@ export class AssinaturaComponent implements OnInit {
     }
   
     viewXml(id:any):any{
+      
       if(this.gerado == true){
       let text =  this.diplomaXml;
       let filename = this.Nomes;

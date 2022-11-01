@@ -49,13 +49,13 @@ export class LivroRegistroComponent implements OnInit {
     const checkArray: FormArray = this.userForm.get('checkArray') as FormArray;
     const id = e.target.value;
     const isChecked = e.target.checked;
-    console.log(id);
-    console.log(isChecked);
+    // console.log(id);
+    // console.log(isChecked);
 
    this.alunosSelecionado =  this.alunosSelecionado.map((i:any)=>{
 
     if(i.DadosDiplomaDiplomadoId === id){
-      console.log(i.DadosDiplomaDiplomadoId);
+      // console.log(i.DadosDiplomaDiplomadoId);
       if(i.Checked == false){
         i.Checked = isChecked
         this.allCheckes = false;
@@ -75,7 +75,7 @@ export class LivroRegistroComponent implements OnInit {
       }
 
 
-      console.log(checkArray.value)
+      // console.log(checkArray.value)
        return i;
     }
 
@@ -142,7 +142,7 @@ export class LivroRegistroComponent implements OnInit {
     this.enable5 = this.enable5 == false ? true : false;
     this.buttonClick5.emit(this.enable5);
     this.alunosAssinatura.emit(this.userForm.value)
-    console.log(this.userForm.value);
+    // console.log(this.userForm.value);
 
   }
  

@@ -39,7 +39,7 @@
                 </div>
                 <div class="col">
                     <label for="inputEmail4"  id="nomehabil" class="form-label">Carga Horária: *</label>
-                  <input type="text"  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaCargaHorariaHoraAula}}" id="nomehabil" class="form-control" >
+                  <input type="text" value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaCargaHorariaHoraAula}}" id="nomehabil" class="form-control" >
                 </div>
                 
               </div>
@@ -57,25 +57,25 @@
            
                 <div class="col-md-6">
                   <label for="inputCity" id="labelCep" class="form-label">Nome(docente): *</label>
-                  <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes.DocenteNome}}" type="text" class="form-control" id="inputCep" required>
+                  <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes[0].DocenteNome}}" type="text" class="form-control" id="inputCep" required>
                 </div>
                 <div class="col-md-4">
                   <label for="inputState" id="labelLaga" class="form-label">Titulação(docente): *</label>
-                  <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes.DocenteTitulacao}}" type="text" class="form-control" id="inputLaga" required>
+                  <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes[0].DocenteTitulacao}}" type="text" class="form-control" id="inputLaga" required>
                 </div>
                 <div class="col-md-2">
                   <label for="inputZip" id="labelNum" class="form-label">Lattes: *</label>
-                  <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes.DocenteLattes}}" type="text" class="form-control" id="inputNum" required>
+                  <input  value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes[0].DocenteLattes}}" type="text" class="form-control" id="inputNum" required>
                 </div>
 
                      
               <div class="col-md-6">
                 <label for="inputEmail4" id="labelNome" class="form-label">CPF(docente):*</label>
-                <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes.DocenteCPF}}" type="email" class="form-control" id="inputNome" required>
+                <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaDocentes[0].DocenteCPF}}" type="email" class="form-control" id="inputNome" required>
                 </div>
                 <div class="col-md-6">
                 <label for="inputPassword4" id="labelCod" class="form-label">Situação:*</label>
-                <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaSituacao}}" type="text" class="form-control" id="inputCod" required>
+                <input value="{{dados.RegistroReqDadosPrivadosDiplomadoHistoricoEscolarMatrizCurricularDisciplinaCursadaSituacaoDisciplina}}" type="text" class="form-control" id="inputCod" required>
               </div>
               
        </form>

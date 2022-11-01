@@ -71,6 +71,25 @@
               
              </div>
          </div>
+          
+            <div *ngIf="preLoading == true"> 
+               <div class="loading" *ngIf="!loading1">
+                  <mat-spinner *ngIf="!loading1"></mat-spinner>
+               </div> 
+            </div>
+            
+            <div *ngIf="gerado == true"> 
+               <div class="loading" *ngIf="!loading2">
+                    <h1 class="mensagem">Gerando Diplomas...</h1> 
+                  <mat-progress-bar mode="indeterminate" *ngIf="!loading2"></mat-progress-bar>
+               </div> 
+            </div>
+<!-- 
+            <div *ngIf="loading3 == true"> 
+               <div class="loading" *ngIf="!loading3">
+                  <mat-spinner *ngIf="!loading3"></mat-spinner>
+               </div> 
+            </div> -->
 
          <div *ngFor="let dados of alunosSelecionado" class="alunos" >
 
@@ -114,8 +133,8 @@
 
             <button type="button" id="assinar" class="btn btn-primary">Assinar</button>
               
-            <button *ngIf="gerado == true && dados.Checked == true" (click)=" viewXml(dados.DadosDiplomaDiplomadoId)" type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
-            <button *ngIf="gerado == true && dados.Checked == true" type="button" (click)="viewPdf(dados.DadosDiplomaDiplomadoId)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>    
+            <button *ngIf="gerado == true && dados.Checked == true && loading2"  (click)=" viewXml(dados.DadosDiplomaDiplomadoId)" type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
+            <button *ngIf="gerado == true && dados.Checked == true && loading2" type="button" (click)="viewPdf(dados.DadosDiplomaDiplomadoId)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>    
             <button *ngIf="gerado == true && value == '-1'" (click)=" viewXml(dados.DadosDiplomaDiplomadoId)" type="button" id="visualizar-xml" class="btn btn-primary">Visualizar Xml</button>
             <button *ngIf="gerado == true && value == '-1'" type="button" (click)="viewPdf(dados.DadosDiplomaDiplomadoId)" id="visualizar-pdf" class="btn btn-primary">Visualizar Pdf</button>    
            
@@ -127,9 +146,10 @@
            
          
          </div>
-         
+
+    
             
-         <div class="col-12">
+         <div *ngIf="loading1"  class="col-12">
             <button id="gerar" *ngIf="!gerado"  type="submit"  (click)="ngSubmit()"  value="Gerar Diploma"  class="btn btn-primary">Gerar</button> 
          </div> 
             <div class="col-12">

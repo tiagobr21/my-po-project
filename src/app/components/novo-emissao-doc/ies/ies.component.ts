@@ -47,7 +47,7 @@ export class IesComponent implements OnInit {
          if(this.Diplomado[i].DadosDiplomaDadosCursoNomeCurso == this.curso){
     
             this.cursoSelecionado.push(this.Diplomado[i]);
-            
+          
          } 
        }
    });

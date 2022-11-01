@@ -24,6 +24,8 @@ export class SituacaodiscenteComponent implements OnInit {
   dataRegistro:any[]=[];
   peridoletivo:any[]=[];
   situacaodiscente:any[]=[];
+  situacaoDatas:any;
+  ultimoSituacao:any
 
   constructor(private service:BackconnectService) { }
 
@@ -38,6 +40,13 @@ export class SituacaodiscenteComponent implements OnInit {
 
       }
     });
+
+    this.service.listarSitacaoDiscente().subscribe((res):any=>{
+      this.situacaoDatas = res;
+      this.ultimoSituacao = this.situacaoDatas[this.situacaoDatas.length - 1];
+      
+ });
+
   }
 
 
